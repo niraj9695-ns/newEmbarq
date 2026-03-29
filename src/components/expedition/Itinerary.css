@@ -2,6 +2,11 @@
   background-color: #fcf5e4;
   padding: 40px 24px 100px;
 }
+@media (max-width: 768px) {
+  .exp-itinerary {
+    padding: 10px 20px 40px; /* reduce bottom space */
+  }
+}
 
 .exp-itinerary-container {
   max-width: 1100px;

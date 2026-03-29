@@ -112,7 +112,7 @@ const Testimonials = () => {
           sx={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "rgba(16, 16, 16, 0.15)",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
           }}
         />
 

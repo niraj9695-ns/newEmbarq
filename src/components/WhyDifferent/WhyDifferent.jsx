@@ -20,11 +20,11 @@ const points = [
     title: "Curated routes, not generic itineraries",
     desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
   },
-  {
-    icon: wm2,
-    title: "Premium vehicles + premium pace",
-    desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
-  },
+  // {
+  //   icon: wm2,
+  //   title: "Premium vehicles + premium pace",
+  //   desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
+  // },
   {
     icon: wm3,
     title: "Convoy support = real freedom",

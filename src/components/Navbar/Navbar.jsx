@@ -202,8 +202,8 @@ function Navbar() {
         {/* <Link to="/faq" onClick={closeMenu}>
           FAQ
         </Link> */}
-        <Link to="/blog" onClick={closeMenu}>
-          Blog
+        <Link to="/gallery" onClick={closeMenu}>
+          Gallery
         </Link>
 
         {/* <a href="tel:8867809433" className="call-btn">
