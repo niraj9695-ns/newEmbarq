@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import {
   Box,
   Typography,
-  Tabs,
-  Tab,
   Card,
   CardMedia,
   CardContent,
@@ -93,19 +91,45 @@ export default function ExpeditionsPage() {
 
       {/* Tabs */}
       <Box sx={{ px: { xs: 2, md: 6 }, mt: 4 }}>
-        <Tabs
-          value={tab}
-          onChange={(e, newValue) => setTab(newValue)}
+        <Box
           sx={{
-            "& .MuiTab-root": {
-              textTransform: "none",
-              fontWeight: 500,
-            },
+            display: "flex",
+            alignItems: "center",
+            gap: 2,
+            fontFamily: "Roboto Flex",
           }}
         >
-          <Tab label="Upcoming" />
-          <Tab label="Completed" />
-        </Tabs>
+          {/* Upcoming */}
+          <Typography
+            onClick={() => setTab(0)}
+            sx={{
+              cursor: "pointer",
+              fontSize: "20px",
+              fontWeight: 500,
+              color: tab === 0 ? "#f4a825" : "#000",
+              transition: "color 0.2s ease",
+            }}
+          >
+            Upcoming
+          </Typography>
+
+          {/* Divider */}
+          <Typography sx={{ color: "#999", fontSize: "20px" }}>|</Typography>
+
+          {/* Completed */}
+          <Typography
+            onClick={() => setTab(1)}
+            sx={{
+              cursor: "pointer",
+              fontSize: "20px",
+              fontWeight: 500,
+              color: tab === 1 ? "#f4a825" : "#000",
+              transition: "color 0.2s ease",
+            }}
+          >
+            Completed
+          </Typography>
+        </Box>
       </Box>
 
       {/* Cards */}
@@ -120,7 +144,7 @@ export default function ExpeditionsPage() {
             <Card
               sx={{
                 borderRadius: "20px",
-                background: "#f5f1e9",
+                background: "#ffffff",
                 p: 1.5,
                 boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
                 transition: "all 0.3s ease",
@@ -145,7 +169,11 @@ export default function ExpeditionsPage() {
                 <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   <Typography
                     variant="body2"
-                    sx={{ fontFamily: "Roboto Flex", color: "#000", fontWeight: 600 }}
+                    sx={{
+                      fontFamily: "Roboto Flex",
+                      color: "#000",
+                      fontWeight: 600,
+                    }}
                   >
                     {exp.date}
                   </Typography>
@@ -180,7 +208,12 @@ export default function ExpeditionsPage() {
 
                 <Typography
                   variant="body2"
-                  sx={{fontFamily: "Roboto Flex", color: "#777", mt: 0.5, mb: 2 }}
+                  sx={{
+                    fontFamily: "Roboto Flex",
+                    color: "#777",
+                    mt: 0.5,
+                    mb: 2,
+                  }}
                 >
                   {exp.subtitle}
                 </Typography>

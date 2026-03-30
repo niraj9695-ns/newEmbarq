@@ -18,16 +18,6 @@ function Itinerary({ data, pageKey }) {
     }
   }, [pageKey]);
 
-  // Sync scroll when progress changes
-  useEffect(() => {
-    if (!contentRef.current) return;
-
-    const { scrollHeight, clientHeight } = contentRef.current;
-    const maxScroll = scrollHeight - clientHeight;
-
-    contentRef.current.scrollTop = (scrollProgress / 100) * maxScroll;
-  }, [scrollProgress]);
-
   const handleScroll = () => {
     if (!contentRef.current) return;
 
@@ -44,13 +34,15 @@ function Itinerary({ data, pageKey }) {
     const rect = progressBarRef.current.getBoundingClientRect();
     const percentage = Math.max(
       0,
-      Math.min(100, ((clientX - rect.left) / rect.width) * 100)
+      Math.min(100, ((clientX - rect.left) / rect.width) * 100),
     );
 
     const { scrollHeight, clientHeight } = contentRef.current;
     const maxScroll = scrollHeight - clientHeight;
 
+    // Only control scroll when dragging
     contentRef.current.scrollTop = (percentage / 100) * maxScroll;
+
     setScrollProgress(percentage);
   };
 
@@ -85,44 +77,45 @@ function Itinerary({ data, pageKey }) {
       document.removeEventListener("touchend", up);
     };
   }, [isDragging]);
-const width = window.innerWidth;
+  const width = window.innerWidth;
 
-let minClamp;
-let maxClamp;
+  let minClamp;
+  let maxClamp;
 
-if (width <= 423) {
-  // phone
-  minClamp = 13;
-  maxClamp = 87;
-}
-else if (width <= 450) {
-  // tablet
-  minClamp = 12;
-  maxClamp = 88;
-} else if (width <= 544) {
-  // tablet
-  minClamp = 10;
-  maxClamp = 90;
-} else if (width <= 544) {
-  // tablet
-  minClamp = 10;
-  maxClamp = 90;
-} 
-else if (width <= 670) {
-  // tablet
-  minClamp = 6;
-  maxClamp = 94;
-} else if (width <= 768) {
-  // tablet
-  minClamp = 5;
-  maxClamp = 95;
-} else {
-  // desktop
-  minClamp = 5;
-  maxClamp = 95;
-}
+  if (width <= 423) {
+    // phone
+    minClamp = 13;
+    maxClamp = 87;
+  } else if (width <= 450) {
+    // tablet
+    minClamp = 12;
+    maxClamp = 88;
+  } else if (width <= 544) {
+    // tablet
+    minClamp = 10;
+    maxClamp = 90;
+  } else if (width <= 544) {
+    // tablet
+    minClamp = 10;
+    maxClamp = 90;
+  } else if (width <= 670) {
+    // tablet
+    minClamp = 6;
+    maxClamp = 94;
+  } else if (width <= 768) {
+    // tablet
+    minClamp = 5;
+    maxClamp = 95;
+  } else {
+    // desktop
+    minClamp = 5;
+    maxClamp = 95;
+  }
 
-const clampedProgress = Math.min(maxClamp, Math.max(minClamp, scrollProgress));
+  const clampedProgress = Math.min(
+    maxClamp,
+    Math.max(minClamp, scrollProgress),
+  );
   return (
     <section className="exp-itinerary">
       <div className="exp-itinerary-container">
@@ -144,18 +137,12 @@ const clampedProgress = Math.min(maxClamp, Math.max(minClamp, scrollProgress));
           >
             {data.map((day) => (
               <div key={day.day} className="exp-itinerary-item">
-                <div className="exp-itinerary-day-badge">
-                  DAY {day.day}
-                </div>
+                <div className="exp-itinerary-day-badge">DAY {day.day}</div>
 
                 <div className="exp-itinerary-content">
                   <h3>{day.title}</h3>
-                  <p className="exp-itinerary-description">
-                    {day.description}
-                  </p>
-                  <p className="exp-itinerary-details">
-                    {day.details}
-                  </p>
+                  <p className="exp-itinerary-description">{day.description}</p>
+                  <p className="exp-itinerary-details">{day.details}</p>
                 </div>
               </div>
             ))}
@@ -169,8 +156,8 @@ const clampedProgress = Math.min(maxClamp, Math.max(minClamp, scrollProgress));
               alt="car"
               className="exp-itinerary-progress-car"
               style={{
-  left: `${clampedProgress}%`
-}}
+                left: `${clampedProgress}%`,
+              }}
               onMouseDown={handleMouseDown}
               onTouchStart={handleTouchStart}
               draggable={false}
@@ -178,7 +165,6 @@ const clampedProgress = Math.min(maxClamp, Math.max(minClamp, scrollProgress));
           </div>
         </div>
       </div>
-      
     </section>
   );
 }
