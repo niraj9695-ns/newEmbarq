@@ -359,7 +359,7 @@ const GallerySection = () => {
                 width: "100%",
                 display: "flex",
                 justifyContent: { xs: "flex-start", md: "center" },
-                overflowX: { xs: "auto", md: "hidden" },
+                overflowX: { xs: "hidden", md: "hidden" },
                 px: { xs: 2, md: 0 },
                 scrollBehavior: "smooth",
               }}

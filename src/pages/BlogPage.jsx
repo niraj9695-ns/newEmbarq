@@ -77,59 +77,37 @@ const BlogPage = () => {
             background: "rgba(0,0,0,0.35)",
           }}
         />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              color: "#fff",
-              fontWeight: 600,
-              fontFamily: "Playfair Display, serif",
-            }}
-          >
-            Blog
-          </Typography>
-        </Container>
+        <Container
+          maxWidth="lg"
+          sx={{ position: "relative", zIndex: 2 }}
+        ></Container>
       </Box>
 
       {/* CONTENT */}
-      <Container maxWidth="lg" sx={{ mt: 8, paddingBottom: 8 }}>
+      <Container maxWidth="lg" sx={{ mt: { xs: 4, md: 8 }, pb: 8 }}>
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" }, // ✅ responsive
             gap: 4,
-            alignItems: "flex-start",
           }}
         >
           {/* LEFT SIDE */}
           <Box sx={{ flex: 3 }}>
-            <Grid container spacing={4} justifyContent="center">
+            <Grid container spacing={8}>
               {blogPosts.map((post, index) => (
-                <Grid
-                  item
-                  key={index}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }}
-                >
+                <Grid item xs={12} sm={6} md={6} key={index}>
                   <Card
                     sx={{
-                      width: 340,
-                      height: 380,
+                      width: "300px",
                       borderRadius: "20px",
                       overflow: "hidden",
                       backgroundColor: "#fff",
                       display: "flex",
                       flexDirection: "column",
-                      padding: 2,
-
-                      // 🔥 Premium soft shadow
+                      p: 2,
                       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
-
-                      // 🔥 Smooth animation
                       transition: "all 0.3s ease",
-
-                      // 🔥 Hover effect
                       "&:hover": {
                         boxShadow: "0 18px 45px rgba(0, 0, 0, 0.15)",
                         transform: "translateY(-6px)",
@@ -139,10 +117,9 @@ const BlogPage = () => {
                     {/* IMAGE */}
                     <Box
                       sx={{
-                        height: 230,
-                        width: "100%",
+                        height: { xs: 200, md: 230 },
+                        borderRadius: "10px",
                         overflow: "hidden",
-                        borderRadius: "10px"
                       }}
                     >
                       <Box
@@ -158,13 +135,7 @@ const BlogPage = () => {
                     </Box>
 
                     {/* CONTENT */}
-                    <CardContent
-                      sx={{
-                        flexGrow: 1,
-                        p: 3,
-                        overflow: "hidden",
-                      }}
-                    >
+                    <CardContent sx={{ p: 2 }}>
                       <Typography
                         sx={{
                           color: "#9e9e9e",
@@ -180,10 +151,6 @@ const BlogPage = () => {
                           fontWeight: 500,
                           fontSize: "15px",
                           lineHeight: 1.5,
-                          display: "-webkit-box",
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: "vertical",
-                          overflow: "hidden",
                         }}
                       >
                         {post.title}
@@ -193,10 +160,95 @@ const BlogPage = () => {
                 </Grid>
               ))}
             </Grid>
+
+            {/* ✅ MOBILE: Bottom Section */}
+            <Box sx={{ display: { xs: "block", md: "none" }, mt: 5 }}>
+              {/* Categories */}
+              <Box
+                sx={{
+                  backgroundColor: "#efe6d8",
+                  borderRadius: "16px",
+                  p: 3,
+                  mb: 4,
+                }}
+              >
+                <Typography sx={{ fontWeight: 600, mb: 2 }}>
+                  Pick Top Categories
+                </Typography>
+
+                <Typography sx={{ mb: 1.2, fontSize: 14 }}>
+                  Adventure Diaries
+                </Typography>
+                <Typography sx={{ mb: 1.2, fontSize: 14 }}>
+                  Latest Blogs
+                </Typography>
+                <Typography sx={{ mb: 1.2, fontSize: 14 }}>Travel</Typography>
+                <Typography sx={{ fontSize: 14 }}>Namaste Diem</Typography>
+              </Box>
+
+              {/* Top Posts */}
+              <Box
+                sx={{
+                  backgroundColor: "#fff",
+                  borderRadius: "16px",
+                  p: 3,
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.08)",
+                }}
+              >
+                <Typography sx={{ fontWeight: 600, mb: 3 }}>
+                  Top Posts
+                </Typography>
+
+                {topPosts.map((post, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      display: "flex",
+                      gap: 2,
+                      mb: 2,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Box
+                      component="img"
+                      src={post.image}
+                      alt={post.title}
+                      sx={{
+                        width: 60,
+                        height: 60,
+                        borderRadius: "10px",
+                        objectFit: "cover",
+                      }}
+                    />
+
+                    <Box>
+                      <Typography sx={{ fontSize: 13.5, fontWeight: 500 }}>
+                        {post.title}
+                      </Typography>
+
+                      <Typography
+                        sx={{
+                          fontSize: 12,
+                          color: "#9e9e9e",
+                        }}
+                      >
+                        {post.date}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ))}
+              </Box>
+            </Box>
           </Box>
 
-          {/* RIGHT SIDE */}
-          <Box sx={{ flex: 1, minWidth: 280 }}>
+          {/* RIGHT SIDE (DESKTOP ONLY) */}
+          <Box
+            sx={{
+              flex: 1,
+              minWidth: 280,
+              display: { xs: "none", md: "block" }, // ✅ hide on mobile
+            }}
+          >
             {/* Categories */}
             <Box
               sx={{
@@ -237,7 +289,7 @@ const BlogPage = () => {
                   sx={{
                     display: "flex",
                     gap: 2,
-                    mb: index !== topPosts.length - 1 ? 2.5 : 0,
+                    mb: 2,
                     alignItems: "center",
                   }}
                 >
@@ -258,7 +310,6 @@ const BlogPage = () => {
                       sx={{
                         fontSize: 13.5,
                         fontWeight: 500,
-                        lineHeight: 1.4,
                       }}
                     >
                       {post.title}
@@ -268,7 +319,6 @@ const BlogPage = () => {
                       sx={{
                         fontSize: 12,
                         color: "#9e9e9e",
-                        mt: 0.5,
                       }}
                     >
                       {post.date}
