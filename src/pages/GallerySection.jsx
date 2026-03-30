@@ -3,6 +3,8 @@ import { Box, Container, Typography, Chip, IconButton } from "@mui/material";
 import rightArrow from "../assets/gallery/right-arrow.png";
 import leftArrow from "../assets/gallery/left-arrow.png";
 
+import galleryHero from "../assets/gallery/GalleryHero.webp";
+
 import balkansHero from "../assets/gallery/Balkans/Balkans.webp";
 import indiaSpainHero from "../assets/gallery/India and Spain/IndiaSpain.webp";
 import indiaThailandHero from "../assets/gallery/India and Thailand/india-Thailand.jpg";
@@ -92,7 +94,7 @@ const initialDestinations = [
   },
 ];
 
-const CARD_WIDTH = 260;
+const CARD_WIDTH = 240;
 const GAP = 24;
 
 const GallerySection = () => {
@@ -105,9 +107,10 @@ const GallerySection = () => {
   const [textVisible, setTextVisible] = useState(true);
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
-  const [backgroundImg, setBackgroundImg] = useState(
-    initialDestinations[initialDestinations.length - 1].img,
-  );
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState(null);
+
+  const [backgroundImg] = useState(galleryHero);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -175,157 +178,50 @@ const GallerySection = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // useEffect(() => {
-  //   if (!isHeroVisible) return; // pause when hero not visible
-
-  //   const interval = setInterval(() => {
-  //     const visible = destinations
-  //       .filter((item) => item.img !== backgroundImg)
-  //       .slice(0, 3);
-
-  //     if (!visible.length) return;
-
-  //     const selected = visible[0];
-  //     const cardElement = cardRefs.current[0];
-  //     if (!cardElement || !sectionRef.current) return;
-
-  //     const cardRect = cardElement.getBoundingClientRect();
-  //     const sectionRect = sectionRef.current.getBoundingClientRect();
-
-  //     const relativeTop = cardRect.top - sectionRect.top;
-  //     const relativeLeft = cardRect.left - sectionRect.left;
-
-  //     setCardStyle({
-  //       top: relativeTop,
-  //       left: relativeLeft,
-  //       width: cardRect.width,
-  //       height: cardRect.height,
-  //       borderRadius: 32,
-  //     });
-
-  //     setExpandingCard(selected);
-
-  //     setTimeout(() => {
-  //       setCardStyle({
-  //         top: 0,
-  //         left: 0,
-  //         width: sectionRect.width,
-  //         height: sectionRect.height,
-  //         borderRadius: 0,
-  //       });
-  //     }, 20);
-
-  //     setAnimateSlider(true);
-  //     setSliderOffset(-(CARD_WIDTH + GAP));
-
-  //     setTextVisible(false);
-
-  //     setTimeout(() => {
-  //       setBackgroundImg(selected.img);
-  //       setActiveDestination(selected);
-  //       setTextVisible(true);
-  //     }, 400);
-
-  //     setTimeout(() => {
-  //       const updated = [
-  //         ...destinations.filter((item) => item.img !== selected.img),
-  //         selected,
-  //       ];
-
-  //       setDestinations(updated);
-
-  //       setSliderOffset(0);
-  //       setAnimateSlider(false);
-  //       setExpandingCard(null);
-
-  //       setCurrentIndex((prev) =>
-  //         prev === heroImages.length - 1 ? 0 : prev + 1,
-  //       );
-  //     }, 800);
-  //   }, 4000);
-
-  //   return () => clearInterval(interval);
-  // }, [destinations, backgroundImg, isHeroVisible]);
   const cardRefs = useRef([]);
 
   const handleCardClick = (index, visibleCards) => {
     const selected = visibleCards[index];
-    const cardElement = cardRefs.current[index];
-    if (!cardElement || !sectionRef.current) return;
 
-    const cardRect = cardElement.getBoundingClientRect();
-    const sectionRect = sectionRef.current.getBoundingClientRect();
+    // 👉 Find actual index in full array
+    const selectedIndex = destinations.findIndex(
+      (item) => item.img === selected.img,
+    );
 
-    const relativeTop = cardRect.top - sectionRect.top;
-    const relativeLeft = cardRect.left - sectionRect.left;
+    if (selectedIndex === 0) return; // already first
 
-    /* =========================
-     STEP 1 — Set initial card position
-  ========================== */
-    setCardStyle({
-      top: relativeTop,
-      left: relativeLeft,
-      width: cardRect.width,
-      height: cardRect.height,
-      borderRadius: 32,
-    });
+    const previousActive = destinations[0];
 
-    setExpandingCard(selected);
+    // 🎯 Reorder:
+    // 1. Remove selected
+    // 2. Put selected at front
+    // 3. Move previous active to last
+    const updated = [
+      selected,
+      ...destinations.filter((item, i) => i !== selectedIndex && i !== 0),
+      previousActive,
+    ];
 
-    /* =========================
-     STEP 2 — Start expand animation
-  ========================== */
-    setTimeout(() => {
-      setCardStyle({
-        top: 0,
-        left: 0,
-        width: sectionRect.width,
-        height: sectionRect.height,
-        borderRadius: 0,
-      });
-    }, 20);
+    setDestinations(updated);
 
-    /* =========================
-     STEP 3 — Slide animation
-  ========================== */
-    setAnimateSlider(true);
-    const slideAmount = -(index * (CARD_WIDTH + GAP));
-    setSliderOffset(slideAmount);
+    // 🎯 Active state always first
+    setActiveIndex(0);
 
-    /* =========================
-     STEP 4 — Fade text immediately
-  ========================== */
+    // 🎯 Update content
     setTextVisible(false);
-
-    /* =========================
-     STEP 5 — Change content in middle
-  ========================== */
     setTimeout(() => {
-      setBackgroundImg(selected.img);
       setActiveDestination(selected);
       setTextVisible(true);
-    }, 400); // Half of expand duration
+    }, 300);
 
-    /* =========================
-     STEP 6 — Finish & reset
-  ========================== */
+    // 🎯 Smooth slide effect (optional)
+    setAnimateSlider(true);
+    setSliderOffset(-((CARD_WIDTH + GAP) * index));
+
     setTimeout(() => {
-      const updated = [
-        ...destinations.filter((item) => item.img !== selected.img),
-        selected,
-      ];
-
-      setDestinations(updated);
-
       setSliderOffset(0);
       setAnimateSlider(false);
-      setExpandingCard(null);
-
-      // 🔥 UPDATE PROGRESS BAR
-      setCurrentIndex((prev) =>
-        prev === heroImages.length - 1 ? 0 : prev + 1,
-      );
-    }, 800);
+    }, 500);
   };
 
   useEffect(() => {
@@ -420,32 +316,11 @@ const GallerySection = () => {
             position: "absolute",
             inset: 0,
             zIndex: 0,
-            backgroundImage: `url(${backgroundImg})`,
+            backgroundImage: `url(${galleryHero})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            animation: "slowZoom 12s ease-in-out infinite alternate",
-            transform: `translateY(${scrollY * 0.3}px)`,
-            transition: "transform 0.2s ease-out",
           }}
         />
-
-        {/* EXPANDING CARD */}
-        {expandingCard && (
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              zIndex: 1,
-              backgroundImage: `url(${expandingCard.img})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1)",
-              willChange: "transform, width, height",
-              ...cardStyle,
-            }}
-          />
-        )}
 
         {/* OVERLAY */}
         <Box
@@ -469,111 +344,132 @@ const GallerySection = () => {
         >
           {/* SLIDER */}
           <Box
-            sx={{ overflow: "hidden", ml: { xs: 0, md: 70 }, mt: { md: 6 } }}
+            sx={{
+              width: "100%",
+              display: "flex",
+              flexDirection: "column", // ⭐ STACK vertically
+              alignItems: "center",
+              mt: { md: 6 },
+            }}
           >
+            {/* ===== SLIDER ===== */}
             <Box
               sx={{
+                overflow: "hidden",
+                width: "100%",
                 display: "flex",
-                gap: 3,
-                alignItems: "flex-end",
-                transform: `translateX(${sliderOffset}px)`,
-                transition: animateSlider
-                  ? "transform 1s cubic-bezier(0.16, 1, 0.3, 1)"
-                  : "none",
-                willChange: "transform",
+                justifyContent: { xs: "flex-start", md: "center" },
+                overflowX: { xs: "auto", md: "hidden" },
+                px: { xs: 2, md: 0 },
+                scrollBehavior: "smooth",
               }}
             >
-              {visibleCards.map((item, index) => (
-                <Box
-                  key={index}
-                  ref={(el) => (cardRefs.current[index] = el)}
-                  onClick={() => handleCardClick(index, visibleCards)}
-                  sx={{
-                    width: 200,
-                    height: 260,
-                    flexShrink: 0,
-                    borderRadius: "32px",
-                    cursor: "pointer",
-                    position: "relative",
-                    padding: "14px",
-                    background: "rgba(255, 255, 255, 0.14)",
-                    backdropFilter: "blur(2px)", // 🔥 stronger blur
-                    WebkitBackdropFilter: "blur(2px)",
-                    boxShadow: "0 25px 60px rgba(0,0,0,0.35)",
-                    transition: "all 0.4s cubic-bezier(.22,1,.36,1)",
-                  }}
-                >
-                  {/* INNER IMAGE CONTAINER */}
+              <Box
+                sx={{
+                  display: "flex",
+                  gap: 3,
+                  alignItems: "flex-end",
+                  justifyContent: "center",
+                  transform: `translateX(${sliderOffset}px)`,
+                  transition: animateSlider
+                    ? "transform 1s cubic-bezier(0.16, 1, 0.3, 1)"
+                    : "none",
+                  willChange: "transform",
+                }}
+              >
+                {visibleCards.map((item, index) => (
                   <Box
+                    key={index}
+                    ref={(el) => (cardRefs.current[index] = el)}
+                    onClick={() => handleCardClick(index, visibleCards)}
                     sx={{
-                      width: "100%",
-                      height: "78%",
-                      borderRadius: "22px",
-                      overflow: "hidden",
+                      width: 200,
+                      height: 260,
+                      flexShrink: 0,
+                      borderRadius: "32px",
+                      cursor: "pointer",
+                      position: "relative",
+                      padding: "14px",
+
+                      background:
+                        activeIndex === index
+                          ? "#F6A61D" // 🟡 orange
+                          : "rgba(255, 255, 255, 0.14)",
+
+                      backdropFilter: "blur(4px)",
+                      WebkitBackdropFilter: "blur(4px)",
+
+                      transition: "all 0.4s cubic-bezier(.22,1,.36,1)",
                     }}
                   >
+                    {/* IMAGE */}
                     <Box
-                      component="img"
-                      src={item.img}
-                      alt={item.title}
                       sx={{
                         width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
+                        height: "78%",
+                        borderRadius: "22px",
+                        overflow: "hidden",
                       }}
-                    />
-                  </Box>
+                    >
+                      <Box
+                        component="img"
+                        src={item.img}
+                        alt={item.title}
+                        sx={{
+                          width: "100%",
+                          height: "100%",
+                          objectFit: "cover",
+                        }}
+                      />
+                    </Box>
 
-                  {/* TITLE OUTSIDE IMAGE (LIKE SCREENSHOT) */}
-                  <Typography
-                    sx={{
-                      position: "absolute",
-                      bottom: 18,
-                      left: 22,
-                      color: "#fff",
-                      fontWeight: 500,
-                      fontSize: "16px",
-                      letterSpacing: "0.5px",
-                    }}
-                  >
-                    {item.title}
-                  </Typography>
-                </Box>
-              ))}
+                    {/* TITLE */}
+                    <Typography
+                      sx={{
+                        position: "absolute",
+                        bottom: 18,
+                        left: 22,
+                        color: "#fff",
+                        fontWeight: 500,
+                        fontSize: "16px",
+                        letterSpacing: "0.5px",
+                      }}
+                    >
+                      {item.title}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
             </Box>
-            {/* Controls */}
+
+            {/* ===== CONTROLS (NOW BELOW) ===== */}
             <Box
               sx={{
-                mb: 3,
-                mt: 3,
+                mt: 4, // ⭐ space below cards
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
-                maxWidth: 600,
-                ml: { xs: 0, md: 0 },
+                width: "100%",
+                maxWidth: 1100,
               }}
             >
               <IconButton onClick={handlePrev}>
                 <Box
                   component="img"
                   src={leftArrow}
-                  sx={{
-                    width: 18,
-                    height: 18,
-                  }}
+                  sx={{ width: 18, height: 18 }}
                 />
               </IconButton>
+
               <IconButton onClick={handleNext}>
                 <Box
                   component="img"
                   src={rightArrow}
-                  sx={{
-                    width: 18,
-                    height: 18,
-                  }}
+                  sx={{ width: 18, height: 18 }}
                 />
               </IconButton>
 
+              {/* Progress Bar */}
               <Box
                 sx={{
                   flex: 1,
