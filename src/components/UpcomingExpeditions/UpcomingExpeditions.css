@@ -15,7 +15,17 @@
 .horizontal-track {
   display: flex;
   height: 100vh;
-  will-change: transform;
+
+  overflow-x: hidden;              /* ✅ REQUIRED */
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory; /* ✅ snap */
+  scroll-behavior: smooth;       /* ✅ arrow smooth scroll */
+
+  -webkit-overflow-scrolling: touch;
+
+  /* ❌ REMOVE THIS */
+  will-change: auto;
 }
 
 /* ============================= */
@@ -26,6 +36,7 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
+  scroll-snap-align: start;
   position: relative;
 }
 
@@ -64,7 +75,31 @@
   margin-bottom: 6px;
   letter-spacing: 0.6px;
 }
+.slide-date-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.status-badge {
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
+/* Upcoming → white bg, black text */
+.status-badge.upcoming {
+  background: #fff;
+  color: #000;
+}
+
+/* Completed → black bg, white text */
+.status-badge.completed {
+  background: #000;
+  color: #fff;
+}
 /* ============================= */
 /* TITLE (MAIN FIX) */
 /* ============================= */
@@ -126,7 +161,7 @@
 /* ============================= */
 /* SIDE LABEL */
 /* ============================= */
-.side-label {
+/* .side-label {
   position: absolute;
   left: 0;
   top: 50%;
@@ -141,9 +176,9 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
 
   writing-mode: vertical-rl;
-}
+} */
 
-.side-label span {
+/* .side-label span {
   display: inline-block;
   transform: rotate(180deg);
 
@@ -151,21 +186,28 @@
   font-weight: 500;
   letter-spacing: 2px;
   color: white;
-}
+} */
 
 /* ============================= */
 /* DOTS */
 /* ============================= */
 .dots {
   position: absolute;
-  bottom: 100px;
+  bottom: 120px;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 20;
+
+  display: flex;        /* ✅ REQUIRED */
+  gap: 10px;            /* ✅ spacing between dots */
+  z-index: 30;          /* ✅ bring above slides */
 }
 
+.scroll-down-wrapper {
+  position: absolute;
+  bottom: 10px; /* lower than dots */
+  left: 50%;
+  transform: translateX(-50%);
+}
 .dot {
   width: 8px;
   height: 8px;
@@ -200,12 +242,12 @@
 
 /* LEFT */
 .prev-arrow {
-  left: 50px;
+  left: 30px;
 }
 
 /* RIGHT */
 .next-arrow {
-  right: 40px;
+  right: 30px;
 }
 
 /* IMAGE CONTROL */
@@ -227,7 +269,10 @@
 /* MOBILE */
 /* ============================= */
 @media (max-width: 768px) {
-
+ .prev-arrow,
+  .next-arrow {
+    display: none;
+  }
   .slide-overlay {
     left: 20px;
     right: 20px;
@@ -259,10 +304,26 @@
   .dots {
     bottom: 20px;
   }
+.upcoming-wrapper {
+    height: auto; /* ✅ allow normal vertical flow */
+    overflow: hidden;
+  }
 
   .horizontal-track {
-    touch-action: pan-y pan-x;
+    overflow-x: auto;        /* ✅ horizontal scroll */
+    overflow-y: hidden;
+    touch-action: pan-x;
+    scroll-snap-type: x mandatory; /* 🔥 smooth snapping */
+    -webkit-overflow-scrolling: touch;
   }
+
+  .expedition-slide {
+    min-width: 100%;
+    scroll-snap-align: start; /* 🔥 snap per slide */
+  }
+ .horizontal-track {
+   /* ✅ only horizontal swipe */
+}
 
   .expedition-slide {
     min-width: 100%;

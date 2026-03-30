@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-import { Menu, X} from "lucide-react";
+import { Plane, Menu, X, PhoneCall } from "lucide-react";
 import EnquiryPopup from "../../pages/EnquiryPopup";
 import { motion, AnimatePresence } from "framer-motion";
 import navcar from "../../assets/svg/navcar.svg";
@@ -72,7 +72,7 @@ function Navbar() {
 
   // Add this above return
   const expeditionList = [
-    { name: "K2k2026", slug: "k2k2026" },
+    { name: "K2K2026", slug: "k2k2026" },
     { name: "Scotland", slug: "scotland" },
     { name: "Romania", slug: "romania" },
     { name: "Georgia", slug: "georgia" },
@@ -103,9 +103,9 @@ function Navbar() {
               onMouseEnter={() => setShowDropdown(true)}
               onMouseLeave={() => setShowDropdown(false)}
             >
-              <Link to="/all-expeditionspage" className="dropdown-title">
-                Expeditions
-              </Link>
+             <Link to="/expeditions" className="dropdown-title">
+  Expeditions
+</Link>
               <AnimatePresence>
                 {showDropdown && (
                   <motion.div
@@ -165,13 +165,13 @@ function Navbar() {
           >
             Expeditions
           </div> */}
-          <Link
-            to="/expeditions"
-            className="mobile-dropdown-header"
-            onClick={closeMenu}
-          >
-            Expeditions
-          </Link>
+<Link
+  to="/expeditions"
+  className="mobile-dropdown-header"
+  onClick={closeMenu}
+>
+  Expeditions
+</Link>
           {/* <AnimatePresence>
             {mobileDropdownOpen && (
               <motion.div
@@ -197,16 +197,16 @@ function Navbar() {
             )}
           </AnimatePresence> */}
           <div className="mobile-dropdown-content">
-            {expeditionList.map((item) => (
-              <Link
-                key={item.slug}
-                to={`/expedition/${item.slug}`}
-                onClick={closeMenu}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
+  {expeditionList.map((item) => (
+    <Link
+      key={item.slug}
+      to={`/expedition/${item.slug}`}
+      onClick={closeMenu}
+    >
+      {item.name}
+    </Link>
+  ))}
+</div>
         </div>
         <Link to="/gallery" onClick={closeMenu}>
           Gallery
