@@ -2,9 +2,11 @@
   background-color: #fcf5e4;
   padding: 40px 24px 100px;
 }
+
 @media (max-width: 768px) {
   .exp-itinerary {
-    padding: 10px 20px 40px; /* reduce bottom space */
+    padding: 10px 20px 40px;
+    /* reduce bottom space */
   }
 }
 
@@ -81,8 +83,10 @@
 /* ============================= */
 
 .exp-itinerary-item {
-  margin-bottom: 50px; /* reduced spacing */
-  max-width: 650px; /* reduce content width like figma */
+  margin-bottom: 50px;
+  /* reduced spacing */
+  max-width: 650px;
+  /* reduce content width like figma */
 }
 
 .exp-itinerary-day-badge {
@@ -129,7 +133,7 @@
   border-radius: 50px;
   background: #5E5E5E;
   margin: 0 10px;
-  
+
 }
 
 
@@ -143,9 +147,8 @@
   width: auto;
   cursor: grab;
   user-select: none;
-  transition: left 0.1s linear;
   z-index: 5;
-  filter: drop-shadow(0 10px 12px rgba(0,0,0,0.35));
+  filter: drop-shadow(0 10px 12px rgba(0, 0, 0, 0.35));
 }
 
 .exp-itinerary-progress-car:active {

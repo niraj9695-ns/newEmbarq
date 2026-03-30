@@ -4,7 +4,6 @@ import "./WhyDifferent.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 import bgImage from "../../assets/images/whydifferent.webp";
 import wm1 from "../../assets/svg/wm1.svg";
 import wm2 from "../../assets/svg/wm2.svg";
@@ -43,7 +42,6 @@ const points = [
 ];
 
 function WhyDifferent() {
-
   const sectionRef = useRef(null);
   const pointRefs = useRef([]);
   const progressRef = useRef(null);
@@ -51,149 +49,85 @@ function WhyDifferent() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useLayoutEffect(() => {
-
     let ctx;
 
     const frame = requestAnimationFrame(() => {
-
       ctx = gsap.context(() => {
-
         const totalPoints = pointRefs.current.length;
 
-        ScrollTrigger.matchMedia({
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: `+=${totalPoints * 600}`, // slightly smaller for mobile
+            scrub: true,
+            pin: true, // ✅ ENABLE FOR ALL DEVICES
+            pinSpacing: true,
+            anticipatePin: 1,
+            invalidateOnRefresh: true,
 
-          /* ========================= */
-          /* DESKTOP PINNED ANIMATION */
-          /* ========================= */
+            onUpdate: (self) => {
+              const progress = self.progress;
 
-          "(min-width: 768px)": () => {
+              const index = Math.min(
+                totalPoints - 1,
+                Math.floor(progress * totalPoints),
+              );
 
-            const tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: sectionRef.current,
-                start: "top top",
-                end: `+=${totalPoints * 700}`,
-                scrub: true,
-                pin: true,
-                pinSpacing: true,
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-                refreshPriority: -1,
+              setActiveIndex(index);
 
-                onUpdate: (self) => {
-
-                  const progress = self.progress;
-
-                  const index = Math.min(
-                    totalPoints - 1,
-                    Math.floor(progress * totalPoints)
-                  );
-
-                  setActiveIndex(index);
-
-                  gsap.to(progressRef.current, {
-                    height: `${progress * 100}%`,
-                    duration: 0.2,
-                    overwrite: true
-                  });
-
-                }
-              }
-            });
-
-            pointRefs.current.forEach((_, i) => {
-
-              tl.to({}, {
-                duration: 1 / totalPoints,
-                onStart: () => setActiveIndex(i)
+              gsap.to(progressRef.current, {
+                height: `${progress * 100}%`,
+                duration: 0.2,
+                overwrite: true,
               });
-
-            });
-
+            },
           },
-
-          /* ========================= */
-          /* MOBILE SCROLL ACTIVATION */
-          /* ========================= */
-
-          "(max-width: 767px)": () => {
-
-            pointRefs.current.forEach((el, index) => {
-
-              ScrollTrigger.create({
-                trigger: el,
-                start: "top 70%",
-                end: "bottom 40%",
-
-                onEnter: () => setActiveIndex(index),
-                onEnterBack: () => setActiveIndex(index),
-
-                onUpdate: (self) => {
-
-                  const progress = (index + self.progress) / totalPoints;
-
-                  gsap.to(progressRef.current, {
-                    height: `${progress * 100}%`,
-                    duration: 0.2,
-                    overwrite: true
-                  });
-
-                }
-              });
-
-            });
-
-          }
-
         });
 
+        pointRefs.current.forEach((_, i) => {
+          tl.to(
+            {},
+            {
+              duration: 1 / totalPoints,
+              onStart: () => setActiveIndex(i),
+            },
+          );
+        });
       }, sectionRef);
 
       ScrollTrigger.refresh();
-
     });
 
     return () => {
       cancelAnimationFrame(frame);
       ctx && ctx.revert();
     };
-
   }, []);
 
   return (
-
     <section
       ref={sectionRef}
       className="why"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-
       <div className="why-container">
-
         <div className="why-left">
           <h2>What makes Embarq different</h2>
-          <p>You get the thrill of a road trip without the chaos.</p>
         </div>
 
         <div className="why-right">
-
           <div className="scroll-track" />
 
-          <div
-            ref={progressRef}
-            className="scroll-indicator"
-          />
+          <div ref={progressRef} className="scroll-indicator" />
 
           <div className="points">
-
             {points.map((item, index) => (
-
               <div
                 ref={(el) => (pointRefs.current[index] = el)}
                 className={`point ${activeIndex === index ? "active" : ""}`}
                 key={index}
               >
-
                 <div className="icon">
                   <img src={item.icon} alt="" />
                 </div>
@@ -202,21 +136,13 @@ function WhyDifferent() {
                   <h4>{item.title}</h4>
                   <p>{item.desc}</p>
                 </div>
-
               </div>
-
             ))}
-
           </div>
-
         </div>
-
       </div>
-
     </section>
-
   );
-
 }
 
 export default WhyDifferent;

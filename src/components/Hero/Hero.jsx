@@ -176,7 +176,7 @@ function Hero() {
           <div className="buttons">
             <button
               className="primary"
-              onClick={() => navigate("/expedition/k2k2026")}
+              onClick={() => navigate("/expeditions")}
             >
               View Upcoming Expeditions
             </button>
