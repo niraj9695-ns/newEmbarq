@@ -32,6 +32,7 @@ const expeditions = [
     date: "8th to 28th March 2026",
     image: k2k,
     brochure: k2kPdf,
+    status: "Completed",
   },
   {
     title: "Scotland",
@@ -39,6 +40,7 @@ const expeditions = [
     date: "8th to 17th May, 2026",
     image: slide2,
     brochure: scotlandPdf,
+     status: "Upcoming",
   },
   {
     title: "Romania",
@@ -46,6 +48,7 @@ const expeditions = [
     date: "20th to 28th June, 2026",
     image: slide3,
     brochure: romaniaPdf,
+     status: "Upcoming",
   },
   {
     title: "Georgia",
@@ -53,6 +56,7 @@ const expeditions = [
     date: "8th to 16th August, 2026",
     image: slide4,
     brochure: georgiaPdf,
+     status: "Upcoming",
   },
   {
     title: "South Korea",
@@ -60,6 +64,7 @@ const expeditions = [
     date: "21st to 29th November, 2026",
     image: slide6,
     brochure: koreaPdf,
+     status: "Upcoming",
   },
   {
     title: "Finland",
@@ -67,6 +72,7 @@ const expeditions = [
     date: "5th to 13th December, 2026",
     image: slide7,
     brochure: finlandPdf,
+     status: "Upcoming",
   },
 ];
 
@@ -77,115 +83,106 @@ export default function UpcomingExpeditions() {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // ✅ NEXT SLIDE FUNCTION
-  const goToNextSlide = () => {
-    const total = expeditions.length;
-    const nextIndex = (activeIndex + 1) % total;
+ const goToNextSlide = () => {
+  const track = trackRef.current;
+  const slideWidth = track.offsetWidth;
 
-    const track = trackRef.current;
-    const distance = track.scrollWidth - window.innerWidth;
-    const progressPerSlide = 1 / (total - 1);
+  track.scrollBy({
+    left: slideWidth,
+    behavior: "smooth",
+  });
+};
 
-    const targetProgress = nextIndex * progressPerSlide;
+const goToPrevSlide = () => {
+  const track = trackRef.current;
+  const slideWidth = track.offsetWidth;
 
-    const trigger = ScrollTrigger.getById("expeditions-scroll");
+  track.scrollBy({
+    left: -slideWidth,
+    behavior: "smooth",
+  });
+};
+useLayoutEffect(() => {
+  const track = trackRef.current;
 
-    if (!trigger) return;
+  const handleScroll = () => {
+    const scrollLeft = track.scrollLeft;
+    const slideWidth = track.offsetWidth;
 
-    const scrollY = trigger.start + targetProgress * distance;
-
-    window.scrollTo({
-      top: scrollY,
-      behavior: "smooth",
-    });
+    const index = Math.round(scrollLeft / slideWidth);
+    setActiveIndex(index);
   };
 
-  const goToPrevSlide = () => {
-    const total = expeditions.length;
-    const prevIndex = activeIndex - 1;
+  track.addEventListener("scroll", handleScroll);
 
-    if (prevIndex < 0) return;
-
-    const track = trackRef.current;
-    const distance = track.scrollWidth - window.innerWidth;
-    const progressPerSlide = 1 / (total - 1);
-
-    const targetProgress = prevIndex * progressPerSlide;
-
-    const trigger = ScrollTrigger.getById("expeditions-scroll");
-    if (!trigger) return;
-
-    const scrollY = trigger.start + targetProgress * distance;
-
-    window.scrollTo({
-      top: scrollY,
-      behavior: "smooth",
-    });
+  return () => {
+    track.removeEventListener("scroll", handleScroll);
   };
+}, []);
+  // useLayoutEffect(() => {
+  //   if (window.innerWidth <= 768) return;
+  //   let ctx;
 
-  useLayoutEffect(() => {
-    let ctx;
+  //   const frame = requestAnimationFrame(() => {
+  //     ctx = gsap.context(() => {
+  //       const track = trackRef.current;
 
-    const frame = requestAnimationFrame(() => {
-      ctx = gsap.context(() => {
-        const track = trackRef.current;
+  //       const getScrollDistance = () => {
+  //         const distance = track.scrollWidth - window.innerWidth;
+  //         return distance > 0 ? distance : 0;
+  //       };
 
-        const getScrollDistance = () => {
-          const distance = track.scrollWidth - window.innerWidth;
-          return distance > 0 ? distance : 0;
-        };
+  //       gsap.to(track, {
+  //         x: () => -getScrollDistance(),
+  //         ease: "none",
+  //         scrollTrigger: {
+  //           id: "expeditions-scroll", // ✅ IMPORTANT
+  //           trigger: sectionRef.current,
+  //           start: "top top",
+  //           end: () => `+=${getScrollDistance()}`,
+  //           scrub: 1,
+  //           pin: true,
+  //           anticipatePin: 1,
+  //           invalidateOnRefresh: true,
 
-        gsap.to(track, {
-          x: () => -getScrollDistance(),
-          ease: "none",
-          scrollTrigger: {
-            id: "expeditions-scroll", // ✅ IMPORTANT
-            trigger: sectionRef.current,
-            start: "top top",
-            end: () => `+=${getScrollDistance()}`,
-            scrub: 1,
-            pin: true,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
+  //           onUpdate: (self) => {
+  //             const progress = self.progress;
+  //             const total = expeditions.length;
+  //             const index = Math.round(progress * (total - 1));
+  //             setActiveIndex(index);
+  //           },
+  //         },
+  //       });
 
-            onUpdate: (self) => {
-              const progress = self.progress;
-              const total = expeditions.length;
-              const index = Math.round(progress * (total - 1));
-              setActiveIndex(index);
-            },
-          },
-        });
+  //       gsap.fromTo(
+  //         labelRef.current,
+  //         { x: -80, opacity: 0 },
+  //         {
+  //           x: 0,
+  //           opacity: 1,
+  //           duration: 1,
+  //           ease: "power3.out",
+  //           scrollTrigger: {
+  //             trigger: sectionRef.current,
+  //             start: "top 80%",
+  //           },
+  //         },
+  //       );
+  //     }, sectionRef);
+  //   });
 
-        gsap.fromTo(
-          labelRef.current,
-          { x: -80, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: "top 80%",
-            },
-          },
-        );
-      }, sectionRef);
-    });
-
-    return () => {
-      cancelAnimationFrame(frame);
-      if (ctx) ctx.revert();
-    };
-  }, []);
+  //   return () => {
+  //     cancelAnimationFrame(frame);
+  //     if (ctx) ctx.revert();
+  //   };
+  // }, []);
 
   return (
     <>
       <section className="upcoming-wrapper" ref={sectionRef}>
-        <div className="side-label" ref={labelRef}>
+        {/* <div className="side-label" ref={labelRef}>
           <span>Upcoming Road Expeditions</span>
-        </div>
+        </div> */}
 
         <div className="horizontal-track" ref={trackRef}>
           {expeditions.map((exp, index) => (
@@ -193,15 +190,21 @@ export default function UpcomingExpeditions() {
           ))}
         </div>
 
-        {/* ✅ DOTS */}
-        <div className="dots">
-          {expeditions.map((_, i) => (
-            <span
-              key={i}
-              className={`dot ${i === activeIndex ? "active" : ""}`}
-            />
-          ))}
-        </div>
+      {/* DOTS */}
+<div className="dots">
+  {expeditions.map((_, i) => (
+    <span
+      key={i}
+      className={`dot ${i === activeIndex ? "active" : ""}`}
+    />
+  ))}
+</div>
+
+{/* SCROLL DOWN */}
+<div className="scroll-down-wrapper">
+  <GlobalScrollDownNRJ targetId="upcoming-expeditions" />
+</div>
+        
 
         {/* ✅ PREV ARROW */}
         {activeIndex > 0 && (
@@ -217,7 +220,7 @@ export default function UpcomingExpeditions() {
           </div>
         )}
 
-        <GlobalScrollDownNRJ targetId="upcoming-expeditions"/>
+        
       </section>
     </>
   );

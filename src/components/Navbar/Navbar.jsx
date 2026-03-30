@@ -72,7 +72,7 @@ function Navbar() {
 
   // Add this above return
   const expeditionList = [
-    { name: "K2k2026", slug: "k2k2026" },
+    { name: "K2K2026", slug: "k2k2026" },
     { name: "Scotland", slug: "scotland" },
     { name: "Romania", slug: "romania" },
     { name: "Georgia", slug: "georgia" },
@@ -103,7 +103,7 @@ function Navbar() {
               onMouseEnter={() => setShowDropdown(true)}
               onMouseLeave={() => setShowDropdown(false)}
             >
-             <Link to="/all-expeditionspage" className="dropdown-title">
+             <Link to="/expeditions" className="dropdown-title">
   Expeditions
 </Link>
               <AnimatePresence>

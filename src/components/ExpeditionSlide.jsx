@@ -7,6 +7,7 @@ export default function ExpeditionSlide({
   subtitle,
   date,
   brochure,
+  status
 }) {
   return (
     <div
@@ -15,7 +16,12 @@ export default function ExpeditionSlide({
     >
       <div className="slide-overlay">
         {/* DATE ON TOP */}
-        <p className="slide-date-top">{date}</p>
+       <div className="slide-date-row">
+  <p className="slide-date-top">{date}</p>
+  <span className={`status-badge ${status.toLowerCase()}`}>
+    {status}
+  </span>
+</div>
 
         {/* TITLE */}
         <h1 className="slide-title">{title.toUpperCase()}</h1>
