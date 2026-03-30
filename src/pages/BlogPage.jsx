@@ -92,7 +92,7 @@ const BlogPage = () => {
       </Box>
 
       {/* CONTENT */}
-      <Container maxWidth="lg" sx={{ mt: 8 }}>
+      <Container maxWidth="lg" sx={{ mt: 8, paddingBottom: 8 }}>
         <Box
           sx={{
             display: "flex",
@@ -121,6 +121,7 @@ const BlogPage = () => {
                       backgroundColor: "#fff",
                       display: "flex",
                       flexDirection: "column",
+                      padding: 2,
 
                       // 🔥 Premium soft shadow
                       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
@@ -141,6 +142,7 @@ const BlogPage = () => {
                         height: 230,
                         width: "100%",
                         overflow: "hidden",
+                        borderRadius: "10px"
                       }}
                     >
                       <Box

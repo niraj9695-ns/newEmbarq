@@ -127,7 +127,7 @@ function Navbar() {
                 )}
               </AnimatePresence>
             </div>
-            {/* <Link to="/stories">Travel Stories</Link> */}
+            <Link to="/gallery">Gallery</Link>
             <Link to="/testimonials">Testimonials</Link>
             <Link to="/media">In the Media</Link>
           </nav>
@@ -190,6 +190,9 @@ function Navbar() {
             )}
           </AnimatePresence>
         </div>
+        <Link to="/gallery" onClick={closeMenu}>
+          Gallery
+        </Link>
         {/* <Link to="/stories" onClick={closeMenu}>
           Travel Stories
         </Link> */}
@@ -202,9 +205,6 @@ function Navbar() {
         {/* <Link to="/faq" onClick={closeMenu}>
           FAQ
         </Link> */}
-        <Link to="/gallery" onClick={closeMenu}>
-          Gallery
-        </Link>
 
         {/* <a href="tel:8867809433" className="call-btn">
   <PhoneCall size={16} />

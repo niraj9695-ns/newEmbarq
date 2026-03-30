@@ -60,7 +60,7 @@
 /* ========================= */
 @media (max-width: 768px) {
   #homewmembers-section {
-    padding: 3rem 1.5rem 4rem;
+    padding: 1rem 1.5rem 4rem;
     /* 🔥 reduce top spacing for mobile here */
   }
 

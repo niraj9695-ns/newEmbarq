@@ -179,6 +179,50 @@
   transform: scale(1.4);
 }
 
+/* COMMON ARROW STYLE */
+.prev-arrow,
+.next-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* LEFT */
+.prev-arrow {
+  left: 50px;
+}
+
+/* RIGHT */
+.next-arrow {
+  right: 40px;
+}
+
+/* IMAGE CONTROL */
+.prev-arrow img,
+.next-arrow img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.prev-arrow:hover img,
+.next-arrow:hover img {
+  transform: scale(1.15);
+}
+
 /* ============================= */
 /* MOBILE */
 /* ============================= */
@@ -230,6 +274,36 @@
         rgba(0, 0, 0, 0.4),
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0));
+  }
+
+  /* MOBILE ARROWS FIX */
+  .prev-arrow,
+  .next-arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* POSITION – move slightly inward */
+  .prev-arrow {
+    left: 15px;
+  }
+
+  .next-arrow {
+    right: 15px;
+  }
+
+  /* IMAGE SIZE CONTROL */
+  .prev-arrow img,
+  .next-arrow img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* TAP FEEDBACK */
+  .prev-arrow:active img,
+  .next-arrow:active img {
+    transform: scale(0.95);
   }
 }
 
