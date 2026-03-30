@@ -185,7 +185,8 @@ function PinnedExpedition() {
           align="center"
           sx={{
             fontFamily: "Fraunces, serif",
-            fontSize: { xs: "1.4rem", md: "1.8rem" },
+           fontWeight: 700,
+           fontSize: { xs: "1.5rem", md: "3rem" },
             mb: 6,
             mt: 6,
           }}
@@ -372,6 +373,7 @@ function Counter({ end, suffix = "", decimals = 0, start }) {
       sx={{
         fontSize: { xs: "18px", sm: "24px", md: "32px" },
         fontWeight: 700,
+        fontFamily: "Fraunces, serif",
       }}
     >
       {count.toFixed(decimals)}
@@ -415,7 +417,7 @@ function MilestoneReach() {
             fontFamily: "Fraunces, serif",
             fontWeight: 600,
             mb: 6,
-            fontSize: { xs: "20px", sm: "24px", md: "28px", lg: "32px" },
+            fontSize: { xs: "1.5rem", md: "3rem" },
             lineHeight: 1.3,
           }}
         >
@@ -607,7 +609,7 @@ function ExpeditionsCardScroll() {
           <Typography
             sx={{
               fontFamily: "Fraunces, serif",
-              fontSize: { xs: 34, md: 56 },
+              fontSize: { xs: "1.5rem", md: "3rem" },
               color: "#F6B43F",
               lineHeight: 1.2,
               fontWeight:600
@@ -1006,7 +1008,7 @@ export default function PartnershipPage() {
         />
 
         <Container sx={{ position: "relative", zIndex: 2 }}>
-          <Typography
+          {/* <Typography
             variant="h3"
             sx={{
               color: "#fff",
@@ -1019,75 +1021,79 @@ export default function PartnershipPage() {
           >
             Interested in partnering on an epic journey that drives change and
             visibility?
-          </Typography>
+          </Typography> */}
         </Container>
       </Box>
 
       {/* BRAND SECTION */}
 
       <Box sx={{ bgcolor: "#FBF9F9", py: { xs: 6, md: 8 } }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={3}>
-              <Typography
-                sx={{
-                  color: "#e49a2f",
-                  fontWeight: 500,
-                  fontSize: { xs: "1.1rem", md: "1.2rem" },
-                  fontFamily: "Fraunces, serif",
-                }}
-              >
-                Brand Activation
-              </Typography>
-            </Grid>
+  <Container maxWidth="lg">
+    <Grid container direction="column" spacing={3}>
+      
+      {/* HEADING */}
+      <Grid item xs={12}>
+        <Typography
+          sx={{
+            color: "#e49a2f",
+            fontWeight: 700,
+           fontSize: { xs: "1.5rem", md: "3rem" },
+            fontFamily: "Fraunces, serif",
+          }}
+        >
+          Brand Activation
+        </Typography>
+      </Grid>
 
-            <Grid item xs={12} md={9}>
-              <Typography
-                sx={{
-                  color: "#555",
-                  fontSize: { xs: "0.9rem", md: "0.95rem" },
-                  lineHeight: 1.8,
-                  maxWidth: "900px",
-                  fontFamily: "'Roboto Flex', sans-serif",
-                }}
-              >
-                At Embarq, we craft unforgettable road trip experiences across
-                stunning landscapes—and now, we’re inviting brands to join us on
-                the journey. Partner with us to create immersive, on-ground
-                campaigns that connect with your audience most authentically:
-                through adventure.
-                <br />
-                Whether you’re looking to engage customers, launch a new
-                product, or build brand affinity, our curated experiences offer
-                a unique platform to drive storytelling, visibility, and
-                emotional connection.
-                <br />
-                Let’s co-create high-impact experiences that go beyond
-                traditional marketing, where your brand becomes part of the
-                road, the community, and the memories. Ready to overtake the
-                road with us? Let’s talk
-              </Typography>
-            </Grid>
-          </Grid>
-        </Container>
-      </Box>
+      {/* CONTENT */}
+      <Grid item xs={12}>
+        <Typography
+          sx={{
+            color: "#555",
+            fontSize: { xs: "0.9rem", md: "0.95rem" },
+            lineHeight: 1.8,
+            maxWidth: "100%",
+            fontFamily: "'Roboto Flex', sans-serif",
+          }}
+        >
+          At Embarq, we craft unforgettable road trip experiences across
+          stunning landscapes—and now, we’re inviting brands to join us on
+          the journey. Partner with us to create immersive, on-ground
+          campaigns that connect with your audience most authentically:
+          through adventure.
+          <br />
+          Whether you’re looking to engage customers, launch a new
+          product, or build brand affinity, our curated experiences offer
+          a unique platform to drive storytelling, visibility, and
+          emotional connection.
+          <br />
+          Let’s co-create high-impact experiences that go beyond
+          traditional marketing, where your brand becomes part of the
+          road, the community, and the memories. Ready to overtake the
+          road with us? Let’s talk
+        </Typography>
+      </Grid>
 
+    </Grid>
+  </Container>
+</Box>
       {/* EXPEDITION SCROLL */}
 
       <PinnedExpedition />
       <MilestoneReach />
       <ImageContentSections />
       <Box
-        sx={{
-          position: "relative",
-          height: { xs: "50vh", md: "75vh" },
-          backgroundImage: `url(${Partners1})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          display: "flex",
-          alignItems: "center",
-        }}
-      >
+  sx={{
+    position: "relative",
+    minHeight: { xs: "auto", md: "120vh" }, // optional for desktop
+    py: { xs: 6, md: 0 }, // adds spacing for mobile
+    backgroundImage: `url(${Partners1})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    display: "flex",
+    alignItems: "center",
+  }}
+>
         {/* Gradient overlay */}
         <Box
           sx={{
@@ -1105,7 +1111,7 @@ export default function PartnershipPage() {
               color: "#fff",
               fontWeight: 700,
               maxWidth: "900px",
-              fontSize: { xs: "2rem", md: "3rem" },
+             fontSize: { xs: "1.5rem", md: "3rem" },
               lineHeight: 1.3,
               fontFamily: "Fraunces, serif",
               mb: 3,
@@ -1121,6 +1127,7 @@ export default function PartnershipPage() {
               lineHeight: 1.8,
               maxWidth: { xs: "100%", md: "700px" },
               fontFamily: "'Roboto Flex', sans-serif",
+              mb: 6,
             }}
           >
             We’re gearing up for an exciting new adventure,
@@ -1131,10 +1138,83 @@ export default function PartnershipPage() {
             <strong>purpose-driven storytelling</strong> that resonates with
             audiences and drives meaningful impact.
           </Typography>
+           {/* Form */}
+        <Box component="form">
+          {/* Row 1 */}
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={3}
+            mb={3}
+          >
+            <TextField
+              fullWidth
+              placeholder="Enter your Name"
+              variant="outlined"
+              sx={inputStyles}
+            />
+
+            <TextField
+              fullWidth
+              placeholder="Email Address"
+              type="email"
+              sx={inputStyles}
+            />
+          </Stack>
+
+          {/* Row 2 */}
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={3}
+            mb={3}
+          >
+            <TextField
+              fullWidth
+              placeholder="Phone Number"
+              type="tel"
+              sx={inputStyles}
+            />
+
+            <TextField
+              fullWidth
+              placeholder="City"
+              sx={inputStyles}
+            />
+          </Stack>
+
+          {/* Message */}
+          <TextField
+            fullWidth
+            multiline
+            rows={6}
+            placeholder="Your Message"
+            sx={{ ...inputStyles, mb: 3 }}
+          />
+
+          {/* Button */}
+          <Button
+            fullWidth
+            sx={{
+              py: 2.2,
+              borderRadius: "40px",
+              fontFamily: "Roboto Flex, sans-serif",
+              fontWeight: 600,
+              letterSpacing: 1,
+              background: "#f2ad3d",
+              color: "#fff",
+              "&:hover": {
+                background: "#e49a25",
+                transform: "translateY(-2px)",
+              },
+            }}
+          >
+            SUBMIT
+          </Button>
+        </Box>
         </Container>
+        
       </Box>
 
-      <PartnerForm />
+      {/* <PartnerForm /> */}
       <ExpeditionsCardScroll />
       <MembersSection />
     </Box>

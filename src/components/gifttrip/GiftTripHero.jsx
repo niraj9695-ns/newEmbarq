@@ -13,9 +13,9 @@ function GiftTripHero() {
         fetchpriority="high"
       />
 
-      <div className="gifttrip-hero-content">
+      {/* <div className="gifttrip-hero-content">
         <h1>Gift a Trip</h1>
-      </div>
+      </div> */}
 
     </section>
   );

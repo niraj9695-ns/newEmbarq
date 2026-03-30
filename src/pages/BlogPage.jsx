@@ -78,7 +78,7 @@ const BlogPage = () => {
           }}
         />
         <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-          <Typography
+          {/* <Typography
             variant="h2"
             sx={{
               color: "#fff",
@@ -87,7 +87,7 @@ const BlogPage = () => {
             }}
           >
             Blog
-          </Typography>
+          </Typography> */}
         </Container>
       </Box>
 

@@ -56,7 +56,7 @@ function StatsBar() {
 
       <div className="stat-item">
         <Counter target={17} />
-        <p>17 plus countries in 57 days</p>
+        <p>countries</p>
       </div>
 
       <div className="divider" />

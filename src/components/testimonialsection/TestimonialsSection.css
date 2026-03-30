@@ -47,19 +47,21 @@
 }
 
 /* IMAGE BOX */
-.testi-img-box {
+.home-testi-img-box {
   width: 120px;
   height: 120px;
   min-width: 120px;
+  flex-shrink: 0; 
   margin-top: 25px;
   border-radius: 16px;
   overflow: hidden;
 }
 
-.testi-img-box img {
+.home-testi-img-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+   transform: scale(1.45);
 }
 
 /* CONTENT */
@@ -104,10 +106,13 @@
     gap: 1.5rem;
   }
 
-  .testi-img-box {
+  .home-testi-img-box {
     width: 100px;
     height: 100px;
   }
+
+  
+
 
 }
 
@@ -130,13 +135,19 @@
     align-items: flex-start;
     padding: 2rem;
   }
-
-  .testi-img-box {
-    width: 100px;
-    height: 100px;
-    border-radius: 18px;
-    margin-bottom: 0.3rem;
-  }
+ .home-testi-img-box img {
+  display: block; /* 🔥 important */
+  width: 100% !important;
+  height: 100% !important;
+  
+}
+  .home-testi-img-box img {
+  display: block; /* 🔥 important */
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  transform: scale(1.39);
+}
 
   .testi-content p {
     font-size: 0.95rem;

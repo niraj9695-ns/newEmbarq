@@ -19,7 +19,7 @@ export default function TestimonialsSection() {
           {/* CARD 1 */}
           <div className="testi-card">
 
-            <div className="testi-img-box">
+            <div className="home-testi-img-box">
               <img src={person1} alt="user" />
             </div>
 
@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
           {/* CARD 2 */}
           <div className="testi-card">
 
-            <div className="testi-img-box">
+            <div className="home-testi-img-box">
               <img src={person2} alt="user" />
             </div>
 
