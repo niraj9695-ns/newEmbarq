@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Container,
@@ -15,26 +15,34 @@ import post3 from "../assets/blog/blogimage3.png";
 import post4 from "../assets/blog/blogimage4.jpg";
 
 const BlogPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedPost, setSelectedPost] = useState(null);
+
+  // ✅ Added category field
   const blogPosts = [
     {
       image: post1,
       date: "October 10, 2025",
       title: "5 Ways in which Overlanding has changed me",
+      category: "Adventure Diaries",
     },
     {
       image: post2,
       date: "February 6, 2025",
       title: "A Journey Through the Roof of the World",
+      category: "Travel",
     },
     {
       image: post3,
       date: "February 3, 2025",
       title: "Ubud and Periyar Have My Love",
+      category: "Latest Blogs",
     },
     {
       image: post4,
       date: "September 27, 2024",
       title: "Colours of Kyrgyzstan",
+      category: "Travel",
     },
   ];
 
@@ -56,12 +64,26 @@ const BlogPage = () => {
     },
   ];
 
+  const categories = [
+    "All",
+    "Adventure Diaries",
+    "Latest Blogs",
+    "Travel",
+    "Namaste Diem",
+  ];
+
+  // ✅ Filtering logic
+  const filteredPosts =
+    selectedCategory === "All"
+      ? blogPosts
+      : blogPosts.filter((post) => post.category === selectedCategory);
+
   return (
     <Box sx={{ backgroundColor: "#f3f3f3" }}>
       {/* HERO */}
       <Box
         sx={{
-          height: 520,
+          height: { xs: 300, md: 520 },
           backgroundImage: `url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -77,18 +99,7 @@ const BlogPage = () => {
             background: "rgba(0,0,0,0.35)",
           }}
         />
-        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
-          {/* <Typography
-            variant="h2"
-            sx={{
-              color: "#fff",
-              fontWeight: 600,
-              fontFamily: "Playfair Display, serif",
-            }}
-          >
-            Blog
-          </Typography> */}
-        </Container>
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }} />
       </Box>
 
       {/* CONTENT */}
@@ -96,24 +107,34 @@ const BlogPage = () => {
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", md: "row" }, // ✅ responsive
+            flexDirection: { xs: "column", md: "row" },
             gap: 4,
           }}
         >
           {/* LEFT SIDE */}
           <Box sx={{ flex: 3 }}>
-            <Grid container spacing={8}>
-              {blogPosts.map((post, index) => (
-                <Grid item xs={12} sm={6} md={6} key={index}>
+            <Grid
+              container
+              spacing={3}
+              alignItems="stretch"
+              justifyContent="center"
+            >
+              {filteredPosts.map((post, index) => (
+                <Grid item xs={12} sm={6} md={6} lg={4} key={index}>
                   <Card
+                    onClick={() => setSelectedPost(post.title)}
                     sx={{
-                      width: "300px",
+                      width: "100%",
+                      height: 320,
                       borderRadius: "20px",
                       overflow: "hidden",
                       backgroundColor: "#fff",
                       display: "flex",
                       flexDirection: "column",
                       p: 2,
+                      cursor: "pointer",
+                      border:
+                        selectedPost === post.title ? "2px solid #000" : "none",
                       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.08)",
                       transition: "all 0.3s ease",
                       "&:hover": {
@@ -125,7 +146,8 @@ const BlogPage = () => {
                     {/* IMAGE */}
                     <Box
                       sx={{
-                        height: { xs: 200, md: 230 },
+                        width: "100%", // ✅ FIXED
+                        height: 180,
                         borderRadius: "10px",
                         overflow: "hidden",
                       }}
@@ -135,7 +157,7 @@ const BlogPage = () => {
                         src={post.image}
                         alt={post.title}
                         sx={{
-                          width: "100%",
+                          width: "320px", // ✅ FIXED
                           height: "100%",
                           objectFit: "cover",
                         }}
@@ -143,33 +165,47 @@ const BlogPage = () => {
                     </Box>
 
                     {/* CONTENT */}
-                    <CardContent sx={{ p: 2 }}>
-                      <Typography
-                        sx={{
-                          color: "#9e9e9e",
-                          fontSize: "13px",
-                          mb: 1,
-                        }}
-                      >
-                        {post.date}
-                      </Typography>
+                    <CardContent
+                      sx={{
+                        p: 1.5,
+                        flexGrow: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Box>
+                        <Typography
+                          sx={{
+                            color: "#9e9e9e",
+                            fontSize: "12px",
+                            mb: 1,
+                          }}
+                        >
+                          {post.date}
+                        </Typography>
 
-                      <Typography
-                        sx={{
-                          fontWeight: 500,
-                          fontSize: "15px",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {post.title}
-                      </Typography>
+                        <Typography
+                          sx={{
+                            fontWeight: 500,
+                            fontSize: "14px",
+                            lineHeight: 1.4,
+                            display: "-webkit-box",
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
+                          {post.title}
+                        </Typography>
+                      </Box>
                     </CardContent>
                   </Card>
                 </Grid>
               ))}
             </Grid>
 
-            {/* ✅ MOBILE: Bottom Section */}
+            {/* MOBILE SIDEBAR */}
             <Box sx={{ display: { xs: "block", md: "none" }, mt: 5 }}>
               {/* Categories */}
               <Box
@@ -184,14 +220,21 @@ const BlogPage = () => {
                   Pick Top Categories
                 </Typography>
 
-                <Typography sx={{ mb: 1.2, fontSize: 14 }}>
-                  Adventure Diaries
-                </Typography>
-                <Typography sx={{ mb: 1.2, fontSize: 14 }}>
-                  Latest Blogs
-                </Typography>
-                <Typography sx={{ mb: 1.2, fontSize: 14 }}>Travel</Typography>
-                <Typography sx={{ fontSize: 14 }}>Namaste Diem</Typography>
+                {categories.map((cat, i) => (
+                  <Typography
+                    key={i}
+                    onClick={() => setSelectedCategory(cat)}
+                    sx={{
+                      mb: 1.2,
+                      fontSize: 14,
+                      cursor: "pointer",
+                      fontWeight: selectedCategory === cat ? 600 : 400,
+                      color: selectedCategory === cat ? "#000" : "#555",
+                    }}
+                  >
+                    {cat}
+                  </Typography>
+                ))}
               </Box>
 
               {/* Top Posts */}
@@ -210,11 +253,14 @@ const BlogPage = () => {
                 {topPosts.map((post, index) => (
                   <Box
                     key={index}
+                    onClick={() => setSelectedPost(post.title)}
                     sx={{
                       display: "flex",
                       gap: 2,
                       mb: 2,
                       alignItems: "center",
+                      cursor: "pointer",
+                      opacity: selectedPost === post.title ? 1 : 0.7,
                     }}
                   >
                     <Box
@@ -234,12 +280,7 @@ const BlogPage = () => {
                         {post.title}
                       </Typography>
 
-                      <Typography
-                        sx={{
-                          fontSize: 12,
-                          color: "#9e9e9e",
-                        }}
-                      >
+                      <Typography sx={{ fontSize: 12, color: "#9e9e9e" }}>
                         {post.date}
                       </Typography>
                     </Box>
@@ -249,12 +290,12 @@ const BlogPage = () => {
             </Box>
           </Box>
 
-          {/* RIGHT SIDE (DESKTOP ONLY) */}
+          {/* RIGHT SIDEBAR */}
           <Box
             sx={{
               flex: 1,
               minWidth: 280,
-              display: { xs: "none", md: "block" }, // ✅ hide on mobile
+              display: { xs: "none", md: "block" },
             }}
           >
             {/* Categories */}
@@ -270,14 +311,21 @@ const BlogPage = () => {
                 Pick Top Categories
               </Typography>
 
-              <Typography sx={{ mb: 1.2, fontSize: 14 }}>
-                Adventure Diaries
-              </Typography>
-              <Typography sx={{ mb: 1.2, fontSize: 14 }}>
-                Latest Blogs
-              </Typography>
-              <Typography sx={{ mb: 1.2, fontSize: 14 }}>Travel</Typography>
-              <Typography sx={{ fontSize: 14 }}>Namaste Diem</Typography>
+              {categories.map((cat, i) => (
+                <Typography
+                  key={i}
+                  onClick={() => setSelectedCategory(cat)}
+                  sx={{
+                    mb: 1.2,
+                    fontSize: 14,
+                    cursor: "pointer",
+                    fontWeight: selectedCategory === cat ? 600 : 400,
+                    color: selectedCategory === cat ? "#000" : "#555",
+                  }}
+                >
+                  {cat}
+                </Typography>
+              ))}
             </Box>
 
             {/* Top Posts */}
@@ -294,11 +342,14 @@ const BlogPage = () => {
               {topPosts.map((post, index) => (
                 <Box
                   key={index}
+                  onClick={() => setSelectedPost(post.title)}
                   sx={{
                     display: "flex",
                     gap: 2,
                     mb: 2,
                     alignItems: "center",
+                    cursor: "pointer",
+                    opacity: selectedPost === post.title ? 1 : 0.7,
                   }}
                 >
                   <Box
@@ -314,21 +365,11 @@ const BlogPage = () => {
                   />
 
                   <Box>
-                    <Typography
-                      sx={{
-                        fontSize: 13.5,
-                        fontWeight: 500,
-                      }}
-                    >
+                    <Typography sx={{ fontSize: 13.5, fontWeight: 500 }}>
                       {post.title}
                     </Typography>
 
-                    <Typography
-                      sx={{
-                        fontSize: 12,
-                        color: "#9e9e9e",
-                      }}
-                    >
+                    <Typography sx={{ fontSize: 12, color: "#9e9e9e" }}>
                       {post.date}
                     </Typography>
                   </Box>
