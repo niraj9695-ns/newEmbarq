@@ -1,153 +1,150 @@
 import React from "react";
+import { Box, Container, Typography } from "@mui/material";
 import CancelPolicy from "../assets/footer/cancellationpolicy.webp";
 
 export default function PrivacyPolicy() {
   return (
-    <div style={styles.page}>
+    <Box sx={{ bgcolor: "#f5f7fb", minHeight: "100vh" }}>
       
-      <div style={styles.banner}>
-        <img
+      {/* BANNER */}
+      <Box
+        sx={{
+          position: "relative",
+          height: { xs: 220, md: 320 },
+        }}
+      >
+        <Box
+          component="img"
           src={CancelPolicy}
           alt="Privacy Policy"
-          style={styles.bannerImage}
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
         />
-        <div style={styles.overlay}>
-          <h1 style={styles.title}>Privacy Policy</h1>
-        </div>
-      </div>
 
-      <div style={styles.container}>
+        <Box
+          sx={{
+            position: "absolute",
+            inset: 0,
+            bgcolor: "rgba(0,0,0,0.45)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: { xs: "28px", md: "42px" },
+              fontFamily: "Fraunces, serif",
+            }}
+          >
+            Privacy Policy
+          </Typography>
+        </Box>
+      </Box>
 
-        <section style={styles.section}>
-          <h2>1. Introduction</h2>
-          <p>
-            We value your privacy and are committed to protecting your personal
-            information. This Privacy Policy explains how we collect, use, and
-            safeguard your information when you use our website and services.
-          </p>
-        </section>
+      {/* CONTENT */}
+      <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}>
+        
+        {/* SECTION */}
+        <Typography variant="h6" sx={headingStyle}>
+          1. Introduction
+        </Typography>
+        <Typography sx={textStyle}>
+          We value your privacy and are committed to protecting your personal
+          information. This Privacy Policy explains how we collect, use, and
+          safeguard your information when you use our website and services.
+        </Typography>
 
-        <section style={styles.section}>
-          <h2>2. Information We Collect</h2>
-          <ul>
-            <li>Name, email address, and contact number</li>
-            <li>Booking and travel information</li>
-            <li>Payment and billing details</li>
-            <li>Device and browser information</li>
-          </ul>
-        </section>
+        <Typography variant="h6" sx={headingStyle}>
+          2. Information We Collect
+        </Typography>
+        <Box component="ul" sx={listStyle}>
+          <li>Name, email address, and contact number</li>
+          <li>Booking and travel information</li>
+          <li>Payment and billing details</li>
+          <li>Device and browser information</li>
+        </Box>
 
-        <section style={styles.section}>
-          <h2>3. How We Use Your Information</h2>
-          <ul>
-            <li>To process trip bookings and payments</li>
-            <li>To communicate updates regarding your trip</li>
-            <li>To improve our services and website experience</li>
-            <li>To provide customer support</li>
-          </ul>
-        </section>
+        <Typography variant="h6" sx={headingStyle}>
+          3. How We Use Your Information
+        </Typography>
+        <Box component="ul" sx={listStyle}>
+          <li>To process trip bookings and payments</li>
+          <li>To communicate updates regarding your trip</li>
+          <li>To improve our services and website experience</li>
+          <li>To provide customer support</li>
+        </Box>
 
-        <section style={styles.section}>
-          <h2>4. Sharing of Information</h2>
-          <p>
-            We do not sell your personal data. Your information may only be
-            shared with trusted service providers such as payment gateways,
-            travel partners, or legal authorities if required.
-          </p>
-        </section>
+        <Typography variant="h6" sx={headingStyle}>
+          4. Sharing of Information
+        </Typography>
+        <Typography sx={textStyle}>
+          We do not sell your personal data. Your information may only be
+          shared with trusted service providers such as payment gateways,
+          travel partners, or legal authorities if required.
+        </Typography>
 
-        <section style={styles.section}>
-          <h2>5. Data Security</h2>
-          <p>
-            We implement appropriate security measures to protect your personal
-            information from unauthorized access, alteration, or disclosure.
-          </p>
-        </section>
+        <Typography variant="h6" sx={headingStyle}>
+          5. Data Security
+        </Typography>
+        <Typography sx={textStyle}>
+          We implement appropriate security measures to protect your personal
+          information from unauthorized access, alteration, or disclosure.
+        </Typography>
 
-        <section style={styles.section}>
-          <h2>6. Cookies</h2>
-          <p>
-            Our website may use cookies to improve user experience, analyze
-            website traffic, and remember your preferences.
-          </p>
-        </section>
+        <Typography variant="h6" sx={headingStyle}>
+          6. Cookies
+        </Typography>
+        <Typography sx={textStyle}>
+          Our website may use cookies to improve user experience, analyze
+          website traffic, and remember your preferences.
+        </Typography>
 
-        <section style={styles.section}>
-          <h2>7. Your Rights</h2>
-          <p>
-            You have the right to request access, correction, or deletion of
-            your personal data by contacting us.
-          </p>
-        </section>
+        <Typography variant="h6" sx={headingStyle}>
+          7. Your Rights
+        </Typography>
+        <Typography sx={textStyle}>
+          You have the right to request access, correction, or deletion of
+          your personal data by contacting us.
+        </Typography>
 
-        <section style={styles.section}>
-          <h2>8. Contact Us</h2>
-          <p>
-            If you have any questions regarding this Privacy Policy, please
-            contact us at <b>enquiries@embarq.in</b>.
-          </p>
-        </section>
-      </div>
+        <Typography variant="h6" sx={headingStyle}>
+          8. Contact Us
+        </Typography>
+        <Typography sx={textStyle}>
+          If you have any questions regarding this Privacy Policy, please
+          contact us at <b>enquiries@embarq.in</b>.
+        </Typography>
 
-    </div>
+      </Container>
+    </Box>
   );
 }
 
-const styles = {
-  page: {
-    fontFamily: "Arial, sans-serif",
-    background: "#f5f7fb",
-    minHeight: "100vh",
-  },
+const headingStyle = {
+  fontWeight: 600,
+  mt: 3,
+  mb: 1,
+  color:'#F6A61D',
+  fontSize: { xs: "1rem", md: "2rem" },
+};
 
-  banner: {
-    position: "relative",
-    height: "320px",
-    overflow: "hidden",
-  },
+const textStyle = {
+  color: "#444",
+  lineHeight: 1.8,
+ fontSize: { xs: "0.9rem", md: "1.2rem" },
+  mb: 1,
+};
 
-  bannerImage: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-  },
-
-  overlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0,0,0,0.45)",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  title: {
-    color: "#fff",
-    fontSize: "42px",
-    fontWeight: "bold",
-  },
-
-  container: {
-    maxWidth: "900px",
-    margin: "40px auto",
-    background: "#fff",
-    padding: "40px",
-    borderRadius: "10px",
-    boxShadow: "0 5px 15px rgba(0,0,0,0.08)",
-  },
-
-  section: {
-    marginBottom: "30px",
-    lineHeight: "1.7",
-  },
-
-  updated: {
-    color: "#666",
-    marginBottom: "30px",
-  },
-
-  
+const listStyle = {
+  pl: 3,
+  mb: 1,
+  color: "#444",
+  lineHeight: 1.8,
+ fontSize: { xs: "0.9rem", md: "1.2rem" },
 };

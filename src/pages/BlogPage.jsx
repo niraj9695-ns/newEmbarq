@@ -77,10 +77,18 @@ const BlogPage = () => {
             background: "rgba(0,0,0,0.35)",
           }}
         />
-        <Container
-          maxWidth="lg"
-          sx={{ position: "relative", zIndex: 2 }}
-        ></Container>
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+          {/* <Typography
+            variant="h2"
+            sx={{
+              color: "#fff",
+              fontWeight: 600,
+              fontFamily: "Playfair Display, serif",
+            }}
+          >
+            Blog
+          </Typography> */}
+        </Container>
       </Box>
 
       {/* CONTENT */}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import MediaCard from "../components/MediaCard";
-import mediabg from "../assets/media/mediabg.webp";
+import mediabg from "../assets/media/heromedia.avif";
 
 import img1 from "../assets/media/herstory.avif";
 import img2 from "../assets/media/Women-Travel-Groups.jpg";
@@ -79,7 +79,7 @@ const InTheMedia = () => {
       {/* HERO SECTION */}
       <Box
         sx={{
-          height: { xs: "280px", md: "70vh" },
+          height: { xs: "280px", md: "75vh" },
           width: "100%",
           position: "relative",
           backgroundImage: `url(${mediabg})`,
@@ -104,7 +104,7 @@ const InTheMedia = () => {
             alignItems: "center",
           }}
         >
-          <Typography
+          {/* <Typography
             sx={{
               color: "#ffffff",
               fontFamily: "Fraunces, serif",
@@ -113,7 +113,7 @@ const InTheMedia = () => {
             }}
           >
             In The Media
-          </Typography>
+          </Typography> */}
         </Container>
       </Box>
 

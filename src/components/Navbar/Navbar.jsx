@@ -82,7 +82,7 @@ function Navbar() {
 
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  // const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   return (
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
@@ -103,8 +103,9 @@ function Navbar() {
               onMouseEnter={() => setShowDropdown(true)}
               onMouseLeave={() => setShowDropdown(false)}
             >
-              <span className="dropdown-title">Expeditions</span>
-
+             <Link to="/all-expeditionspage" className="dropdown-title">
+  Expeditions
+</Link>
               <AnimatePresence>
                 {showDropdown && (
                   <motion.div
@@ -158,14 +159,20 @@ function Navbar() {
           About
         </Link>
         <div className="mobile-dropdown">
-          <div
+          {/* <div
             className="mobile-dropdown-header"
             onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
           >
             Expeditions
-          </div>
-
-          <AnimatePresence>
+          </div> */}
+<Link
+  to="/expeditions"
+  className="mobile-dropdown-header"
+  onClick={closeMenu}
+>
+  Expeditions
+</Link>
+          {/* <AnimatePresence>
             {mobileDropdownOpen && (
               <motion.div
                 className="mobile-dropdown-content"
@@ -188,7 +195,18 @@ function Navbar() {
                 ))}
               </motion.div>
             )}
-          </AnimatePresence>
+          </AnimatePresence> */}
+          <div className="mobile-dropdown-content">
+  {expeditionList.map((item) => (
+    <Link
+      key={item.slug}
+      to={`/expedition/${item.slug}`}
+      onClick={closeMenu}
+    >
+      {item.name}
+    </Link>
+  ))}
+</div>
         </div>
         <Link to="/gallery" onClick={closeMenu}>
           Gallery
