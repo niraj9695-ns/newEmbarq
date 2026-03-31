@@ -547,9 +547,9 @@ export const expeditions = {
     },
     about: {
       destination: "Kutch, Gujrat to Kibithoo, Arunachal Pradesh",
-      duration: "9 Days / 8 Nights",
+      duration: "19 Days / 18 Nights",
       cost: "INR 235,000/- Per head",
-      travelDates: "8th March to 25th March 2026",
+      travelDates: "8th March to 28th March 2026",
       vehicle: "Self-drive - Citroën and Jeep SUVs",
       distance: "Approx. 4800 km",
     },
@@ -562,71 +562,120 @@ export const expeditions = {
     itinerary: [
       {
         day: 1,
-        title: "Arrival in Seoul",
+        title: "Arrival in Bhuj",
         description:
-          `Arrive in Seoul and transfer to the hotel using private transport.
-          The day is kept relaxed to settle in and prepare for the journey ahead.`,
+          `Evening: Briefing and Dinner`,
       },
       {
         day: 2,
-        title: "Seoul Sightseeing",
+        title: "Bhuj → Dholavira",
         description:
-          `Visit the Demilitarized Zone (DMZ), one of the world’s most heavily guarded borders, with access to infiltration tunnels, observation points, and museums that document this complex chapter of history.
-          Explore Gyeongbokgung Palace and experience Seoul’s royal heritage through interactions with palace guards.
-          Walk along the Seoul Wall, passing through the alleys and murals of Ihwa Mural Village, before visiting the iconic Dongdaemun Design Plaza (DDP), blending tradition with contemporary architecture.End the day at Gwangjang Market, one of Seoul’s oldest traditional markets, alive with street food, music, cafés, and late-night energy.`,
+          `Distance: 60 km`,
       },
       {
         day: 3,
-        title: "Seoul to Sokcho (245 km)",
+        title: "Dholavira → Mount Abu",
         description:
-          `Begin the driving journey, leaving the city behind and following the Han River with views of the Taebaek Mountains.
-          The road winds through forested slopes and long tunnels, leading to the edges of Seoraksan National Park, a UNESCO-designated Biosphere Reserve known for dramatic rock formations, dense forests, wildlife, and hot springs.
-          Visit the historic Naksansa Temple, with over 1,300 years of history dating back to the Silla Kingdom.`,
+          `Distance: 362 km`,
       },
       {
         day: 4,
-        title: "Sokcho to Andong (330 km)",
+        title: "Mount Abu → Jaipur/Ajmer",
         description:
-          `Descend from the Taebaek Mountains into countryside dotted with palm trees and fishing villages.
-          Visit Hahoe Village, the “village surrounded by water,” a beautifully preserved traditional settlement offering a glimpse into Korea’s past through its houses, cobbled streets, and landscapes.
-          Spend the evening in Maenggae Village, followed by a visit to a distinctive Korean brewery that reimagines age-old fermentation methods, and enjoy a private dinner prepared with regional ingredients and traditional techniques.`,
+          `Distance: 514 km
+`,
       },
       {
         day: 5,
-        title: "Andong to Gyeongju (200 km)",
+        title: "Jaipur/Ajmer → Lucknow (Arrival)",
         description:
-          `Drive along the Nakdong River as the landscape transitions from farmland to historic heartland.
-          Arrive in Gyeongju, once the capital of the Silla Kingdom, where temples, pagodas, and stone lanterns appear at every turn.
-          Visit Bulguksa Temple, a UNESCO World Heritage Site, and the Seokguram Grotto, followed by an evening musical experience at a traditional Hanok house.`,
+          `Distance: 586 km
+`,
       },
       {
         day: 6,
-        title: "Gyeongju to Busan (190 km)",
+        title: "Lucknow (Day Break / Rest Day)",
         description:
-          `Drive south to Busan, a major port city on Korea’s southeastern coast.
-          Explore the vibrant city, including Haedong Yonggungsa Temple, dramatically set by the sea, and the bustling Gukje and Jagalchi markets, where coastal culture and daily life come alive.`,
+          ``,
       },
       {
         day: 7,
-        title: "Busan to Beopjusa (180 km)",
+        title: "Lucknow → Patna (Arrival)",
         description:
-          `En route, visit Yangdong Village, South Korea’s largest and best-preserved traditional clan village.
-          Arrive at Beopjusa Temple, set deep within the mountains of Songnisan National Park.
-          Experience a unique Temple Stay, waking to temple bells and chants echoing through ancient forests, and walking paths shaped by centuries of reflection, mindfulness, and tradition.`,
+          `Distance: 502 km`,
       },
       {
         day: 8,
-        title: "Beopjusa to Seoul (420 km)",
+        title: "Patna → Siliguri (Arrival)",
         description:
-          `Begin the return drive to Seoul, a day shaped by long scenic stretches, rustic landscapes, and cultural reflections from the journey.
-          Arrive in Seoul by evening for a relaxed final night.`,
+          `Distance: 474 km`,
       },
       {
         day: 9,
-        title: "Departure from Seoul",
+        title: "Siliguri → Guwahati (Arrival)",
         description:
-          `Transfer to the airport for your return flight
-          .Depart South Korea with memories of exceptional roads, layered history, coastal light, and deeply immersive experiences.`,
+          `Distance: 455 km`,
+      },
+       {
+        day: 10,
+        title: "Guwahati (Day Break / Rest Day)",
+        description:
+          ``,
+      },
+       {
+        day: 11,
+        title: "Guwahati → Itanagar (Arrival)",
+        description:
+          `Distance: 323 km`,
+      },
+       {
+        day: 12,
+        title: "Itanagar → Dibrugarh (Arrival)",
+        description:
+          `Distance: 201 km`,
+      },
+       {
+        day: 13,
+        title: "Dibrugarh → Chongkham (Arrival)",
+        description:
+          `Distance: 161 km
+`,
+      },
+       {
+        day: 14,
+        title: "Chongkham → Kibithoo",
+        description:
+          `Distance: 250 km`,
+      },
+       {
+        day: 15,
+        title: "Kibithoo → Chongkham",
+        description:
+          `Distance: 250 km`,
+      },
+       {
+        day: 16,
+        title: "Chongkham → Dibrugarh (Arrival)",
+        description:
+          `Distance: 161 km`,
+      },
+       {
+        day: 17,
+        title: "Dibrugarh → Itanagar (Arrival)",
+        description:
+          `Distance: 201 km`,
+      },
+       {
+        day: 18,
+        title: "Itanagar → Guwahati (Arrival)",
+        description:
+          `Distance: 323 km`,
+      },
+       {
+        day: 19,
+        title: "Guwahati → Fly Out",
+        description:
+          ``,
       },
     ],
 
