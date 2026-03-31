@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Container, Typography, Chip, IconButton } from "@mui/material";
+import { Box, Container, Typography, IconButton } from "@mui/material";
 import rightArrow from "../assets/gallery/right-arrow.png";
 import leftArrow from "../assets/gallery/left-arrow.png";
 
@@ -36,62 +36,20 @@ import spitiGallery from "../galleryData/spitiGallery";
 import uzbekistanGallery from "../galleryData/uzbekistanGallery";
 
 const initialDestinations = [
-  {
-    title: "Kyrgyzstan",
-    img: kyrgyzstanHero,
-  },
-  {
-    title: "Spain",
-    img: spainHero,
-  },
-  {
-    title: "Balkans",
-    img: balkansHero,
-  },
-  {
-    title: "India and Spain",
-    img: indiaSpainHero,
-  },
-  {
-    title: "India and Thailand",
-    img: indiaThailandHero,
-  },
-  {
-    title: "Kashmir",
-    img: kashmirHero,
-  },
-  {
-    title: "Mongolia",
-    img: mongoliaHero,
-  },
-  {
-    title: "New Zealand",
-    img: newZealandHero,
-  },
-  {
-    title: "North East",
-    img: northEastHero,
-  },
-  {
-    title: "Peru",
-    img: peruHero,
-  },
-  {
-    title: "Russia",
-    img: russiaHero,
-  },
-  {
-    title: "Scotland",
-    img: scoatlandHero,
-  },
-  {
-    title: "Spiti",
-    img: spitiHero,
-  },
-  {
-    title: "Uzbekistan",
-    img: uzbekistanHero,
-  },
+  { id: 0, title: "Kyrgyzstan", img: kyrgyzstanHero },
+  { id: 1, title: "Spain", img: spainHero },
+  { id: 2, title: "Balkans", img: balkansHero },
+  { id: 3, title: "India and Spain", img: indiaSpainHero },
+  { id: 4, title: "India and Thailand", img: indiaThailandHero },
+  { id: 5, title: "Kashmir", img: kashmirHero },
+  { id: 6, title: "Mongolia", img: mongoliaHero },
+  { id: 7, title: "New Zealand", img: newZealandHero },
+  { id: 8, title: "North East", img: northEastHero },
+  { id: 9, title: "Peru", img: peruHero },
+  { id: 10, title: "Russia", img: russiaHero },
+  { id: 11, title: "Scotland", img: scoatlandHero },
+  { id: 12, title: "Spiti", img: spitiHero },
+  { id: 13, title: "Uzbekistan", img: uzbekistanHero },
 ];
 
 const CARD_WIDTH = 240;
@@ -108,7 +66,6 @@ const GallerySection = () => {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [previousIndex, setPreviousIndex] = useState(null);
 
   const [backgroundImg] = useState(galleryHero);
 
@@ -166,8 +123,6 @@ const GallerySection = () => {
 
   const galleryData = getGalleryData();
 
-  const [expandingCard, setExpandingCard] = useState(null);
-  const [cardStyle, setCardStyle] = useState({});
   const [sliderOffset, setSliderOffset] = useState(0);
   const [animateSlider, setAnimateSlider] = useState(false);
   const heroImages = destinations.map((item) => item.img);
@@ -183,38 +138,30 @@ const GallerySection = () => {
   const handleCardClick = (index, visibleCards) => {
     const selected = visibleCards[index];
 
-    // 👉 Find actual index in full array
-    const selectedIndex = destinations.findIndex(
-      (item) => item.img === selected.img,
-    );
-
-    if (selectedIndex === 0) return; // already first
+    if (destinations[0].id === selected.id) return;
 
     const previousActive = destinations[0];
 
-    // 🎯 Reorder:
-    // 1. Remove selected
-    // 2. Put selected at front
-    // 3. Move previous active to last
     const updated = [
       selected,
-      ...destinations.filter((item, i) => i !== selectedIndex && i !== 0),
+      ...destinations.filter(
+        (item) => item.id !== selected.id && item.id !== previousActive.id,
+      ),
       previousActive,
     ];
 
     setDestinations(updated);
-
-    // 🎯 Active state always first
     setActiveIndex(0);
 
-    // 🎯 Update content
+    // ✅ PERFECT sync with progress bar
+    setCurrentIndex(selected.id);
+
     setTextVisible(false);
     setTimeout(() => {
       setActiveDestination(selected);
       setTextVisible(true);
     }, 300);
 
-    // 🎯 Smooth slide effect (optional)
     setAnimateSlider(true);
     setSliderOffset(-((CARD_WIDTH + GAP) * index));
 
@@ -250,14 +197,14 @@ const GallerySection = () => {
     ];
     setDestinations(rotated);
 
-    setCurrentIndex((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1));
+    setCurrentIndex(rotated[0].id);
   };
 
   const handleNext = () => {
     const rotated = [...destinations.slice(1), destinations[0]];
     setDestinations(rotated);
 
-    setCurrentIndex((prev) => (prev === heroImages.length - 1 ? 0 : prev + 1));
+    setCurrentIndex(rotated[0].id);
   };
 
   const GalleryItem = ({ img, rowSpan = 1, colSpan = 1 }) => (
