@@ -312,7 +312,8 @@
   .horizontal-track {
     overflow-x: auto;        /* ✅ horizontal scroll */
     overflow-y: hidden;
-    touch-action: pan-x;
+    /* Allow normal vertical scrolling while still supporting horizontal swipes */
+    touch-action: auto;
     scroll-snap-type: x mandatory; /* 🔥 smooth snapping */
     -webkit-overflow-scrolling: touch;
   }
