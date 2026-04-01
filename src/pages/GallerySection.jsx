@@ -59,7 +59,7 @@ const GallerySection = () => {
   const [destinations, setDestinations] = useState(initialDestinations);
   const [scrollY, setScrollY] = useState(0);
   const [activeDestination, setActiveDestination] = useState(
-    initialDestinations[initialDestinations.length - 1],
+    initialDestinations[0],
   );
 
   const [textVisible, setTextVisible] = useState(true);
@@ -151,9 +151,10 @@ const GallerySection = () => {
     ];
 
     setDestinations(updated);
+
+    // ✅ FIX: always 0 because selected moves to front
     setActiveIndex(0);
 
-    // ✅ PERFECT sync with progress bar
     setCurrentIndex(selected.id);
 
     setTextVisible(false);
@@ -190,6 +191,16 @@ const GallerySection = () => {
     };
   }, []);
 
+  const handleNext = () => {
+    const rotated = [...destinations.slice(1), destinations[0]];
+    setDestinations(rotated);
+
+    // ✅ FIX: active always first
+    setActiveDestination(rotated[0]);
+    setCurrentIndex(rotated[0].id);
+    setActiveIndex(0);
+  };
+
   const handlePrev = () => {
     const rotated = [
       destinations[destinations.length - 1],
@@ -197,14 +208,10 @@ const GallerySection = () => {
     ];
     setDestinations(rotated);
 
+    // ✅ FIX: active always first
+    setActiveDestination(rotated[0]);
     setCurrentIndex(rotated[0].id);
-  };
-
-  const handleNext = () => {
-    const rotated = [...destinations.slice(1), destinations[0]];
-    setDestinations(rotated);
-
-    setCurrentIndex(rotated[0].id);
+    setActiveIndex(0);
   };
 
   const GalleryItem = ({ img, rowSpan = 1, colSpan = 1 }) => (
@@ -296,7 +303,7 @@ const GallerySection = () => {
               display: "flex",
               flexDirection: "column", // ⭐ STACK vertically
               alignItems: "center",
-              mt: { md: 6 },
+              mt: { md: 8, xs:6 },
             }}
           >
             {/* ===== SLIDER ===== */}
@@ -392,7 +399,7 @@ const GallerySection = () => {
             {/* ===== CONTROLS (NOW BELOW) ===== */}
             <Box
               sx={{
-                mt: 4, // ⭐ space below cards
+                mt: 2, // ⭐ space below cards
                 display: "flex",
                 alignItems: "center",
                 gap: 1,
