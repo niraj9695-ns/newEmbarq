@@ -19,6 +19,7 @@ import scoatlandHero from "../assets/gallery/Scotland/scotland.jpg";
 import spainHero from "../assets/gallery/Spain/spain.jpg";
 import spitiHero from "../assets/gallery/Spiti/spiti.jpg";
 import uzbekistanHero from "../assets/gallery/Uzbekistan/uzbekistan.jpg";
+import k2k from "../assets/gallery/K2k2026/K2K.jpg";
 
 import kyrgyzstanGallery from "../../src/galleryData/kyrgyzstanGallery";
 import spainGallery from "../../src/galleryData/spainGallery";
@@ -34,6 +35,7 @@ import russiaGallery from "../galleryData/russiaGallery";
 import scotlandGallery from "../galleryData/scotlandGallery";
 import spitiGallery from "../galleryData/spitiGallery";
 import uzbekistanGallery from "../galleryData/uzbekistanGallery";
+import k2kGallery from "../galleryData/k2kGallery";
 
 const initialDestinations = [
   { id: 0, title: "Kyrgyzstan", img: kyrgyzstanHero },
@@ -50,6 +52,7 @@ const initialDestinations = [
   { id: 11, title: "Scotland", img: scoatlandHero },
   { id: 12, title: "Spiti", img: spitiHero },
   { id: 13, title: "Uzbekistan", img: uzbekistanHero },
+  { id: 14, title: "K2K 2026", img: k2k },
 ];
 
 const CARD_WIDTH = 240;
@@ -116,6 +119,8 @@ const GallerySection = () => {
         return spitiGallery;
       case "Uzbekistan":
         return uzbekistanGallery;
+      case "K2K 2026":
+        return k2kGallery;
       default:
         return [];
     }
