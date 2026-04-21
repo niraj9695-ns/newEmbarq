@@ -33,6 +33,7 @@ const expeditions = [
     image: k2k,
     brochure: k2kPdf,
     status: "Completed",
+    slug: "k2k2026", // ✅ ADD THIS
   },
   {
     title: "Scotland",
@@ -40,7 +41,8 @@ const expeditions = [
     date: "8th to 17th May, 2026",
     image: slide2,
     brochure: scotlandPdf,
-     status: "Upcoming",
+    status: "Upcoming",
+    slug: "scotland", // ✅
   },
   {
     title: "Romania",
@@ -48,7 +50,8 @@ const expeditions = [
     date: "20th to 28th June, 2026",
     image: slide3,
     brochure: romaniaPdf,
-     status: "Upcoming",
+    status: "Upcoming",
+    slug: "romania",
   },
   {
     title: "Georgia",
@@ -56,7 +59,8 @@ const expeditions = [
     date: "8th to 16th August, 2026",
     image: slide4,
     brochure: georgiaPdf,
-     status: "Upcoming",
+    status: "Upcoming",
+    slug: "georgia",
   },
   {
     title: "South Korea",
@@ -64,7 +68,8 @@ const expeditions = [
     date: "21st to 29th November, 2026",
     image: slide6,
     brochure: koreaPdf,
-     status: "Upcoming",
+    status: "Upcoming",
+    slug: "southkorea",
   },
   {
     title: "Finland",
@@ -72,7 +77,8 @@ const expeditions = [
     date: "5th to 13th December, 2026",
     image: slide7,
     brochure: finlandPdf,
-     status: "Upcoming",
+    status: "Upcoming",
+    slug: "finland",
   },
 ];
 

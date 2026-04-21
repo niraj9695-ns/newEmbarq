@@ -9,7 +9,8 @@ import Itinerary from "../../components/expedition/Itinerary";
 import InclusionExclusion from "../../components/expedition/ExpeditionInclusionExclusion";
 import ExpeditionsCardScroll from "../../components/expedition/ExpeditionsCardScroll";
 import DownloadPDFButton from "../../components/expedition/DownloadButton";
-
+import RoutePlan1 from "../../components/expedition/RoutePlan1";
+import RoutePlan2 from "../../components/expedition/RoutePlan2";
 function Expedition() {
   const { slug } = useParams(); // 👈 key step
 
@@ -25,6 +26,8 @@ function Expedition() {
       <HeroSection data={expedition.hero} />
       <AboutTrip data={expedition.about} />
       <RoutePlan data={expedition.route} />
+      {/* <RoutePlan1 data={expedition.route} />
+      <RoutePlan2 data={expedition.route} /> */}
       <Itinerary data={expedition.itinerary} pageKey={slug} />
        <DownloadPDFButton slug={slug} />
 

@@ -16,10 +16,7 @@
   margin-bottom: 60px;
 }
 
-/* ============================= */
 /* IMAGE WRAPPER */
-/* ============================= */
-
 .route-image-wrapper {
   width: 100%;
   display: flex;
@@ -27,11 +24,7 @@
   align-items: center;
 }
 
-/* ============================= */
 /* IMAGES */
-/* ============================= */
-
-/* DESKTOP IMAGE */
 .route-image {
   width: 100%;
   max-width: 100%;
@@ -39,13 +32,107 @@
   display: block;
 }
 
-/* MOBILE IMAGE (hidden by default) */
-.route-image.mobile {
+.rp-desktop-img {
+  display: block;
+}
+
+.rp-mobile-box {
   display: none;
+  text-align: center;
+}
+
+/* BUTTON */
+.rp-explore-btn {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #f6b43f, #e09c2a);
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+}
+
+.rp-explore-btn:hover {
+  transform: translateY(-2px);
 }
 
 /* ============================= */
-/* MOBILE STYLES */
+/* MODAL */
+/* ============================= */
+
+.rp-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fcf5e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Close Button */
+.rp-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.08);
+  border: none;
+  color: #333;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Image container */
+.rp-modal-content {
+  width: 92%;
+  height: 70%; /* reduced height for better spacing */
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 12px;
+}
+
+/* Reduced image size */
+.rp-modal-image {
+  height: 70%; /* slightly smaller */
+  width: auto;
+  min-width: 700px; /* still scrollable */
+  margin: auto;
+  display: block;
+}
+
+/* ============================= */
+/* SCROLL INDICATOR */
+/* ============================= */
+
+.rp-scroll-indicator {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.08);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  color: #333;
+  animation: rpFade 1.5s infinite alternate;
+}
+
+@keyframes rpFade {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+/* ============================= */
+/* MOBILE */
 /* ============================= */
 
 @media (max-width: 768px) {
@@ -56,20 +143,20 @@
 
   .route-title {
     font-size: 38px;
-    margin-bottom: 40px; /* 👈 controlled spacing */
+    margin-bottom: 40px;
   }
 
-  /* HIDE DESKTOP IMAGE */
-  .route-image {
+  .rp-desktop-img {
     display: none;
   }
 
-  /* SHOW MOBILE IMAGE */
-/* SHOW MOBILE IMAGE */
-.route-image.mobile {
-  width: 90%;        /* increase size */
-  max-width: 420px;  /* prevents it from becoming too large */
-  margin: 0 auto;
-  display: block;
-}
+  .rp-mobile-box {
+    display: block;
+  }
+
+  .rp-mobile-img {
+    width: 90%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
 }

@@ -1,5 +1,6 @@
 import "./UpcomingExpeditions/UpcomingExpeditions.css";
 import download from "../assets/svg/download.svg";
+import { Link } from "react-router-dom";
 
 export default function ExpeditionSlide({
   image,
@@ -7,8 +8,11 @@ export default function ExpeditionSlide({
   subtitle,
   date,
   brochure,
-  status
+  status,
+  slug
 }) {
+
+  
   return (
     <div
       className="expedition-slide"
@@ -30,10 +34,17 @@ export default function ExpeditionSlide({
         <p className="slide-subtitle">{subtitle}</p>
 
         {/* CTA BUTTON (NEW) */}
-        <a href={brochure} download className="brochure-btn">
-          <img src={download} alt="download" />
-          Download Brochure
-        </a>
+<div className="cta-buttons">
+  <a href={brochure} download className="brochure-btn">
+    <img src={download} alt="download" />
+    Download Brochure
+  </a>
+
+  <Link to={`/expedition/${slug}`} className="brochure-btn">
+    Learn More
+  </Link>
+</div>
+        
       </div>
     </div>
   );

@@ -271,7 +271,8 @@
 @media (max-width: 768px) {
  .prev-arrow,
   .next-arrow {
-    display: none;
+    /* display: none; */
+    margin-top: 2.8rem;
   }
   .slide-overlay {
     left: 20px;
@@ -382,4 +383,10 @@
 .brochure-btn img {
   width: 16px;
   height: 16px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }

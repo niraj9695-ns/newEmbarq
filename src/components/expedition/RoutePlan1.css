@@ -1,0 +1,134 @@
+/* SECTION */
+.rp1-section {
+  background-color: #fcf5e4;
+  padding: 10px 24px 20px;
+}
+
+.rp1-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rp1-title {
+  font-family: "Fraunces", serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #f6b43f;
+  margin-bottom: 60px;
+}
+
+/* IMAGE */
+.rp1-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.rp1-desktop-img {
+  width: 100%;
+  display: block;
+}
+
+.rp1-mobile-box {
+  display: none;
+  text-align: center;
+}
+
+.rp1-mobile-img {
+  width: 90%;
+  max-width: 420px;
+  margin: auto;
+}
+
+/* BUTTON */
+.rp1-explore-btn {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #f6b43f, #e09c2a);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* MODAL */
+.rp1-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: #fcf5e4;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CLOSE */
+.rp1-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 22px;
+  background: rgba(0,0,0,0.08);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* VIEWER */
+.rp1-viewer {
+  width: 95%;
+  height: 70%;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+}
+
+/* TRACK (for scaling) */
+.rp1-image-track {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+/* IMAGE */
+.rp1-modal-img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ZOOM CONTROLS */
+.rp1-zoom-controls {
+  position: absolute;
+  bottom: 25px;
+  display: flex;
+  gap: 12px;
+}
+
+.rp1-zoom-controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  background: rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .rp1-title {
+    font-size: 38px;
+    margin-bottom: 40px;
+  }
+
+  .rp1-desktop-img {
+    display: none;
+  }
+
+  .rp1-mobile-box {
+    display: block;
+  }
+}
