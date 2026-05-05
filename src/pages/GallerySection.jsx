@@ -69,8 +69,6 @@ const GallerySection = () => {
   const [isHeroVisible, setIsHeroVisible] = useState(true);
 
   const [activeIndex, setActiveIndex] = useState(0);
-  const [autoDirection, setAutoDirection] = useState(1);
-  const [pauseAutoScroll, setPauseAutoScroll] = useState(false);
 
   const [backgroundImg] = useState(galleryHero);
 
@@ -221,21 +219,6 @@ const GallerySection = () => {
     setActiveIndex(0);
   };
 
-  useEffect(() => {
-    if (pauseAutoScroll) return undefined;
-
-    const autoScrollTimer = setInterval(() => {
-      if (autoDirection === 1) {
-        handleNext();
-      } else {
-        handlePrev();
-      }
-      setAutoDirection((prev) => prev * -1);
-    }, 3000);
-
-    return () => clearInterval(autoScrollTimer);
-  }, [autoDirection, pauseAutoScroll, destinations]);
-
   const GalleryItem = ({ img, rowSpan = 1, colSpan = 1 }) => (
     <Box
       sx={{
@@ -335,16 +318,10 @@ const GallerySection = () => {
                 width: "100%",
                 display: "flex",
                 justifyContent: { xs: "flex-start", md: "center" },
-                overflowX: "auto",
+                overflowX: { xs: "hidden", md: "hidden" },
                 px: { xs: 2, md: 0 },
                 scrollBehavior: "smooth",
-                "&::-webkit-scrollbar": { display: "none" },
-                scrollbarWidth: "none",
               }}
-              onMouseEnter={() => setPauseAutoScroll(true)}
-              onMouseLeave={() => setPauseAutoScroll(false)}
-              onTouchStart={() => setPauseAutoScroll(true)}
-              onTouchEnd={() => setPauseAutoScroll(false)}
             >
               <Box
                 sx={{
