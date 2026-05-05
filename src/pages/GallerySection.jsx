@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Container, Typography, IconButton } from "@mui/material";
+import { Box, Container, Typography, IconButton , useTheme, useMediaQuery } from "@mui/material";
 import rightArrow from "../assets/gallery/right-arrow.png";
 import leftArrow from "../assets/gallery/left-arrow.png";
 
@@ -90,7 +90,8 @@ const GallerySection = () => {
       "100%": { transform: "scale(1.08)" },
     },
   };
-
+const theme = useTheme();
+const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const getGalleryData = () => {
     switch (activeDestination.title) {
       case "Kyrgyzstan":
@@ -222,19 +223,15 @@ const GallerySection = () => {
   };
 
   useEffect(() => {
-    if (pauseAutoScroll) return undefined;
+  // ✅ Pause if user is interacting OR slider is not visible
+  if (pauseAutoScroll || !isHeroVisible) return;
 
-    const autoScrollTimer = setInterval(() => {
-      if (autoDirection === 1) {
-        handleNext();
-      } else {
-        handlePrev();
-      }
-      setAutoDirection((prev) => prev * -1);
-    }, 3000);
+  const autoScrollTimer = setInterval(() => {
+    handleNext();
+  }, 3000);
 
-    return () => clearInterval(autoScrollTimer);
-  }, [autoDirection, pauseAutoScroll, destinations]);
+  return () => clearInterval(autoScrollTimer);
+}, [pauseAutoScroll, isHeroVisible, destinations]);
 
   const GalleryItem = ({ img, rowSpan = 1, colSpan = 1 }) => (
     <Box
@@ -264,9 +261,9 @@ const GallerySection = () => {
   );
 
   // 👇 Only show 3 non-active cards
-  const visibleCards = destinations
-    .filter((item) => item.img !== backgroundImg)
-    .slice(0, 5);
+const visibleCards = destinations
+  .filter((item) => item.img !== backgroundImg)
+  .slice(0, isMobile ? destinations.length : 5);
 
   return (
     <>
@@ -361,7 +358,7 @@ const GallerySection = () => {
               >
                 {visibleCards.map((item, index) => (
                   <Box
-                    key={index}
+                    key={item.id}
                     ref={(el) => (cardRefs.current[index] = el)}
                     onClick={() => handleCardClick(index, visibleCards)}
                     sx={{
