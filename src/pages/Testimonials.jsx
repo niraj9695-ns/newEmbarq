@@ -283,7 +283,7 @@ const Testimonials = () => {
                   <CardContent sx={{ flex: 1 }}>
                     <Typography
                       sx={{
-                        color: "#fff",
+                        color: "#F6A61D",
                         fontWeight: 600,
                         mb: 2,
                         fontSize: { xs: 16, md: 18 },

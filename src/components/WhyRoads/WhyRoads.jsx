@@ -41,33 +41,40 @@ export default function ExpWhyRoads() {
 
           {/* Paragraphs */}
           <motion.p variants={fadeSlide}>
-            Ever felt the freedom and allure, Of a time that is captivating and
+            Ever felt the freedom and allure, 
+            <br />
+            Of a time that is captivating and
             pure.
           </motion.p>
 
           <motion.p variants={fadeSlide}>
-            Ever felt the heart and soul beating in unity, For seconds that
-            appears like an eternity.
+            Ever felt the heart and soul beating in unity, 
+            <br />
+            For seconds that appears like an eternity.
           </motion.p>
 
           <motion.p variants={fadeSlide}>
-            Ever let the road take hold and sweep you away, to a world of wonder
-            where you are free to play.
+            Ever let the road take hold and sweep you away, 
+            <br />
+            to a world of wonder where you are free to play.
           </motion.p>
 
           <motion.p variants={fadeSlide}>
-            Ever let the journey become an eternal memory, An untold story, a
-            cherished legacy.
+            Ever let the journey become an eternal memory,  
+            <br />
+            An untold story, a cherished legacy.
           </motion.p>
 
           <motion.p variants={fadeSlide}>
-            Embark on an expedition of life changing discovery, Let the road
-            overtake and open up a new territory.
+            Embark on an expedition of life changing discovery, 
+            <br />
+            Let the road overtake and open up a new territory.
           </motion.p>
 
           <motion.p variants={fadeSlide}>
-            Take a step forward and let your spirit lead the way, Rediscover
-            yourself with our adventurous getaway.
+            Take a step forward and let your spirit lead the way,
+            <br /> 
+            Rediscover yourself with our adventurous getaway.
           </motion.p>
         </motion.div>
       </div>

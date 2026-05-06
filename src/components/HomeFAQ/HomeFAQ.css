@@ -12,7 +12,7 @@
   color: #f6a61d;
   margin-bottom: 2.2rem;
   /* 🔧 reduce space below title */
-  text-transform: lowercase;
+  text-transform: none;
   text-align: center;
 }
 
