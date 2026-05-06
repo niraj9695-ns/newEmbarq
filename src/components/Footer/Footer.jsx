@@ -5,7 +5,6 @@ import {
   Mail,
   Facebook,
   Instagram,
-  X,
   Linkedin,
   Youtube,
 } from "lucide-react";

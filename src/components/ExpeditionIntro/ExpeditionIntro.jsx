@@ -5,8 +5,6 @@ import bgImage from "../../assets/images/expbg.webp";
 import expcar1 from "../../assets/images/excar1.webp";
 import expcar2 from "../../assets/images/excar2.webp";
 
-import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
-
 // TEXT STAGGER CONTAINER
 const container = {
   hidden: {},
@@ -22,14 +20,14 @@ const fadeLeft = {
   hidden: {
     x: -80,
     opacity: 0,
-    filter: "blur(6px)",   // 👈 add this
+    filter: "blur(6px)", // 👈 add this
   },
   visible: {
     x: 0,
     opacity: 1,
-    filter: "blur(0px)",   // 👈 smooth clarity effect
+    filter: "blur(0px)", // 👈 smooth clarity effect
     transition: {
-      duration: 1.4,       // 👈 slower (was 0.8)
+      duration: 1.4, // 👈 slower (was 0.8)
       ease: [0.22, 1, 0.36, 1], // 👈 premium easing
     },
   },
@@ -106,7 +104,6 @@ export default function ExpeditionIntro() {
       </motion.div>
 
       <div className="expedition-content">
-
         {/* TEXT */}
         <motion.div
           className="expedition-text"
@@ -120,13 +117,14 @@ export default function ExpeditionIntro() {
           </motion.h2>
 
           <motion.p variants={fadeLeft}>
-            We are a luxury travel company focusing on road expeditions.
-            We organize self-drive tours in the most incredible places on earth.
+            We are a luxury travel company focusing on road expeditions. We
+            organize self-drive tours in the most incredible places on earth.
           </motion.p>
 
           <motion.p variants={fadeLeft}>
-            Our experiences are exclusive and unforgettable. Our routes are handcrafted
-            and full of adventure. Our vehicles are premium and luxurious.
+            Our experiences are exclusive and unforgettable. Our routes are
+            handcrafted and full of adventure. Our vehicles are premium and
+            luxurious.
           </motion.p>
 
           <motion.p variants={fadeLeft}>
@@ -141,7 +139,6 @@ export default function ExpeditionIntro() {
 
         {/* CAR CARDS */}
         <div className="expedition-cards">
-
           <motion.div
             className="expedition-card big-card"
             variants={bigCardAnim}
@@ -161,7 +158,6 @@ export default function ExpeditionIntro() {
           >
             <img src={expcar2} alt="" />
           </motion.div>
-
         </div>
       </div>
       {/* <GlobalScrollDownNRJ /> */}
