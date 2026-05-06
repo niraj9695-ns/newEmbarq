@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-import { Plane, Menu, X, PhoneCall } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import playIcon from "../../assets/navbar/DropdownArrow.png";
 import EnquiryPopup from "../../pages/EnquiryPopup";
 import { motion, AnimatePresence } from "framer-motion";
 import navcar from "../../assets/svg/navcar.svg";
@@ -11,6 +12,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [enquiryOpen, setEnquiryOpen] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
 
   const menuRef = useRef(null);
   const location = useLocation();
@@ -103,9 +105,9 @@ function Navbar() {
               onMouseEnter={() => setShowDropdown(true)}
               onMouseLeave={() => setShowDropdown(false)}
             >
-             <Link to="/expeditions" className="dropdown-title">
-  Expeditions
-</Link>
+              <Link to="/expeditions" className="dropdown-title">
+                Expeditions
+              </Link>
               <AnimatePresence>
                 {showDropdown && (
                   <motion.div
@@ -155,84 +157,63 @@ function Navbar() {
 
       {/* MOBILE MENU */}
       <div ref={menuRef} className={`mobile-menu ${open ? "show" : ""}`}>
-        <Link to="/about" onClick={closeMenu}>
-          About
-        </Link>
-        <div className="mobile-dropdown">
-          {/* <div
-            className="mobile-dropdown-header"
-            onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
-          >
-            Expeditions
-          </div> */}
-<Link
-  to="/expeditions"
-  className="mobile-dropdown-header"
-  onClick={closeMenu}
->
-  Expeditions
-</Link>
-          {/* <AnimatePresence>
+        {/* ✅ TOP HEADER */}
+        <div className="mobile-menu-header">
+          <img src={logo} alt="Embarq" className="mobile-logo" />
+        </div>
+
+        {/* MENU ITEMS */}
+        <div className="mobile-menu-content">
+          <Link to="/about" onClick={closeMenu}>
+            About
+          </Link>
+
+          <div className="mobile-dropdown">
+            <div
+              className="mobile-dropdown-header"
+              onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+            >
+              Expeditions
+              <img
+                src={playIcon}
+                alt="arrow"
+                className={`dropdown-arrow ${mobileDropdownOpen ? "rotate" : ""}`}
+              />
+            </div>
+
             {mobileDropdownOpen && (
-              <motion.div
-                className="mobile-dropdown-content"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-              >
+              <div className="mobile-dropdown-content">
                 {expeditionList.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/expedition/${item.slug}`}
-                    onClick={() => {
-                      closeMenu();
-                      setMobileDropdownOpen(false);
-                    }}
+                    onClick={closeMenu}
                   >
                     {item.name}
                   </Link>
                 ))}
-              </motion.div>
+              </div>
             )}
-          </AnimatePresence> */}
-          <div className="mobile-dropdown-content">
-  {expeditionList.map((item) => (
-    <Link
-      key={item.slug}
-      to={`/expedition/${item.slug}`}
-      onClick={closeMenu}
-    >
-      {item.name}
-    </Link>
-  ))}
-</div>
+          </div>
+
+          <Link to="/gallery" onClick={closeMenu}>
+            Gallery
+          </Link>
+          <Link to="/testimonials" onClick={closeMenu}>
+            Testimonials
+          </Link>
+          <Link to="/media" onClick={closeMenu}>
+            In the Media
+          </Link>
+
+          <button
+            className="book-btn mobile-book-btn"
+            onClick={handleOpenEnquiry}
+          >
+            <img src={navcar} alt="car icon" className="navcar-icon" />
+            Book a Trip
+          </button>
         </div>
-        <Link to="/gallery" onClick={closeMenu}>
-          Gallery
-        </Link>
-        {/* <Link to="/stories" onClick={closeMenu}>
-          Travel Stories
-        </Link> */}
-        <Link to="/testimonials" onClick={closeMenu}>
-          Testimonials
-        </Link>
-        <Link to="/media" onClick={closeMenu}>
-          In the Media
-        </Link>
-        {/* <Link to="/faq" onClick={closeMenu}>
-          FAQ
-        </Link> */}
-
-        {/* <a href="tel:8867809433" className="call-btn">
-  <PhoneCall size={16} />
-  Call
-</a> */}
-
-        <button className="book-btn" onClick={handleOpenEnquiry}>
-          <img src={navcar} alt="car icon" className="navcar-icon" />
-          Book a Trip
-        </button>
       </div>
 
       <EnquiryPopup open={enquiryOpen} handleClose={handleCloseEnquiry} />
