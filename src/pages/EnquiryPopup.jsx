@@ -9,7 +9,7 @@ import {
   TextField,
   Stack,
   Select,
-  MenuItem
+  MenuItem,FormControl, FormHelperText
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import emailjs from "@emailjs/browser";
@@ -24,37 +24,77 @@ export default function EnquiryPopup({ open, handleClose }) {
     expedition: "",
     message: ""
   });
-
+  const [successMsg, setSuccessMsg] = useState("");
+const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+const validate = () => {
+  let newErrors = {};
 
+  if (!form.name.trim()) {
+    newErrors.name = "Name is required";
+  } else if (form.name.length < 3) {
+    newErrors.name = "Minimum 3 characters required";
+  }
+
+  if (!form.email) {
+    newErrors.email = "Email is required";
+  } else if (!isEmail(form.email)) {
+    newErrors.email = "Invalid email format";
+  }
+
+  if (!form.phone) {
+    newErrors.phone = "Phone is required";
+  } else if (!isPhone(form.phone)) {
+    newErrors.phone = "Enter valid 10-digit Indian number";
+  }
+
+  if (!form.city.trim()) {
+    newErrors.city = "City is required";
+  }
+
+  if (!form.expedition) {
+    newErrors.expedition = "Please select expedition";
+  }
+
+  if (!form.message.trim()) {
+    newErrors.message = "Message cannot be empty";
+  } else if (form.message.length < 5) {
+    newErrors.message = "Message should be at least 5 characters";
+  }
+
+  setErrors(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
   const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
   const isPhone = (val) => /^[6-9]\d{9}$/.test(val);
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+ const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!isEmail(form.email)) return alert("Enter valid email");
-    if (!isPhone(form.phone)) return alert("Enter valid phone number");
+  if (!validate()) return;
 
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        {
-          user_name: form.name,
-          user_email: form.email,
-          user_phone: form.phone,
-          user_city: form.city,
-          user_expedition: form.expedition,
-          user_message: form.message
-        },
-        "YOUR_PUBLIC_KEY"
-      );
+  try {
+    const res = await emailjs.send(
+      "service_pvpvpko",
+      "template_0wgx4p2",
+      {
+        user_name: form.name,
+        user_email: form.email,
+        user_phone: form.phone,
+        user_city: form.city,
+        user_expedition: form.expedition,
+        user_message: form.message
+      },
+      "e1g2avhWWng2DaSoX"
+    );
+
+    if (res.status === 200) {
+      setSuccessMsg("Successfully sent your enquiry!");
 
       setForm({
         name: "",
@@ -65,13 +105,21 @@ export default function EnquiryPopup({ open, handleClose }) {
         message: ""
       });
 
-      handleClose();
-    } catch (err) {
-      console.error(err);
-    }
+      setErrors({});
 
-    setLoading(false);
-  };
+      // show message for a moment before closing
+      setTimeout(() => {
+        setSuccessMsg("");
+        handleClose();
+      }, 1500);
+    }
+  } catch (err) {
+    console.error(err);
+    setSuccessMsg("Failed to send. Please try again.");
+  }
+
+  setLoading(false);
+};
 useEffect(() => {
   if (open) {
     document.body.style.overflow = "hidden";
@@ -182,104 +230,135 @@ useEffect(() => {
             <Box component="form" onSubmit={handleSubmit}>
               
               {/* Row 1: Name */}
-              <TextField
-                fullWidth
-                name="name"
-                placeholder="Enter your Name"
-                value={form.name}
-                onChange={handleChange}
-                sx={{ ...inputStyles, mb: 1 }}
-              />
+             <TextField
+  fullWidth
+  name="name"
+  placeholder="Enter your Name"
+  value={form.name}
+  onChange={handleChange}
+  error={!!errors.name}
+  helperText={errors.name}
+  sx={{ ...inputStyles, mb: 1 }}
+/>
 
               {/* Row 2: Email + Phone */}
               <Stack direction={{ xs: "column", md: "row" }} spacing={1} mb={1}>
                 <TextField
-                  fullWidth
-                  name="email"
-                  placeholder="Email Address"
-                  value={form.email}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
-                <TextField
-                  fullWidth
-                  name="phone"
-                  placeholder="Phone Number"
-                  value={form.phone}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
+  fullWidth
+  name="email"
+  placeholder="Email Address"
+  value={form.email}
+  onChange={handleChange}
+  error={!!errors.email}
+  helperText={errors.email}
+  sx={inputStyles}
+/>
+               <TextField
+  fullWidth
+  name="phone"
+  placeholder="Phone Number"
+  value={form.phone}
+  onChange={handleChange}
+  error={!!errors.phone}
+  helperText={errors.phone}
+  sx={inputStyles}
+/>
               </Stack>
 
               {/* Row 3: Expedition + City */}
               <Stack direction={{ xs: "column", md: "row" }} spacing={1} mb={1}>
-              <Select
+              <FormControl
   fullWidth
-  name="expedition"
-  value={form.expedition}
-  onChange={handleChange}
-  displayEmpty
-  renderValue={(selected) => {
-    if (!selected) {
-      return (
-        <span style={{ color: "rgba(0,0,0,0.5)" }}>
-          Choose Expedition
-        </span>
-      );
-    }
-    return selected;
-  }}
-  sx={selectStyles}
-  MenuProps={{
-    disablePortal: true,
-    PaperProps: {
-      sx: {
-        maxHeight: 200
-      }
-    },
-    MenuListProps: {
-      sx: {
-        maxHeight: 200,
-        overflowY: "auto"   // ✅ THIS is the real scroll container
-      },
-      onWheel: (e) => e.stopPropagation(),     // ✅ stop background scroll
-      onTouchMove: (e) => e.stopPropagation()  // ✅ mobile fix
-    }
-  }}
+  error={!!errors.expedition}
+  sx={{ mb: 1 }}
 >
-  <MenuItem value="" disabled>
-    Choose Expedition
-  </MenuItem>
-  <MenuItem value="Scotland">Scotland</MenuItem>
-  <MenuItem value="Romania">Romania</MenuItem>
-  <MenuItem value="Georgia">Georgia</MenuItem>
-  <MenuItem value="South Korea">South Korea</MenuItem>
-  <MenuItem value="Finland">Finland</MenuItem>
+  <Select
+    name="expedition"
+    value={form.expedition}
+    onChange={handleChange}
+    displayEmpty
+    renderValue={(selected) => {
+      if (!selected) {
+        return (
+          <span style={{ color: "rgba(0,0,0,0.5)" }}>
+            Choose Expedition
+          </span>
+        );
+      }
+      return selected;
+    }}
+    sx={{
+      ...selectStyles,
 
+      // 🔴 Highlight border on error (since you removed default outline)
+      ...(errors.expedition && {
+        boxShadow: "0 0 0 1px red"
+      })
+    }}
+    MenuProps={{
+      disablePortal: true,
+      PaperProps: {
+        sx: {
+          maxHeight: 200
+        }
+      },
+      MenuListProps: {
+        sx: {
+          maxHeight: 200,
+          overflowY: "auto"
+        },
+        onWheel: (e) => e.stopPropagation(),
+        onTouchMove: (e) => e.stopPropagation()
+      }
+    }}
+  >
+    <MenuItem value="" disabled>
+      Choose Expedition
+    </MenuItem>
+    <MenuItem value="Scotland">Scotland</MenuItem>
+    <MenuItem value="Romania">Romania</MenuItem>
+    <MenuItem value="Georgia">Georgia</MenuItem>
+    <MenuItem value="South Korea">South Korea</MenuItem>
+    <MenuItem value="Finland">Finland</MenuItem>
+  </Select>
 
-</Select>
-
+  {/* ✅ Error message */}
+  <FormHelperText
+    sx={{
+      color: "#ff6b6b",
+      fontSize: "0.7rem",
+      mt: "4px",
+      ml: "14px"
+    }}
+  >
+    {errors.expedition}
+  </FormHelperText>
+</FormControl>
                 <TextField
-                  fullWidth
-                  name="city"
-                  placeholder="Your City"
-                  value={form.city}
-                  onChange={handleChange}
-                  sx={inputStyles}
-                />
+  fullWidth
+  name="city"
+  placeholder="Your City"
+  value={form.city}
+  onChange={handleChange}
+  error={!!errors.city}
+  helperText={errors.city}
+  sx={inputStyles}
+/>
               </Stack>
 
               {/* Row 4: Message */}
-              <TextField
-                fullWidth
-                multiline
-                rows={3}
-                name="message"
-                placeholder="Your Message"
-                value={form.message}
-                onChange={handleChange}
-                sx={{ ...inputStyles, mb: 1 }}
-              />
+             <TextField
+  fullWidth
+  multiline
+  rows={3}
+  name="message"
+  placeholder="Your Message"
+  value={form.message}
+  onChange={handleChange}
+  error={!!errors.message}
+  helperText={errors.message}
+  sx={{ ...inputStyles, mb: 1 }}
+/>
 
               {/* Submit */}
               <Button

@@ -1,4 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
+// import React, { useState } from "react";
+
+import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -774,7 +777,112 @@ function ExpeditionsCardScroll() {
     </Box>
   );
 }
+
+
+
 function PartnerForm() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    message: ""
+  });
+
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // Validators
+  const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isPhone = (val) => /^[6-9]\d{9}$/.test(val);
+
+  const validate = () => {
+    let newErrors = {};
+
+    if (!form.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (form.name.length < 3) {
+      newErrors.name = "Minimum 3 characters required";
+    }
+
+    if (!form.email) {
+      newErrors.email = "Email is required";
+    } else if (!isEmail(form.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!form.phone) {
+      newErrors.phone = "Phone is required";
+    } else if (!isPhone(form.phone)) {
+      newErrors.phone = "Enter valid 10-digit number";
+    }
+
+    if (!form.city.trim()) {
+      newErrors.city = "City is required";
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (form.message.length < 5) {
+      newErrors.message = "Minimum 5 characters required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm({ ...form, [name]: value });
+
+    // clear error on typing
+    setErrors((prev) => ({
+      ...prev,
+      [name]: ""
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        "service_pvpvpko",        // 🔁 replace if needed
+        "template_3y4o1t9",       // 🔁 replace if needed
+        {
+          user_name: form.name,
+          user_email: form.email,
+          user_phone: form.phone,
+          user_city: form.city,
+          user_message: form.message
+        },
+        "e1g2avhWWng2DaSoX"       // 🔁 replace if needed
+      );
+
+      // reset form
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        message: ""
+      });
+
+      setErrors({});
+      alert("Form submitted successfully!");
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Try again.");
+    }
+
+    setLoading(false);
+  };
+
   return (
     <Box
       sx={{
@@ -812,7 +920,6 @@ function PartnerForm() {
           textAlign: "center",
         }}
       >
-        {/* Title */}
         <Typography
           sx={{
             fontFamily: "Fraunces, serif",
@@ -824,21 +931,28 @@ function PartnerForm() {
           Buy the perfect gift! Get in touch
         </Typography>
 
-        {/* Form */}
-        <Box component="form">
+        <Box component="form" onSubmit={handleSubmit}>
           {/* Row 1 */}
           <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
             <TextField
               fullWidth
+              name="name"
               placeholder="Enter your Name"
-              variant="outlined"
+              value={form.name}
+              onChange={handleChange}
+              error={!!errors.name}
+              helperText={errors.name}
               sx={inputStyles}
             />
 
             <TextField
               fullWidth
+              name="email"
               placeholder="Email Address"
-              type="email"
+              value={form.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email}
               sx={inputStyles}
             />
           </Stack>
@@ -847,12 +961,25 @@ function PartnerForm() {
           <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
             <TextField
               fullWidth
+              name="phone"
               placeholder="Phone Number"
-              type="tel"
+              value={form.phone}
+              onChange={handleChange}
+              error={!!errors.phone}
+              helperText={errors.phone}
               sx={inputStyles}
             />
 
-            <TextField fullWidth placeholder="City" sx={inputStyles} />
+            <TextField
+              fullWidth
+              name="city"
+              placeholder="City"
+              value={form.city}
+              onChange={handleChange}
+              error={!!errors.city}
+              helperText={errors.city}
+              sx={inputStyles}
+            />
           </Stack>
 
           {/* Message */}
@@ -860,12 +987,19 @@ function PartnerForm() {
             fullWidth
             multiline
             rows={6}
+            name="message"
             placeholder="Your Message"
+            value={form.message}
+            onChange={handleChange}
+            error={!!errors.message}
+            helperText={errors.message}
             sx={{ ...inputStyles, mb: 3 }}
           />
 
           {/* Button */}
           <Button
+            type="submit"
+            disabled={loading}
             fullWidth
             sx={{
               py: 2.2,
@@ -881,13 +1015,15 @@ function PartnerForm() {
               },
             }}
           >
-            SUBMIT
+            {loading ? "Submitting..." : "SUBMIT"}
           </Button>
         </Box>
       </Box>
     </Box>
   );
 }
+
+// export default PartnerForm;
 
 const inputStyles = {
   "& .MuiOutlinedInput-root": {
@@ -968,6 +1104,108 @@ function MembersSection() {
 /* ================= MAIN PAGE ================= */
 
 export default function PartnershipPage() {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    city: "",
+    message: ""
+  });
+
+  const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  // Validators
+  const isEmail = (val) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const isPhone = (val) => /^[6-9]\d{9}$/.test(val);
+
+  const validate = () => {
+    let newErrors = {};
+
+    if (!form.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (form.name.length < 3) {
+      newErrors.name = "Minimum 3 characters required";
+    }
+
+    if (!form.email) {
+      newErrors.email = "Email is required";
+    } else if (!isEmail(form.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    if (!form.phone) {
+      newErrors.phone = "Phone is required";
+    } else if (!isPhone(form.phone)) {
+      newErrors.phone = "Enter valid 10-digit number";
+    }
+
+    if (!form.city.trim()) {
+      newErrors.city = "City is required";
+    }
+
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (form.message.length < 5) {
+      newErrors.message = "Minimum 5 characters required";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm({ ...form, [name]: value });
+
+    // clear error on typing
+    setErrors((prev) => ({
+      ...prev,
+      [name]: ""
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validate()) return;
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        "service_pvpvpko",        // 🔁 replace if needed
+        "template_3y4o1t9",       // 🔁 replace if needed
+        {
+          user_name: form.name,
+          user_email: form.email,
+          user_phone: form.phone,
+          user_city: form.city,
+          user_message: form.message
+        },
+        "e1g2avhWWng2DaSoX"       // 🔁 replace if needed
+      );
+
+      // reset form
+      setForm({
+        name: "",
+        email: "",
+        phone: "",
+        city: "",
+        message: ""
+      });
+
+      setErrors({});
+      alert("Form submitted successfully!");
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Try again.");
+    }
+
+    setLoading(false);
+  };
+
   return (
     <Box sx={{ bgcolor: "white" }}>
       {/* HERO */}
@@ -1121,66 +1359,93 @@ export default function PartnershipPage() {
             <strong>purpose-driven storytelling</strong> that resonates with
             audiences and drives meaningful impact.
           </Typography>
-          {/* Form */}
-          <Box component="form">
-            {/* Row 1 */}
-            <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
-              <TextField
-                fullWidth
-                placeholder="Enter your Name"
-                variant="outlined"
-                sx={inputStyles}
-              />
+          <Box component="form" onSubmit={handleSubmit}>
+  {/* Row 1 */}
+  <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
+    <TextField
+      fullWidth
+      name="name"
+      placeholder="Enter your Name"
+      value={form.name}
+      onChange={handleChange}
+      error={!!errors.name}
+      helperText={errors.name}
+      sx={inputStyles}
+    />
 
-              <TextField
-                fullWidth
-                placeholder="Email Address"
-                type="email"
-                sx={inputStyles}
-              />
-            </Stack>
+    <TextField
+      fullWidth
+      name="email"
+      placeholder="Email Address"
+      value={form.email}
+      onChange={handleChange}
+      error={!!errors.email}
+      helperText={errors.email}
+      sx={inputStyles}
+    />
+  </Stack>
 
-            {/* Row 2 */}
-            <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
-              <TextField
-                fullWidth
-                placeholder="Phone Number"
-                type="tel"
-                sx={inputStyles}
-              />
+  {/* Row 2 */}
+  <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
+    <TextField
+      fullWidth
+      name="phone"
+      placeholder="Phone Number"
+      value={form.phone}
+      onChange={handleChange}
+      error={!!errors.phone}
+      helperText={errors.phone}
+      sx={inputStyles}
+    />
 
-              <TextField fullWidth placeholder="City" sx={inputStyles} />
-            </Stack>
+    <TextField
+      fullWidth
+      name="city"
+      placeholder="City"
+      value={form.city}
+      onChange={handleChange}
+      error={!!errors.city}
+      helperText={errors.city}
+      sx={inputStyles}
+    />
+  </Stack>
 
-            {/* Message */}
-            <TextField
-              fullWidth
-              multiline
-              rows={6}
-              placeholder="Your Message"
-              sx={{ ...inputStyles, mb: 3 }}
-            />
+  {/* Message */}
+  <TextField
+    fullWidth
+    multiline
+    rows={6}
+    name="message"
+    placeholder="Your Message"
+    value={form.message}
+    onChange={handleChange}
+    error={!!errors.message}
+    helperText={errors.message}
+    sx={{ ...inputStyles, mb: 3 }}
+  />
 
-            {/* Button */}
-            <Button
-              fullWidth
-              sx={{
-                py: 2.2,
-                borderRadius: "40px",
-                fontFamily: "Roboto Flex, sans-serif",
-                fontWeight: 600,
-                letterSpacing: 1,
-                background: "#f2ad3d",
-                color: "#fff",
-                "&:hover": {
-                  background: "#e49a25",
-                  transform: "translateY(-2px)",
-                },
-              }}
-            >
-              SUBMIT
-            </Button>
-          </Box>
+  {/* Button */}
+  <Button
+    type="submit"
+    disabled={loading}
+    fullWidth
+    sx={{
+      py: 2.2,
+      borderRadius: "40px",
+      fontFamily: "Roboto Flex, sans-serif",
+      fontWeight: 600,
+      letterSpacing: 1,
+      background: "#f2ad3d",
+      color: "#fff",
+      "&:hover": {
+        background: "#e49a25",
+        transform: "translateY(-2px)",
+      },
+    }}
+  >
+    {loading ? "Submitting..." : "SUBMIT"}
+  </Button>
+</Box>
         </Container>
       </Box>
 
