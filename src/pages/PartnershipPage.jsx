@@ -10,8 +10,8 @@ import {
   TextField,
   Button,
   IconButton,
-   SvgIcon,
-   Stack
+  SvgIcon,
+  Stack,
 } from "@mui/material";
 // import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 // import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -63,7 +63,7 @@ const data = [
   { title: "Romania", image: romania, slug: "romania" },
   { title: "Georgia", image: georgia, slug: "georgia" },
   { title: "South Korea", image: southKorea, slug: "southkorea" },
-  { title: "Finland", image: finland, slug: "finland" }
+  { title: "Finland", image: finland, slug: "finland" },
 ];
 function TriangleLeft(props) {
   return (
@@ -185,8 +185,8 @@ function PinnedExpedition() {
           align="center"
           sx={{
             fontFamily: "Fraunces, serif",
-           fontWeight: 700,
-           fontSize: { xs: "1.5rem", md: "3rem" },
+            fontWeight: 700,
+            fontSize: { xs: "1.5rem", md: "3rem" },
             mb: 6,
             mt: 6,
           }}
@@ -588,14 +588,14 @@ function ExpeditionsCardScroll() {
         marginTop: 0,
       }}
     >
-     <Box
-  sx={{
-    display: "flex",
-    gap: { xs: 4, md: 10 },
-    alignItems: { xs: "flex-start",xm:"center", md: "center" }, // ✅ fix
-    flexDirection: { xs: "column", md: "row" },
-  }}
->
+      <Box
+        sx={{
+          display: "flex",
+          gap: { xs: 4, md: 10 },
+          alignItems: { xs: "flex-start", xm: "center", md: "center" }, // ✅ fix
+          flexDirection: { xs: "column", md: "row" },
+        }}
+      >
         {/* LEFT TITLE */}
 
         <Box
@@ -612,7 +612,7 @@ function ExpeditionsCardScroll() {
               fontSize: { xs: "1.5rem", md: "3rem" },
               color: "#F6B43F",
               lineHeight: 1.2,
-              fontWeight:600
+              fontWeight: 600,
             }}
           >
             Explore More
@@ -638,7 +638,6 @@ function ExpeditionsCardScroll() {
           <Box
             ref={scrollRef}
             onScroll={handleScroll}
-          
             sx={{
               display: "flex",
               gap: 3,
@@ -651,33 +650,33 @@ function ExpeditionsCardScroll() {
           >
             {data.map((item, index) => (
               <Box
-               key={item.slug}
+                key={item.slug}
                 component={Link}
                 to={"/expedition/" + item.slug}
                 sx={{
-                  textDecoration: "none",   // remove underline
-    color: "inherit",
-                  
-   minWidth: {
-  xs: "60%",   // mobile
-  sm: "30%",   // tablet
-  md: "50%",   // small desktop
-  lg: "25%",   // desktop
-},
+                  textDecoration: "none", // remove underline
+                  color: "inherit",
 
-maxWidth: {
-  xs: 100,
-  sm: 260,
-  md: 300,
-  lg: 300,
-},
+                  minWidth: {
+                    xs: "60%", // mobile
+                    sm: "30%", // tablet
+                    md: "50%", // small desktop
+                    lg: "25%", // desktop
+                  },
 
-height: {
-  xs: 220,
-  sm: 250,
-  md: 280,
-  lg: 280
-},
+                  maxWidth: {
+                    xs: 100,
+                    sm: 260,
+                    md: 300,
+                    lg: 300,
+                  },
+
+                  height: {
+                    xs: 220,
+                    sm: 250,
+                    md: 280,
+                    lg: 280,
+                  },
                   background: "#fff",
                   borderRadius: 6,
                   p: 1.7,
@@ -693,8 +692,8 @@ height: {
                 <Box
                   sx={{
                     width: "100%",
-                    height: "80%", 
-                     borderRadius: 5,
+                    height: "80%",
+                    borderRadius: 5,
                     overflow: "hidden",
                   }}
                 >
@@ -736,19 +735,18 @@ height: {
             }}
           >
             <IconButton
-                onClick={() => scroll("left")}
-                sx={{ p: 0, minWidth: "auto" }}
-              >
-                <TriangleLeft sx={{ fontSize: 28, color: "#555" }} />
-              </IconButton>
-            
-              <IconButton
-                onClick={() => scroll("right")}
-                sx={{ p: 0, minWidth: "auto" }}
-              >
-                <TriangleRight sx={{ fontSize: 28, color: "#555" }} />
-              </IconButton>
-            
+              onClick={() => scroll("left")}
+              sx={{ p: 0, minWidth: "auto" }}
+            >
+              <TriangleLeft sx={{ fontSize: 28, color: "#555" }} />
+            </IconButton>
+
+            <IconButton
+              onClick={() => scroll("right")}
+              sx={{ p: 0, minWidth: "auto" }}
+            >
+              <TriangleRight sx={{ fontSize: 28, color: "#555" }} />
+            </IconButton>
 
             {/* PROGRESS BAR */}
 
@@ -776,7 +774,7 @@ height: {
     </Box>
   );
 }
-function PartnerForm(){
+function PartnerForm() {
   return (
     <Box
       sx={{
@@ -799,8 +797,7 @@ function PartnerForm(){
         sx={{
           position: "absolute",
           inset: 0,
-          background:
-            "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25))",
+          background: "linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.25))",
           zIndex: 1,
         }}
       />
@@ -830,11 +827,7 @@ function PartnerForm(){
         {/* Form */}
         <Box component="form">
           {/* Row 1 */}
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            spacing={3}
-            mb={3}
-          >
+          <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
             <TextField
               fullWidth
               placeholder="Enter your Name"
@@ -851,11 +844,7 @@ function PartnerForm(){
           </Stack>
 
           {/* Row 2 */}
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            spacing={3}
-            mb={3}
-          >
+          <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
             <TextField
               fullWidth
               placeholder="Phone Number"
@@ -863,11 +852,7 @@ function PartnerForm(){
               sx={inputStyles}
             />
 
-            <TextField
-              fullWidth
-              placeholder="City"
-              sx={inputStyles}
-            />
+            <TextField fullWidth placeholder="City" sx={inputStyles} />
           </Stack>
 
           {/* Message */}
@@ -1028,72 +1013,70 @@ export default function PartnershipPage() {
       {/* BRAND SECTION */}
 
       <Box sx={{ bgcolor: "#FBF9F9", py: { xs: 6, md: 8 } }}>
-  <Container maxWidth="lg">
-    <Grid container direction="column" spacing={3}>
-      
-      {/* HEADING */}
-      <Grid item xs={12}>
-        <Typography
-          sx={{
-            color: "#e49a2f",
-            fontWeight: 700,
-           fontSize: { xs: "1.5rem", md: "3rem" },
-            fontFamily: "Fraunces, serif",
-          }}
-        >
-          Brand Activation
-        </Typography>
-      </Grid>
+        <Container maxWidth="lg">
+          <Grid container direction="column" spacing={3}>
+            {/* HEADING */}
+            <Grid item xs={12}>
+              <Typography
+                sx={{
+                  color: "#e49a2f",
+                  fontWeight: 700,
+                  fontSize: { xs: "1.5rem", md: "3rem" },
+                  fontFamily: "Fraunces, serif",
+                }}
+              >
+                Brand Activation
+              </Typography>
+            </Grid>
 
-      {/* CONTENT */}
-      <Grid item xs={12}>
-        <Typography
-          sx={{
-            color: "#555",
-            fontSize: { xs: "0.9rem", md: "0.95rem" },
-            lineHeight: 1.8,
-            maxWidth: "100%",
-            fontFamily: "'Roboto Flex', sans-serif",
-          }}
-        >
-          At Embarq, we craft unforgettable road trip experiences across
-          stunning landscapes—and now, we’re inviting brands to join us on
-          the journey. Partner with us to create immersive, on-ground
-          campaigns that connect with your audience most authentically:
-          through adventure.
-          <br />
-          Whether you’re looking to engage customers, launch a new
-          product, or build brand affinity, our curated experiences offer
-          a unique platform to drive storytelling, visibility, and
-          emotional connection.
-          <br />
-          Let’s co-create high-impact experiences that go beyond
-          traditional marketing, where your brand becomes part of the
-          road, the community, and the memories. Ready to overtake the
-          road with us? Let’s talk
-        </Typography>
-      </Grid>
-
-    </Grid>
-  </Container>
-</Box>
+            {/* CONTENT */}
+            <Grid item xs={12}>
+              <Typography
+                sx={{
+                  color: "#555",
+                  fontSize: { xs: "0.9rem", md: "0.95rem" },
+                  lineHeight: 1.8,
+                  maxWidth: "100%",
+                  fontFamily: "'Roboto Flex', sans-serif",
+                }}
+              >
+                At Embarq, we craft unforgettable road trip experiences across
+                stunning landscapes—and now, we’re inviting brands to join us on
+                the journey. Partner with us to create immersive, on-ground
+                campaigns that connect with your audience most authentically:
+                through adventure.
+                <br />
+                Whether you’re looking to engage customers, launch a new
+                product, or build brand affinity, our curated experiences offer
+                a unique platform to drive storytelling, visibility, and
+                emotional connection.
+                <br />
+                Let’s co-create high-impact experiences that go beyond
+                traditional marketing, where your brand becomes part of the
+                road, the community, and the memories. Ready to overtake the
+                road with us? Let’s talk
+              </Typography>
+            </Grid>
+          </Grid>
+        </Container>
+      </Box>
       {/* EXPEDITION SCROLL */}
 
       <PinnedExpedition />
       <MilestoneReach />
       <ImageContentSections />
       <Box
-  sx={{
-    position: "relative",
-    minHeight: { xs: "auto", md: "120vh" }, // optional for desktop
-    py: { xs: 6, md: 0 }, // adds spacing for mobile
-    backgroundImage: `url(${Partners1})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    display: "flex",
-    alignItems: "center",
-  }}
->
+        sx={{
+          position: "relative",
+          minHeight: { xs: "auto", md: "120vh" }, // optional for desktop
+          py: { xs: 6, md: 0 }, // adds spacing for mobile
+          backgroundImage: `url(${Partners1})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
         {/* Gradient overlay */}
         <Box
           sx={{
@@ -1111,7 +1094,7 @@ export default function PartnershipPage() {
               color: "#fff",
               fontWeight: 700,
               maxWidth: "900px",
-             fontSize: { xs: "1.5rem", md: "3rem" },
+              fontSize: { xs: "1.5rem", md: "3rem" },
               lineHeight: 1.3,
               fontFamily: "Fraunces, serif",
               mb: 3,
@@ -1138,80 +1121,67 @@ export default function PartnershipPage() {
             <strong>purpose-driven storytelling</strong> that resonates with
             audiences and drives meaningful impact.
           </Typography>
-           {/* Form */}
-        <Box component="form">
-          {/* Row 1 */}
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            spacing={3}
-            mb={3}
-          >
+          {/* Form */}
+          <Box component="form">
+            {/* Row 1 */}
+            <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
+              <TextField
+                fullWidth
+                placeholder="Enter your Name"
+                variant="outlined"
+                sx={inputStyles}
+              />
+
+              <TextField
+                fullWidth
+                placeholder="Email Address"
+                type="email"
+                sx={inputStyles}
+              />
+            </Stack>
+
+            {/* Row 2 */}
+            <Stack direction={{ xs: "column", md: "row" }} spacing={3} mb={3}>
+              <TextField
+                fullWidth
+                placeholder="Phone Number"
+                type="tel"
+                sx={inputStyles}
+              />
+
+              <TextField fullWidth placeholder="City" sx={inputStyles} />
+            </Stack>
+
+            {/* Message */}
             <TextField
               fullWidth
-              placeholder="Enter your Name"
-              variant="outlined"
-              sx={inputStyles}
+              multiline
+              rows={6}
+              placeholder="Your Message"
+              sx={{ ...inputStyles, mb: 3 }}
             />
 
-            <TextField
+            {/* Button */}
+            <Button
               fullWidth
-              placeholder="Email Address"
-              type="email"
-              sx={inputStyles}
-            />
-          </Stack>
-
-          {/* Row 2 */}
-          <Stack
-            direction={{ xs: "column", md: "row" }}
-            spacing={3}
-            mb={3}
-          >
-            <TextField
-              fullWidth
-              placeholder="Phone Number"
-              type="tel"
-              sx={inputStyles}
-            />
-
-            <TextField
-              fullWidth
-              placeholder="City"
-              sx={inputStyles}
-            />
-          </Stack>
-
-          {/* Message */}
-          <TextField
-            fullWidth
-            multiline
-            rows={6}
-            placeholder="Your Message"
-            sx={{ ...inputStyles, mb: 3 }}
-          />
-
-          {/* Button */}
-          <Button
-            fullWidth
-            sx={{
-              py: 2.2,
-              borderRadius: "40px",
-              fontFamily: "Roboto Flex, sans-serif",
-              fontWeight: 600,
-              letterSpacing: 1,
-              background: "#f2ad3d",
-              color: "#fff",
-              "&:hover": {
-                background: "#e49a25",
-                transform: "translateY(-2px)",
-              },
-            }}
-          >
-            SUBMIT
-          </Button>
-        </Box>
+              sx={{
+                py: 2.2,
+                borderRadius: "40px",
+                fontFamily: "Roboto Flex, sans-serif",
+                fontWeight: 600,
+                letterSpacing: 1,
+                background: "#f2ad3d",
+                color: "#fff",
+                "&:hover": {
+                  background: "#e49a25",
+                  transform: "translateY(-2px)",
+                },
+              }}
+            >
+              SUBMIT
+            </Button>
+          </Box>
         </Container>
-        
       </Box>
 
       {/* <PartnerForm /> */}
