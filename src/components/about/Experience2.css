@@ -1,8 +1,14 @@
 /* Root */
 #exp2-section {
-  background: #F6A61D;
-  padding: 5rem 0; /* 🔥 reduce vertical + remove side padding */
+  padding: 5rem 0;
   color: #ffffff;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+
+  position: relative; /* needed for overlay */
 }
 
 /* Container */
