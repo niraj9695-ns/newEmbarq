@@ -435,7 +435,7 @@ export const expeditions = {
       duration: "9 Days / 8 Nights",
       cost: " USD 6,500.00 per head",
       travelDates: "21st November to 29th November, 2026",
-      vehicle: "Hyundai Santa Fe or similar (self-drive rental)",
+      vehicle: "Toyota RAV or similar",
       distance: "Approx. 1,940 km",
     },
 
@@ -546,7 +546,7 @@ export const expeditions = {
       mapImage: mapImage,
     },
     about: {
-      destination: "Kutch, Gujrat to Kibithoo, Arunachal Pradesh",
+      destination: "Kutch, Gujarat to Kibithoo, Arunachal Pradesh",
       duration: "19 Days / 18 Nights",
       cost: "INR 235,000/- Per head",
       travelDates: "8th March to 28th March 2026",
@@ -683,14 +683,14 @@ export const expeditions = {
       bgImage: expeditionBg4,
 
       inclusions: [
-        "Recede Route",
-        "Stay on twin sharing",
-        "All Meals",
-        "Rental SUV with fuel",
-        "Embarq Lead & Support Vehicles",
-        "Support Team",
+        "Recced, hand-picked driving routes",
+        "Self-drive car rentals (Citroen and Jeep SUVs)",
+        "Fuel for the car",
+        "All exclusive stays on twin sharing basis",
+        "All meals during the expedition",
+        "All internal sightseeing and special experiences as per itinerary",
         "Fun-filled engagement activities",
-        "Taxes",
+        "Local guide and Embarq support team throughout the journey",
       ],
 
       exclusions: [
