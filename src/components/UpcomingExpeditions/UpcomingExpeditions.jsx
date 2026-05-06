@@ -88,7 +88,15 @@ export default function UpcomingExpeditions() {
   const labelRef = useRef(null);
 
   const [activeIndex, setActiveIndex] = useState(0);
+const goToSlide = (index) => {
+  const track = trackRef.current;
+  const slideWidth = track.offsetWidth;
 
+  track.scrollTo({
+    left: index * slideWidth,
+    behavior: "smooth",
+  });
+};
  const goToNextSlide = () => {
   const track = trackRef.current;
   const slideWidth = track.offsetWidth;
@@ -202,13 +210,14 @@ useLayoutEffect(() => {
     <span
       key={i}
       className={`dot ${i === activeIndex ? "active" : ""}`}
+       onClick={() => goToSlide(i)} 
     />
   ))}
 </div>
 
 {/* SCROLL DOWN */}
 <div className="scroll-down-wrapper">
-  <GlobalScrollDownNRJ targetId="upcoming-expeditions" />
+  <GlobalScrollDownNRJ targetId="why-roads" />
 </div>
         
 

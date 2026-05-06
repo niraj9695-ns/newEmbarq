@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -72,7 +72,17 @@ export default function EnquiryPopup({ open, handleClose }) {
 
     setLoading(false);
   };
+useEffect(() => {
+  if (open) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
 
+  return () => {
+    document.body.style.overflow = "";
+  };
+}, [open]);
   return (
     <Dialog
       open={open}
@@ -220,6 +230,22 @@ export default function EnquiryPopup({ open, handleClose }) {
     return selected;
   }}
   sx={selectStyles}
+  MenuProps={{
+    disablePortal: true,
+    PaperProps: {
+      sx: {
+        maxHeight: 200
+      }
+    },
+    MenuListProps: {
+      sx: {
+        maxHeight: 200,
+        overflowY: "auto"   // ✅ THIS is the real scroll container
+      },
+      onWheel: (e) => e.stopPropagation(),     // ✅ stop background scroll
+      onTouchMove: (e) => e.stopPropagation()  // ✅ mobile fix
+    }
+  }}
 >
   <MenuItem value="" disabled>
     Choose Expedition
@@ -229,6 +255,8 @@ export default function EnquiryPopup({ open, handleClose }) {
   <MenuItem value="Georgia">Georgia</MenuItem>
   <MenuItem value="South Korea">South Korea</MenuItem>
   <MenuItem value="Finland">Finland</MenuItem>
+
+
 </Select>
 
                 <TextField

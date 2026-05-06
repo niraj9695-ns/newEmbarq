@@ -5,7 +5,7 @@ import GlobalScrollDownNRJ from "../scroll label/GlobalScrollDownNRJ";
 
 export default function ExpWhyRoads() {
   return (
-    <section className="expwr-section">
+    <section id="why-roads" className="expwr-section">
       <img
         src={whyRoadsImg}
         alt="Why Roads background"
