@@ -721,7 +721,7 @@ export const expeditions = {
       duration: "10 Days / 9 Nights",
       cost: " INR 5,95,000/- Per head",
       travelDates: "8th May to 17th May, 2026",
-      vehicle: "Self-drive - Citroën and Jeep SUVs",
+      vehicle: "Range Rover",
       distance: "Approx. 4800 km",
     },
 
