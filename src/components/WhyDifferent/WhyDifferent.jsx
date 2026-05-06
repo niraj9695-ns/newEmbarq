@@ -22,22 +22,22 @@ const points = [
   {
     icon: wm2,
     title: "Premium vehicles + premium pace",
-    desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
+    desc: "Great roads deserve great cars—and days that don’t feel rushed.",
   },
   {
     icon: wm3,
     title: "Convoy support = real freedom",
-    desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
+    desc: "Lead + support vehicles so you can stop for photos, coffee, or surprise viewpoints anytime.",
   },
   {
     icon: wm4,
     title: "Privacy of your own car, vibe of a crew",
-    desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
+    desc: "Be together when you want to be, independent when you don’t.",
   },
   {
     icon: wm5,
     title: "Details handled end-to-end",
-    desc: "Scenic drives, offbeat detours, and “how is this real?” stops: built from on-ground scouting.",
+    desc: "Stays, permits (where needed), route planning, local coordination: all done.",
   },
 ];
 

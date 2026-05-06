@@ -111,13 +111,20 @@ function Leadership() {
           </div>
 
           <motion.p variants={textFade}>
-            Our mission is simple yet profound, we aim to integrate age-old
-            traditions with cutting-edge research to provide you with,
-            all-natural, and organic products nature’s bounty, combined with
-            the essence of Panchagavya, can nurture not only our physical
-            health but also our mental and spiritual well-being.
-            Furthermore, our commitment extends to the preservation of our
-            precious planet.
+           <span
+  style={{
+    display: "block",
+    fontSize: "18px",
+    fontWeight: "600",
+    color: "#F6A61D",
+    marginBottom: "8px",
+  }}
+>
+  The Strategist Behind the Wheel
+</span>
+            With a sharp financial acumen and exceptional route-planning expertise, Medha is the backbone of Embarq’s expedition design. She brings structure, foresight, and meticulous execution to every journey. <br /><br />
+Travel is her true calling, she played a pivotal role in conceptualizing and executing the ambitious <strong>India to Morocco expedition (15 countries in 57 days),</strong> laying the foundation for Embarq’s global vision. <br /><br />
+Before transitioning into full-time entrepreneurship, Medha built a strong corporate career spanning <strong>11 years</strong> with globally renowned organizations including <strong>Mercedes-Benz, General Electric, and Infosys,</strong> experience that now reflects in Embarq’s professionalism and operational excellence.
           </motion.p>
         </motion.div>
       </div>
@@ -158,13 +165,20 @@ function Leadership() {
           </div>
 
           <motion.p variants={textFade}>
-            Sujal is a versatile organizer with strong people-management skills
-            and a love for exploring the world by road. She was part of the
-            original expedition to Morocco and has since led many international
-            and domestic road journeys. Before Embarq, Sujal worked as Vice
-            President at an investment bank and has extensive experience in
-            human resources. Her interests include Bollywood movies, biryani,
-            and collecting wristwatches.
+             <span
+  style={{
+    display: "block",
+    fontSize: "18px",
+    fontWeight: "600",
+    color: "#F6A61D",
+    marginBottom: "8px",
+  }}
+>
+  The Force That Brings It All Together
+</span>
+            A natural leader, problem-solver, and people person, Sujal is the driving force behind Embarq’s execution and community building. Her strength lies in orchestrating complex journeys while creating a seamless and engaging experience for every participant.<br /><br />
+Her passion for exploration led her to undertake a <strong>23,000 km intercontinental road journey,</strong> reinforcing her belief in the transformative power of travel. <br /><br />
+Prior to co-founding Embarq, Sujal held leadership roles in Human Resources for over <strong>14 years,</strong> including serving as <strong>Vice President & Head of HR at Ambit Holdings,</strong> and working with global institutions such as <strong>Lehman Brothers and Infosys.</strong>
           </motion.p>
         </motion.div>
       </div>

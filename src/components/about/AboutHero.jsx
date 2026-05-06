@@ -1,6 +1,6 @@
 import "./AboutHero.css";
 import desktopHero from "../../assets/aboutimages/about_desktop_hero.webp";
-import mobileHero from "../../assets/aboutimages/about_desktop_hero.webp";
+import mobileHero from "../../assets/aboutimages/About_Mobile.webp";
 import { ChevronDown } from "lucide-react";
 import tornBottomImage from "../../assets/svg/torn.svg";
 

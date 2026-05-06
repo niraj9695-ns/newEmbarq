@@ -6,10 +6,19 @@ import {
   LifeBuoy,
   Users,
 } from "lucide-react";
+import bgImage from "../../assets/aboutimages/experience.webp";
 
 export default function Experience2() {
   return (
-    <section id="exp2-section">
+   <section
+  id="exp2-section"
+  style={{
+    backgroundImage: `
+      linear-gradient(rgba(43, 42, 42, 0.55), rgba(0,0,0,0.55)),
+      url(${bgImage})
+    `,
+  }}
+>
       <div className="exp2-container">
         <h2 className="exp2-title">The Embarq Experience</h2>
 

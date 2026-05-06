@@ -130,9 +130,13 @@ export default function Footer() {
 
       {/* BOTTOM BAR */}
       <div className="footer-bottom">
-        <p>
-          Copyright © 2025 Embarq Motorworld Pvt. Ltd. | All Rights Reserved.
-        </p>
+         <p>
+    Designed & Developed by{" "}
+    <a href="https://tribe.solutions" target="_blank" rel="noopener noreferrer" className="footer-link">
+      tribe.solutions
+    </a>{" "}
+    | Copyright © 2026 Embarq Motorworld Pvt. Ltd. | All Rights Reserved.
+  </p>
 
         <div className="footer-payments">
           <img src={visa} alt="Payment methods" />
