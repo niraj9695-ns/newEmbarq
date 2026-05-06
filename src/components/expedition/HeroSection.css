@@ -69,7 +69,7 @@
 
 .exp-hero-heading {
   position: absolute;
-  top: 0;
+  top: -10%;                  /* start slightly below card top */
   left: 2%;                 /* start exactly from card left */
 
   transform: translateY(-100%);  /* move above card */

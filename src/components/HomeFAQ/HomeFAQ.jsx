@@ -127,7 +127,7 @@ export default function HomeFAQ() {
     {
       question: "Who are the tour leaders and how experienced are they?",
       answer:
-        "Embarq guided tours are led by our co-founders themselves. They have more than five years of experience in organising road trips and have scouted the routes beforehand.",
+        "Embarq guided tours are led by our co-founders themselves. They have more than 10 years of experience in organising road trips and have scouted the routes beforehand.",
     },
     {
       question: "Do we have to follow the tour leaders on a guided tour?",
