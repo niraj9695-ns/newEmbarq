@@ -2,34 +2,34 @@
 //georgia
 import heroImage from "../../assets/expedition/Georgia.webp";
 import mapImage from "../../assets/expedition/Vector.webp"; 
-import routeMap from "../../assets/expedition/GeorgiaMap.png";
-import routeMapMobile from "../../assets/expedition/GeorgiaMapMob.png";
+import routeMap from "../../assets/expedition/newgeorgia.jpeg";
+import routeMapMobile from "../../assets/expedition/newgeorgia.jpeg";
 import expeditionBg from "../../assets/expedition/georgiabg.webp";
 
 //romania-1
 import heroImage1 from "../../assets/expedition/Romania.webp";
-import routeMap1 from "../../assets/expedition/RomaniaMap.png";
-import routeMapMobile1 from "../../assets/expedition/RomaniaMapMob.png";
+import routeMap1 from "../../assets/expedition/newromania.jpeg";
+import routeMapMobile1 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg1 from "../../assets/expedition/romaniabg.webp";
 //south korea-2
 import heroImage2 from "../../assets/expedition/South Korea.webp";
-import routeMap2 from "../../assets/expedition/SouthKoreaMap.png";
-import routeMapMobile2 from "../../assets/expedition/SouthKoreaMapMob.png";
-import expeditionBg2 from "../../assets/expedition/southkoreabg.webp";
+import routeMap2 from "../../assets/expedition/newskorea.jpeg";
+import routeMapMobile2 from "../../assets/expedition/newskorea.jpeg";
+import expeditionBg2 from "../../assets/expedition/SouthKoreabg.webp";
 //finland-3y
 import heroImage3 from "../../assets/expedition/Finland.webp";
-import routeMap3 from "../../assets/expedition/FinlandMap.png";
-import routeMapMobile3 from "../../assets/expedition/FinlandMapMob.png";
+import routeMap3 from "../../assets/expedition/newfinland.jpeg";
+import routeMapMobile3 from "../../assets/expedition/newfinland.jpeg";
 import expeditionBg3 from "../../assets/expedition/finlandbg.webp";//same
 //k2k2026-4
 import heroImage4 from "../../assets/expedition/K2K.webp";
-import routeMap4 from "../../assets/expedition/K2KMap.png";
-import routeMapMobile4 from "../../assets/expedition/K2KMapMob.png";
+import routeMap4 from "../../assets/expedition/india.jpeg";
+import routeMapMobile4 from "../../assets/expedition/india.jpeg";
 import expeditionBg4 from "../../assets/expedition/k2kbg.webp";//same
 //scotland
 import heroImage5 from "../../assets/expedition/Scotland.webp";
-import routeMap5 from "../../assets/expedition/ScotlandMap.png";
-import routeMapMobile5 from "../../assets/expedition/ScotlandMapMob.png";
+import routeMap5 from "../../assets/expedition/newscotland.jpeg";
+import routeMapMobile5 from "../../assets/expedition/newscotland.jpeg";
 import expeditionBg5 from "../../assets/expedition/scotlandbg.webp";//same
 
 export const expeditions = {

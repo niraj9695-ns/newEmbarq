@@ -70,8 +70,7 @@ const validate = () => {
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
-
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
 
   if (!validate()) return;
@@ -79,43 +78,73 @@ const validate = () => {
   setLoading(true);
 
   try {
-    const res = await emailjs.send(
-      "service_pvpvpko",
-      "template_0wgx4p2",
+
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: `+91${form.phone}`,
+      expedition: form.expedition,
+      pageLink: window.location.href
+    };
+
+    const response = await fetch(
+      "https://ynqykkim41.execute-api.ap-south-1.amazonaws.com/default/submitLead",
       {
-        user_name: form.name,
-        user_email: form.email,
-        user_phone: form.phone,
-        user_city: form.city,
-        user_expedition: form.expedition,
-        user_message: form.message
-      },
-      "e1g2avhWWng2DaSoX"
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }
     );
 
-    if (res.status === 200) {
-      setSuccessMsg("Successfully sent your enquiry!");
-
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        city: "",
-        expedition: "",
-        message: ""
-      });
-
-      setErrors({});
-
-      // show message for a moment before closing
-      setTimeout(() => {
-        setSuccessMsg("");
-        handleClose();
-      }, 1500);
+    if (!response.ok) {
+      throw new Error("Failed to create lead");
     }
+
+    try {
+      await emailjs.send(
+        "service_pvpvpko",
+        "template_0wgx4p2",
+        {
+          user_name: form.name,
+          user_email: form.email,
+          user_phone: form.phone,
+          user_city: form.city,
+          user_expedition: form.expedition,
+          user_message: form.message
+        },
+        "e1g2avhWWng2DaSoX"
+      );
+    } catch (emailError) {
+      // Lead already created; email failure should not block submission.
+    }
+
+    // Success Alert
+    alert("Form submitted successfully!");
+
+    setSuccessMsg("Successfully sent your enquiry!");
+
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      city: "",
+      expedition: "",
+      message: ""
+    });
+
+    setErrors({});
+
+    setTimeout(() => {
+      setSuccessMsg("");
+      handleClose();
+    }, 1500);
+
   } catch (err) {
-    console.error(err);
-    setSuccessMsg("Failed to send. Please try again.");
+    alert("Failed to submit enquiry. Please try again.");
+
+    setSuccessMsg("Failed to submit enquiry. Please try again.");
   }
 
   setLoading(false);

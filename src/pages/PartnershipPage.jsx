@@ -851,20 +851,45 @@ function PartnerForm() {
     setLoading(true);
 
     try {
-      await emailjs.send(
-        "service_pvpvpko",        // 🔁 replace if needed
-        "template_3y4o1t9",       // 🔁 replace if needed
+      const payload = {
+        name: form.name,
+        email: form.email,
+        phone: `+91${form.phone}`,
+        pageLink: window.location.href
+      };
+
+      const response = await fetch(
+        "https://ynqykkim41.execute-api.ap-south-1.amazonaws.com/default/submitLead",
         {
-          user_name: form.name,
-          user_email: form.email,
-          user_phone: form.phone,
-          user_city: form.city,
-          user_message: form.message
-        },
-        "e1g2avhWWng2DaSoX"       // 🔁 replace if needed
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        }
       );
 
-      // reset form
+      if (!response.ok) {
+        throw new Error("Failed to create lead");
+      }
+
+      try {
+        await emailjs.send(
+          "service_pvpvpko",
+          "template_3y4o1t9",
+          {
+            user_name: form.name,
+            user_email: form.email,
+            user_phone: form.phone,
+            user_city: form.city,
+            user_message: form.message
+          },
+          "e1g2avhWWng2DaSoX"
+        );
+      } catch (emailError) {
+        // Lead already created; email failure should not block submission.
+      }
+
       setForm({
         name: "",
         email: "",
@@ -876,8 +901,7 @@ function PartnerForm() {
       setErrors({});
       alert("Form submitted successfully!");
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Try again.");
+      alert("Failed to submit form. Please try again.");
     }
 
     setLoading(false);
@@ -1166,17 +1190,42 @@ export default function PartnershipPage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (!validate()) return;
+  if (!validate()) return;
 
-    setLoading(true);
+  setLoading(true);
 
+  try {
+    const payload = {
+      name: form.name,
+      email: form.email,
+      phone: `+91${form.phone}`,
+      pageLink: window.location.href
+    };
+
+    // Create lead in Slixta first
+    const response = await fetch(
+      "https://ynqykkim41.execute-api.ap-south-1.amazonaws.com/default/submitLead",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to create lead in Slixta");
+    }
+
+    // Send email (secondary)
     try {
       await emailjs.send(
-        "service_pvpvpko",        // 🔁 replace if needed
-        "template_3y4o1t9",       // 🔁 replace if needed
+        "service_pvpvpko",
+        "template_3y4o1t9",
         {
           user_name: form.name,
           user_email: form.email,
@@ -1184,27 +1233,31 @@ export default function PartnershipPage() {
           user_city: form.city,
           user_message: form.message
         },
-        "e1g2avhWWng2DaSoX"       // 🔁 replace if needed
+        "e1g2avhWWng2DaSoX"
       );
-
-      // reset form
-      setForm({
-        name: "",
-        email: "",
-        phone: "",
-        city: "",
-        message: ""
-      });
-
-      setErrors({});
-      alert("Form submitted successfully!");
-    } catch (err) {
-      console.error(err);
-      alert("Something went wrong. Try again.");
+    } catch (emailError) {
+      // Lead already created in Slixta.
+      // Email failure should not block submission.
     }
 
-    setLoading(false);
-  };
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      city: "",
+      message: ""
+    });
+
+    setErrors({});
+
+    alert("Form submitted successfully!");
+
+  } catch (err) {
+    alert("Failed to submit form. Please try again.");
+  }
+
+  setLoading(false);
+};
 
   return (
     <Box sx={{ bgcolor: "white" }}>

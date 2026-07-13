@@ -3,6 +3,7 @@ import "./RoutePlan.css";
 
 function RoutePlan({ data }) {
   const [rpIsOpen, setRpIsOpen] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
 
   return (
     <section className="route-plan rp-root">
@@ -20,18 +21,20 @@ function RoutePlan({ data }) {
 
           {/* Mobile */}
           <div className="rp-mobile-box">
-            <img
-              src={data.desktop}
-              alt="route map mobile"
-              className="route-image mobile rp-mobile-img"
-            />
-
-            <button
-              className="rp-explore-btn"
+            <div
+              className="rp-mobile-preview"
               onClick={() => setRpIsOpen(true)}
             >
-              Explore Route
-            </button>
+              <img
+                src={data.desktop}
+                alt="route map mobile"
+                className="route-image rp-mobile-img"
+              />
+
+              <div className="rp-tap-overlay">
+                <span>Tap to Zoom</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -43,9 +46,20 @@ function RoutePlan({ data }) {
           {/* Close Button */}
           <button
             className="rp-close-btn"
-            onClick={() => setRpIsOpen(false)}
+            onClick={() => {
+              setRpIsOpen(false);
+              setZoomed(false);
+            }}
           >
             ✕
+          </button>
+
+          {/* Zoom Toggle */}
+          <button
+            className="rp-zoom-btn"
+            onClick={() => setZoomed(!zoomed)}
+          >
+            {zoomed ? "−" : "+"}
           </button>
 
           {/* Image Container */}
@@ -53,13 +67,15 @@ function RoutePlan({ data }) {
             <img
               src={data.desktop}
               alt="zoomed route"
-              className="rp-modal-image"
+              className={`rp-modal-image ${
+                zoomed ? "rp-modal-image-zoomed" : ""
+              }`}
             />
           </div>
 
           {/* Scroll Indicator */}
           <div className="rp-scroll-indicator">
-            <span>Swipe →</span>
+            <span>{zoomed ? "Drag to Explore" : "Tap + to Zoom"}</span>
           </div>
 
         </div>

@@ -59,6 +59,22 @@ background:linear-gradient(
   margin-bottom:30px;
 }
 
+.gifttrip-field{
+  text-align:left;
+}
+
+.gifttrip-error{
+  display:block;
+  color:#ff6b6b;
+  font-size:0.75rem;
+  margin-top:6px;
+  padding-left:14px;
+}
+
+.gifttrip-input-error{
+  box-shadow:0 0 0 1px #ff6b6b, 0 4px 12px rgba(0,0,0,0.15) !important;
+}
+
 /* INPUTS */
 
 .gifttrip-form input,

@@ -1,6 +1,6 @@
 .route-plan {
   background-color: #fcf5e4;
-  padding: 10px 24px 20px 24px;
+  padding: 10px 24px 30px 24px;
 }
 
 .route-container {
@@ -16,7 +16,10 @@
   margin-bottom: 60px;
 }
 
+/* ============================= */
 /* IMAGE WRAPPER */
+/* ============================= */
+
 .route-image-wrapper {
   width: 100%;
   display: flex;
@@ -24,39 +27,58 @@
   align-items: center;
 }
 
+/* ============================= */
 /* IMAGES */
+/* ============================= */
+
 .route-image {
   width: 100%;
-  max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* DESKTOP IMAGE */
 .rp-desktop-img {
   display: block;
+  max-width: 850px; /* reduced desktop size */
+  width: 85%;
+  margin: 0 auto;
 }
 
+/* MOBILE */
 .rp-mobile-box {
   display: none;
+  width: 100%;
   text-align: center;
 }
 
-/* BUTTON */
-.rp-explore-btn {
-  margin-top: 16px;
-  background: linear-gradient(135deg, #f6b43f, #e09c2a);
-  color: #fff;
-  border: none;
-  padding: 10px 22px;
-  border-radius: 30px;
-  font-size: 14px;
+.rp-mobile-preview {
+  position: relative;
+  display: inline-block;
   cursor: pointer;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-  transition: all 0.3s ease;
 }
 
-.rp-explore-btn:hover {
-  transform: translateY(-2px);
+.rp-mobile-img {
+  width: 92%;
+  max-width: 420px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+/* TAP OVERLAY */
+
+.rp-tap-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 500;
+  backdrop-filter: blur(4px);
 }
 
 /* ============================= */
@@ -65,48 +87,83 @@
 
 .rp-modal-bg {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  background-color: #fcf5e4;
+  background: rgba(252, 245, 228, 0.98);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 999;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
 }
 
-/* Close Button */
+/* CLOSE BUTTON */
+
 .rp-close-btn {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.08);
+  top: 18px;
+  right: 18px;
+  width: 42px;
+  height: 42px;
   border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
   color: #333;
   font-size: 20px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
   cursor: pointer;
+  z-index: 10;
 }
 
-/* Image container */
+/* ZOOM BUTTON */
+
+.rp-zoom-btn {
+  position: absolute;
+  top: 18px;
+  right: 72px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #f6b43f;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ============================= */
+/* MODAL CONTENT */
+/* ============================= */
+
 .rp-modal-content {
-  width: 92%;
-  height: 70%; /* reduced height for better spacing */
-  overflow-x: auto;
-  overflow-y: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px 60px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* DEFAULT MODAL IMAGE */
+
+.rp-modal-image {
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  transition: transform 0.3s ease;
   border-radius: 12px;
 }
 
-/* Reduced image size */
-.rp-modal-image {
-  height: 70%; /* slightly smaller */
-  width: auto;
-  min-width: 700px; /* still scrollable */
-  margin: auto;
-  display: block;
+/* ZOOMED STATE */
+
+.rp-modal-image-zoomed {
+  transform: scale(2);
+  transform-origin: center center;
+  cursor: grab;
 }
 
 /* ============================= */
@@ -119,16 +176,30 @@
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.08);
-  padding: 6px 14px;
+  padding: 8px 16px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 13px;
   color: #333;
   animation: rpFade 1.5s infinite alternate;
 }
 
 @keyframes rpFade {
-  from { opacity: 0.5; }
-  to { opacity: 1; }
+  from {
+    opacity: 0.55;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================= */
+/* TABLET */
+/* ============================= */
+
+@media (max-width: 1024px) {
+  .rp-desktop-img {
+    max-width: 700px;
+  }
 }
 
 /* ============================= */
@@ -146,17 +217,33 @@
     margin-bottom: 40px;
   }
 
+  /* hide desktop image */
   .rp-desktop-img {
     display: none;
   }
 
+  /* show mobile */
   .rp-mobile-box {
     display: block;
   }
 
-  .rp-mobile-img {
-    width: 90%;
-    max-width: 420px;
-    margin: 0 auto;
+  .rp-modal-content {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 100px;
+  }
+
+  .rp-modal-image {
+    width: 100%;
+    min-width: 700px; /* readable map */
+  }
+
+  .rp-modal-image-zoomed {
+    transform: scale(2.2);
+  }
+
+  .rp-close-btn,
+  .rp-zoom-btn {
+    top: 14px;
   }
 }
