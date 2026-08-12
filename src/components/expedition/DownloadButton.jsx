@@ -4,20 +4,30 @@ import Box from "@mui/material/Box";
 import DownloadIcon from "@mui/icons-material/Download";
 
 // Import PDFs
-import finlandPDF from "../../assets/pdf/finland.pdf";
-import georgiaPDF from "../../assets/pdf/georgia.pdf";
-import k2PDF from "../../assets/pdf/k2k.pdf";
+// import georgiaPDF from "../../assets/pdf/georgia.pdf";
+// import k2PDF from "../../assets/pdf/k2k.pdf";
+// import scotlandPDF from "../../assets/pdf/scotland.pdf";
+import k2kkpdf from "../../assets/pdf/k2k2027.pdf";
 import romaniaPDF from "../../assets/pdf/romania.pdf";
-import scotlandPDF from "../../assets/pdf/scotland.pdf";
+import punjabPDF from "../../assets/pdf/Punjab.pdf";
+import kyrgyzstanPDF from "../../assets/pdf/Kyrgyzstan.pdf";
+import mizoramPDF from "../../assets/pdf/Mizoram.pdf";
+import newzealandPDF from "../../assets/pdf/NewZealand.pdf";
 import skoreaPDF from "../../assets/pdf/skorea.pdf";
+import finlandPDF from "../../assets/pdf/finland.pdf";
 
 const pdfMap = {
-  finland: finlandPDF,
-  georgia: georgiaPDF,
-  k2k2026: k2PDF,
+  // georgia: georgiaPDF,
+  // k2k2026: k2PDF,
+  // scotland: scotlandPDF,
+  kashmirtokanyakumari: k2kkpdf,
   romania: romaniaPDF,
-  scotland: scotlandPDF,
+  punjabandhimachal: punjabPDF,
+  kyrgyzstan: kyrgyzstanPDF,
+  mizoram: mizoramPDF,
+  newzealand: newzealandPDF,
   southkorea: skoreaPDF,
+  finland: finlandPDF,
 };
 
 export default function DownloadPDFButton({ slug }) {

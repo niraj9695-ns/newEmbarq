@@ -13,10 +13,10 @@ import slide6 from "../../assets/images/skorea.webp";
 import slide7 from "../../assets/images/finland.webp";
 
 // pdf
-import k2kPdf from "../../assets/pdf/k2k.pdf";
-import scotlandPdf from "../../assets/pdf/scotland.pdf";
+// import k2kPdf from "../../assets/pdf/k2k.pdf";
+// import scotlandPdf from "../../assets/pdf/scotland.pdf";
 import romaniaPdf from "../../assets/pdf/romania.pdf";
-import georgiaPdf from "../../assets/pdf/georgia.pdf";
+// import georgiaPdf from "../../assets/pdf/georgia.pdf";
 import koreaPdf from "../../assets/pdf/skorea.pdf";
 import finlandPdf from "../../assets/pdf/finland.pdf";
 
@@ -26,24 +26,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const expeditions = [
-  {
-    title: "KUTCH TO KIBITHOO",
-    subtitle: "Salt flats to North eastern mountains. India at its widest.",
-    date: "8th to 28th March 2026",
-    image: k2k,
-    brochure: k2kPdf,
-    status: "Completed",
-    slug: "k2k2026", // ✅ ADD THIS
-  },
-  {
-    title: "Scotland",
-    subtitle: "NC500. Coastlines. Castle country",
-    date: "8th to 17th May, 2026",
-    image: slide2,
-    brochure: scotlandPdf,
-    status: "Upcoming",
-    slug: "scotland", // ✅
-  },
+  // {
+  //   title: "KUTCH TO KIBITHOO",
+  //   subtitle: "Salt flats to North eastern mountains. India at its widest.",
+  //   date: "8th to 28th March 2026",
+  //   image: k2k,
+  //   brochure: k2kPdf,
+  //   status: "Completed",
+  //   slug: "k2k2026", // ✅ ADD THIS
+  // },
+  // {
+  //   title: "Scotland",
+  //   subtitle: "NC500. Coastlines. Castle country",
+  //   date: "8th to 17th May, 2026",
+  //   image: slide2,
+  //   brochure: scotlandPdf,
+  //   status: "Upcoming",
+  //   slug: "scotland", // ✅
+  // },
   {
     title: "Romania",
     subtitle: "Carpathian passes. Quiet European charm.",
@@ -53,15 +53,15 @@ const expeditions = [
     status: "Upcoming",
     slug: "romania",
   },
-  {
-    title: "Georgia",
-    subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
-    date: "8th to 16th August, 2026",
-    image: slide4,
-    brochure: georgiaPdf,
-    status: "Upcoming",
-    slug: "georgia",
-  },
+  // {
+  //   title: "Georgia",
+  //   subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
+  //   date: "8th to 16th August, 2026",
+  //   image: slide4,
+  //   brochure: georgiaPdf,
+  //   status: "Upcoming",
+  //   slug: "georgia",
+  // },
   {
     title: "South Korea",
     subtitle: "Perfect roads. Mountain curves. Coastal light.",

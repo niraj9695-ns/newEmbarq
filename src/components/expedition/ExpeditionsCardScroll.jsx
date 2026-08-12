@@ -16,22 +16,48 @@ import {
 
 /* IMAGES */
 
-import Georgia from "../../assets/images/georgia.webp";
-import k2k from "../../assets/images/k2k.webp";
-import scotland from "../../assets/images/scotland.webp";
+// import k2k from "../../assets/images/k2k.webp";
+// import Georgia from "../../assets/images/georgia.webp";
+// import scotland from "../../assets/images/scotland.webp";
+import k2kk from "../../assets/images/k2k.webp";
 import romania from "../../assets/images/romania.webp";
+import punjabandhimachal from "../../assets/images/romania.webp";
+import kyrgyzstan from "../../assets/images/romania.webp";
+import mizoram from "../../assets/images/romania.webp";
+import newzealand from "../../assets/images/romania.webp";
 import korea from "../../assets/images/skorea.webp";
 import finland from "../../assets/images/finland.webp";
 
 /* DATA */
 
 const data = [
-  { title: "K2K Expedition", image: k2k, slug: "k2k2026" },
-  { title: "Scotland", image: scotland, slug: "scotland" },
+  // { title: "K2K Expedition", image: k2k, slug: "k2k2026" },
+  // { title: "Scotland", image: scotland, slug: "scotland" },
+  // { title: "Georgia", image: Georgia, slug: "georgia" },
+  { title: "K2Kk", image: k2kk, slug: "kashmirtokanyakumari" },
   { title: "Romania", image: romania, slug: "romania" },
-  { title: "Georgia", image: Georgia, slug: "georgia" },
+  {
+    title: "Punjab & Himachal",
+    image: punjabandhimachal,
+    slug: "punjabandhimachal",
+  },
+  {
+    title: "Kyrgyzstan",
+    image: kyrgyzstan,
+    slug: "kyrgyzstan",
+  },
+  {
+    title: "Mizoram",
+    image: mizoram,
+    slug: "mizoram",
+  },
+  {
+    title: "New Zealand",
+    image: newzealand,
+    slug: "newzealand",
+  },
   { title: "South Korea", image: korea, slug: "southkorea" },
-  { title: "Finland", image: finland, slug: "finland" }
+  { title: "Finland", image: finland, slug: "finland" },
 ];
 function TriangleLeft(props) {
   return (

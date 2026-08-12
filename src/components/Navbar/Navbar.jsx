@@ -74,10 +74,15 @@ function Navbar() {
 
   // Add this above return
   const expeditionList = [
-    { name: "K2K2026", slug: "k2k2026" },
-    { name: "Scotland", slug: "scotland" },
+    // { name: "K2K2026", slug: "k2k2026" },
+    // { name: "Scotland", slug: "scotland" },
+    // { name: "Georgia", slug: "georgia" },
+    { name: "Kashmir to Kanyakumari", slug: "kashmirtokanyakumari" },
     { name: "Romania", slug: "romania" },
-    { name: "Georgia", slug: "georgia" },
+    { name: "Punjab & Himachal", slug: "punjabandhimachal" },
+    { name: "Kyrgyzstan ", slug: "kyrgyzstan" },
+    { name: "Mizoram", slug: "mizoram" },
+    { name: "New Zealand", slug: "newzealand" },
     { name: "South Korea", slug: "southkorea" },
     { name: "Finland", slug: "finland" },
   ];

@@ -12,28 +12,49 @@ import { Link } from "react-router-dom";
 
 // Images
 import BgImage from "../../assets/images/expeditionsHero.webp";
-import k2k from "../../assets/images/k2k.webp";
-import Scotland from "../../assets/images/scotland.webp";
+// import k2k from "../../assets/images/k2k.webp";
+// import Scotland from "../../assets/images/scotland.webp";
+// import Georgia from "../../assets/images/georgia.webp";
+import k2kk from "../../assets/images/romania.webp";
 import Romania from "../../assets/images/romania.webp";
-import Georgia from "../../assets/images/georgia.webp";
+import punjabandhimachal from "../../assets/images/romania.webp";
+import kyrgyzstan from "../../assets/images/romania.webp";
+import mizoram from "../../assets/images/romania.webp";
+import newzealand from "../../assets/images/romania.webp";
 import Skorea from "../../assets/images/skorea.webp";
 import Finland from "../../assets/images/finland.webp";
 
 const expeditions = [
+  // {
+  //   title: "KUTCH TO KIBITHOO",
+  //   subtitle: "Salt flats to North eastern mountains. India at its widest.",
+  //   date: "8th to 28th March 2026",
+  //   image: k2k,
+  //   slug: "k2k2026",
+  //   status: "completed",
+  // },
+  // {
+  //   title: "Scotland",
+  //   subtitle: "NC500. Coastlines. Castle country",
+  //   date: "8th to 17th May, 2026",
+  //   image: Scotland,
+  //   slug: "scotland",
+  //   status: "upcoming",
+  // },
+  //{
+  //   title: "Georgia",
+  //   subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
+  //   date: "8th to 16th August, 2026",
+  //   image: Georgia,
+  //   slug: "georgia",
+  //   status: "upcoming",
+  // },
   {
-    title: "KUTCH TO KIBITHOO",
-    subtitle: "Salt flats to North eastern mountains. India at its widest.",
-    date: "8th to 28th March 2026",
-    image: k2k,
-    slug: "k2k2026",
-    status: "completed",
-  },
-  {
-    title: "Scotland",
-    subtitle: "NC500. Coastlines. Castle country",
-    date: "8th to 17th May, 2026",
-    image: Scotland,
-    slug: "scotland",
+    title: "Kashmir to Kanyakumari",
+    subtitle: "One nation. Endless landscapes.",
+    date: "7th March to 19th March, 2027",
+    image: k2kk,
+    slug: "kashmirtokanyakumari",
     status: "upcoming",
   },
   {
@@ -45,11 +66,35 @@ const expeditions = [
     status: "upcoming",
   },
   {
-    title: "Georgia",
-    subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
-    date: "8th to 16th August, 2026",
-    image: Georgia,
-    slug: "georgia",
+    title: "Punjab & Himachal",
+    subtitle: "Himalayan roads. Soulful escapes.",
+    date: "4th September – 9th September 2026",
+    image: punjabandhimachal,
+    slug: "punjabandhimachal",
+    status: "upcoming",
+  },
+  {
+    title: "Kyrgyzstan ",
+    subtitle: "Mountain landscapes, alpine lakes.",
+    date: "12th September to 19th September, 2026",
+    image: kyrgyzstan,
+    slug: "kyrgyzstan",
+    status: "upcoming",
+  },
+  {
+    title: "Mizoram",
+    subtitle: "Misty mountains. Hidden horizons.",
+    date: "10th October – 18th October 2026",
+    image: mizoram,
+    slug: "mizoram",
+    status: "upcoming",
+  },
+  {
+    title: "New Zealand",
+    subtitle: "Glacial roads. Untamed beauty.",
+    date: "27th September – 8th October 2026",
+    image: newzealand,
+    slug: "newzealand",
     status: "upcoming",
   },
   {
