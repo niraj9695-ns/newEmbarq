@@ -15,12 +15,12 @@ import BgImage from "../../assets/images/expeditionsHero.webp";
 // import k2k from "../../assets/images/k2k.webp";
 // import Scotland from "../../assets/images/scotland.webp";
 // import Georgia from "../../assets/images/georgia.webp";
-import k2kk from "../../assets/images/romania.webp";
+import k2kk from "../../assets/expedition/kashmirtok.webp";
 import Romania from "../../assets/images/romania.webp";
-import punjabandhimachal from "../../assets/images/romania.webp";
-import kyrgyzstan from "../../assets/images/romania.webp";
-import mizoram from "../../assets/images/romania.webp";
-import newzealand from "../../assets/images/romania.webp";
+import punjabandhimachal from "../../assets/expedition/Punjab.webp";
+import kyrgyzstan from "../../assets/expedition/kyrgyzsthan.webp";
+import mizoram from "../../assets/expedition/mizoram.webp";
+import newzealand from "../../assets/expedition/newzealand.webp";
 import Skorea from "../../assets/images/skorea.webp";
 import Finland from "../../assets/images/finland.webp";
 

@@ -11,7 +11,11 @@ import slide3 from "../../assets/images/romania.webp";
 import slide4 from "../../assets/images/georgia.webp";
 import slide6 from "../../assets/images/skorea.webp";
 import slide7 from "../../assets/images/finland.webp";
-
+import kashmir from "../../assets/expedition/kashmirtok.webp";
+import punjab from "../../assets/expedition/punjabhimachal.webp";
+import Kyrgyz from "../../assets/expedition/Kyrgyz.webp";
+import mizoram from "../../assets/expedition/mizoram.webp";
+import nz from "../../assets/expedition/newzealand.webp";
 // pdf
 // import k2kPdf from "../../assets/pdf/k2k.pdf";
 // import scotlandPdf from "../../assets/pdf/scotland.pdf";
@@ -19,6 +23,13 @@ import romaniaPdf from "../../assets/pdf/romania.pdf";
 // import georgiaPdf from "../../assets/pdf/georgia.pdf";
 import koreaPdf from "../../assets/pdf/skorea.pdf";
 import finlandPdf from "../../assets/pdf/finland.pdf";
+
+import punjabPDF from "../../assets/pdf/Punjab.pdf";
+import kyrgyzstanPDF from "../../assets/pdf/Kyrgyzstan.pdf";
+import mizoramPDF from "../../assets/pdf/Mizoram.pdf";
+import newzealandPDF from "../../assets/pdf/NewZealand.pdf";
+import kashmirPDF from "../../assets/pdf/k2k2027.pdf";
+
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -53,6 +64,46 @@ const expeditions = [
     status: "Upcoming",
     slug: "romania",
   },
+
+      {
+    title: "Punjab & Himachal",
+    subtitle: "Himalayan roads. Soulful escapes.",
+    date: "4th to 9th September 2026",
+    image: punjab,
+    brochure: punjabPDF,
+    status: "Upcoming",
+    slug: "punjabandhimachal",
+  },
+
+      {
+    title: "Kyrgyzstan",
+    subtitle: "Mountain landscapes, alpine lakes.",
+    date: "12th to 19th September, 2026",
+    image: Kyrgyz,
+    brochure: kyrgyzstanPDF,
+    status: "Upcoming",
+    slug: "kyrgyzstan",
+  },
+
+      {
+    title: "Mizoram",
+    subtitle: "Misty mountains. Hidden horizons.",
+    date: "10th to 18th October 2026",
+    image: mizoram,
+    brochure: mizoramPDF,
+    status: "Upcoming",
+    slug: "mizoram",
+  },
+
+      {
+    title: "New Zealand",
+    subtitle: "Glacial roads. Untamed beauty.",
+    date: "27th September to 8th October 2026",
+    image: nz,
+    brochure: newzealandPDF,
+    status: "Upcoming",
+    slug: "newzealand",
+  },
   // {
   //   title: "Georgia",
   //   subtitle: "Mountain passes. Offbeat routes. Oldest wine making.",
@@ -80,6 +131,19 @@ const expeditions = [
     status: "Upcoming",
     slug: "finland",
   },
+
+    {
+    title: "Kashmir to Kanyakumari 2027",
+    subtitle: "One nation. Endless landscapes.",
+    date: "7th to 19th March, 2027",
+    image: kashmir,
+    brochure: kashmirPDF,
+    status: "Upcoming",
+    slug: "kashmirtokanyakumari",
+  },
+
+
+
 ];
 
 export default function UpcomingExpeditions() {

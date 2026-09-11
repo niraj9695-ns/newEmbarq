@@ -77,14 +77,16 @@ function Navbar() {
     // { name: "K2K2026", slug: "k2k2026" },
     // { name: "Scotland", slug: "scotland" },
     // { name: "Georgia", slug: "georgia" },
-    { name: "Kashmir to Kanyakumari", slug: "kashmirtokanyakumari" },
-    { name: "Romania", slug: "romania" },
-    { name: "Punjab & Himachal", slug: "punjabandhimachal" },
-    { name: "Kyrgyzstan ", slug: "kyrgyzstan" },
-    { name: "Mizoram", slug: "mizoram" },
-    { name: "New Zealand", slug: "newzealand" },
-    { name: "South Korea", slug: "southkorea" },
-    { name: "Finland", slug: "finland" },
+    { name: "Kashmir to Kanyakumari 2027", slug: "kashmirtokanyakumari" },
+    { name: "Romania 2026", slug: "romania" },
+    { name: "Punjab & Himachal 2026", slug: "punjabandhimachal" },
+    { name: "Kyrgyzstan 2026", slug: "kyrgyzstan" },
+    { name: "Mizoram 2026", slug: "mizoram" },
+    { name: "New Zealand 2026", slug: "newzealand" },
+    { name: "South Korea 2026", slug: "southkorea" },
+    { name: "Finland 2026", slug: "finland" },
+    
+     
   ];
 
   const [showDropdown, setShowDropdown] = useState(false);

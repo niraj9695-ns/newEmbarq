@@ -18,8 +18,8 @@
 // import expeditionBg5 from "../../assets/expedition/scotlandbg.webp";//same
 
 //Kashmir to Kanyakumari-6
-import heroImage6 from "../../assets/expedition/Romania.webp";
-import routeMap6 from "../../assets/expedition/newromania.jpeg";
+import heroImage6 from "../../assets/expedition/kashmirtok.webp";
+import routeMap6 from "../../assets/expedition/kashmirtokmap.png";
 import routeMapMobile6 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg6 from "../../assets/expedition/romaniabg.webp";
 //romania-1
@@ -28,23 +28,23 @@ import routeMap1 from "../../assets/expedition/newromania.jpeg";
 import routeMapMobile1 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg1 from "../../assets/expedition/romaniabg.webp";
 //Punjab & Himachal-7
-import heroImage7 from "../../assets/expedition/Romania.webp";
-import routeMap7 from "../../assets/expedition/newromania.jpeg";
+import heroImage7 from "../../assets/expedition/punjabhimachal.webp";
+import routeMap7 from "../../assets/expedition/punjabroute.png";
 import routeMapMobile7 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg7 from "../../assets/expedition/romaniabg.webp";
 //Kyrgyzstan-8
-import heroImage8 from "../../assets/expedition/Romania.webp";
-import routeMap8 from "../../assets/expedition/newromania.jpeg";
+import heroImage8 from "../../assets/expedition/kyrgyzsthan.webp";
+import routeMap8 from "../../assets/expedition/kroute.png";
 import routeMapMobile8 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg8 from "../../assets/expedition/romaniabg.webp";
 //Mizoram-9
-import heroImage9 from "../../assets/expedition/Romania.webp";
-import routeMap9 from "../../assets/expedition/newromania.jpeg";
+import heroImage9 from "../../assets/expedition/mizo.webp";
+import routeMap9 from "../../assets/expedition/mizoroute.png";
 import routeMapMobile9 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg9 from "../../assets/expedition/romaniabg.webp";
 //New Zealand-10
-import heroImage10 from "../../assets/expedition/Romania.webp";
-import routeMap10 from "../../assets/expedition/newromania.jpeg";
+import heroImage10 from "../../assets/expedition/newzi.webp";
+import routeMap10 from "../../assets/expedition/newzroute.png";
 import routeMapMobile10 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg10 from "../../assets/expedition/romaniabg.webp";
 //south korea-2
@@ -62,7 +62,7 @@ export const expeditions = {
   // NEW Expedition - Kashmir to Kanyakumari - 6
   kashmirtokanyakumari: {
     hero: {
-      title: "Kashmir to Kanyakumari",
+      title: "Thiruvananthapuram",
       subtitle: "One nation. Endless landscapes.",
       badge: "All Women",
       description:
