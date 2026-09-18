@@ -77,16 +77,24 @@ function Navbar() {
     // { name: "K2K2026", slug: "k2k2026" },
     // { name: "Scotland", slug: "scotland" },
     // { name: "Georgia", slug: "georgia" },
-    { name: "Kashmir to Kanyakumari 2027", slug: "kashmirtokanyakumari" },
-    { name: "Romania 2026", slug: "romania" },
-    { name: "Punjab & Himachal 2026", slug: "punjabandhimachal" },
-    { name: "Kyrgyzstan 2026", slug: "kyrgyzstan" },
-    { name: "Mizoram 2026", slug: "mizoram" },
-    { name: "New Zealand 2026", slug: "newzealand" },
-    { name: "South Korea 2026", slug: "southkorea" },
-    { name: "Finland 2026", slug: "finland" },
     
-     
+    
+    // { name: "Romania 2026", slug: "romania" },
+    // { name: "Punjab & Himachal 2026", slug: "punjabandhimachal" },
+    // { name: "Kyrgyzstan 2026", slug: "kyrgyzstan" },
+    { name: "Mizoram 2026", slug: "mizoram" },
+     { name: "Dubai 2026", slug: "dubaiweekenddrive" },
+     { name: "South Korea 2026", slug: "southkorea" },
+     { name: "Kyrgyzstan Snow Drive 2026", slug: "kyrgyzstansnowdrive" },
+    { name: "New Zealand 2026", slug: "newzealand" },
+    // { name: "Russia Snow Drive 2027", slug: "russiasnowdrive" },
+    { name: "Kashmir to Kanyakumari 2027", slug: "kashmirtokanyakumari" },
+    // { name: "Peru 2027", slug: "offbeatperu" },
+    // {name : "Scotland 2027", slug: "scotland2027"},
+
+    // { name: "Finland 2026", slug: "finland" },
+   
+    
   ];
 
   const [showDropdown, setShowDropdown] = useState(false);

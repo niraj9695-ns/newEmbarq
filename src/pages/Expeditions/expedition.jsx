@@ -22,7 +22,7 @@ function Expedition() {
   }
 
   return (
-    <div className="expedition">
+    <div key={slug} className="expedition">
       <HeroSection data={expedition.hero} />
       <AboutTrip data={expedition.about} />
       <RoutePlan data={expedition.route} />

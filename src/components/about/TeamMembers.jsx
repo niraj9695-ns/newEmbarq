@@ -1,5 +1,5 @@
 import "./TeamMembers.css";
-import member1 from "../../assets/aboutimages/member1.png";
+import member1 from "../../assets/aboutimages/sunnanda.webp";
 import member2 from "../../assets/aboutimages/memeber2.png";
 
 function TeamMembers() {
@@ -16,11 +16,20 @@ function TeamMembers() {
             </div>
 
             <div className="team-content">
-              <h3>Kavita Jhunjhunwala</h3>
+              <h3>Sunnanda Mor</h3>
               <p>
-                As a Fractional CMO, Kavita is passionate about solving digital challenges, partnering with growth-stage businesses, agencies, and public enterprises to craft long-term, data-driven growth strategies while training digital marketing teams.<br/><br/>
-Her work bridges the gap between strategic consulting and tactical execution, combining deep knowledge of the digital ecosystem, creative problem-solving, and multicultural team leadership. Kavita collaborates with global clients across diverse industries, helping them optimize their digital presence and achieve sustainable growth. <br/><br/>
-Beyond her professional endeavours, Kavita is an avid traveller and driving enthusiast, drawing inspiration from her adventures to fuel innovative thinking. She also shares her expertise at global events, workshops, and online courses on digital strategy and content marketing, empowering businesses to navigate and thrive in the ever-evolving digital landscape.
+                Sunnanda is an an International Baccalaureate educator, PhD scholar, and
+passionate overland traveller who has spent decades shaping young minds and
+nurturing student leadership. Her PhD in reverse logistics reflects her fascination
+with efficiency, sustainability, and navigating complex systems—qualities that also
+define her approach to life on the road.<br/><br/>
+A seasoned long-distance driver, she has travelled across continents, including a
+remarkable 65-day road journey from India to London.<br/><br/>
+She brings these diverse experiences together at Embarq as she leads our Dubai
+branch. Her love for travel, meticulous expedition planning, and bringing like-minded
+travellers together reflects her belief that the journey is never just about the
+destination, but the shared experiences, spontaneous moments, and camaraderie
+that make every road trip a story worth telling.
               </p>
               {/* <span className="read-more">Read More</span> */}
             </div>

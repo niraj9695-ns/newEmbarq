@@ -355,6 +355,19 @@
   border-color: white;
 }
 
+@media (min-width: 1101px) {
+  .dropdown-menu {
+    min-width: 290px;
+    width: max-content;
+    gap: 0.35rem;
+  }
+
+  .dropdown-item {
+    white-space: nowrap;
+    padding: 0.58rem 0.8rem;
+  }
+}
+
 /* ============================= */
 /* DROPDOWN WRAPPER (IMPORTANT FIX) */
 /* ============================= */

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Phone,
   Mail,
+  MapPin,
   Facebook,
   Instagram,
   Linkedin,
@@ -58,8 +59,9 @@ export default function Footer() {
             <Phone size={16} />
             <div>
               <p>Call us</p>
-              <span>(+91) 88678 09433</span>
-              <span>(+91) 92721 66615</span>
+              <span>India: +91 95295 89130</span>
+              <span>India: +91 77025 82221</span>
+              <span>Dubai: +971 55 669 4601</span>
             </div>
           </div>
 
@@ -68,6 +70,15 @@ export default function Footer() {
             <p>
               Mail us{" "}
               <a href="mailto:enquiries@embarq.in">enquiries@embarq.in</a>
+            </p>
+          </div>
+
+          <div className="footer-contact-item footer-address-item">
+            <MapPin size={16} />
+            <p>
+              Vaswani Chambers, Worli,
+              <br />
+              Mumbai 400030.
             </p>
           </div>
 

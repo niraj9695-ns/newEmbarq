@@ -125,11 +125,12 @@
   font-size: clamp(1.6rem, 2vw, 2.2rem);
   font-weight: 600;
   color: white;
-
+  line-height: 1.2;
   margin-bottom: 0.6rem;
 
-  /* 🔥 force single line (if space allows) */
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* Badge */
@@ -189,6 +190,56 @@
 /* RESPONSIVE */
 /* ============================= */
 
+@media (max-width: 1440px) {
+  .exp-hero-content {
+    padding-right: clamp(1.5rem, 4vw, 5rem);
+    padding-bottom: clamp(4.5rem, 6vh, 5.5rem);
+  }
+
+  .exp-hero-card-wrapper {
+    width: min(50vw, 54rem);
+  }
+
+  .exp-hero-heading {
+    font-size: clamp(2.8rem, 4vw, 4.8rem);
+    top: -8%;
+    left: 0;
+  }
+
+  .exp-hero-card {
+    padding: clamp(1.6rem, 2vw, 2.2rem) clamp(1.5rem, 2.4vw, 2.2rem);
+    border-radius: 1.7rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .exp-hero-content {
+    padding-bottom: 4.4rem;
+    padding-right: clamp(1rem, 2.5vw, 2rem);
+  }
+
+  .exp-hero-card-wrapper {
+    width: min(56vw, 46rem);
+  }
+
+  .exp-hero-heading {
+    top: -10%;
+    font-size: clamp(2.3rem, 3.2vw, 3.5rem);
+    white-space: normal;
+    max-width: 90%;
+    line-height: 0.95;
+  }
+
+  .exp-hero-subheading {
+    font-size: clamp(1.35rem, 1.8vw, 2rem);
+  }
+
+  .exp-hero-card {
+    padding: 1.3rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+}
+
 @media (max-width: 1024px) {
 
   .exp-hero-content {
@@ -197,18 +248,18 @@
   }
 
   .exp-hero-card-wrapper {
-    width: 90%;
+    width: min(88vw, 44rem);
   }
 
   .exp-hero-heading {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-
-    /* slight adjustment for tablets */
+    font-size: clamp(2.2rem, 6vw, 4rem);
     margin-top: 0.24em;
+    max-width: 100%;
+    top: -8%;
   }
 
   .exp-hero-subheading {
-    white-space: normal; /* allow wrap on smaller screens */
+    white-space: normal;
   }
 }
 
@@ -217,6 +268,7 @@
   .exp-hero-heading {
     font-size: clamp(2rem, 7vw, 3rem);
     margin-top: 0.24em;
+    top: -6%;
   }
 
   .exp-hero-card {

@@ -43,7 +43,7 @@ import routeMap9 from "../../assets/expedition/mizoroute.png";
 import routeMapMobile9 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg9 from "../../assets/expedition/romaniabg.webp";
 //New Zealand-10
-import heroImage10 from "../../assets/expedition/newzi.webp";
+import heroImage10 from "../../assets/expedition/newznew.webp";
 import routeMap10 from "../../assets/expedition/newzroute.png";
 import routeMapMobile10 from "../../assets/expedition/newromania.jpeg";
 import expeditionBg10 from "../../assets/expedition/romaniabg.webp";
@@ -57,6 +57,47 @@ import heroImage3 from "../../assets/expedition/Finland.webp";
 import routeMap3 from "../../assets/expedition/newfinland.jpeg";
 import routeMapMobile3 from "../../assets/expedition/newfinland.jpeg";
 import expeditionBg3 from "../../assets/expedition/finlandbg.webp";//same
+
+// Dubai Weekend Drive
+
+import heroImageDubai from "../../assets/expedition/dubai2.webp";
+
+import routeMapDubai from "../../assets/expedition/dubainroute.png";
+
+import routeMapMobileDubai from "../../assets/expedition/newfinland.jpeg";
+
+import expeditionBgDubai from "../../assets/expedition/dubai.webp";
+
+// Offbeat Peru - 2027
+
+import heroImagePeru from "../../assets/expedition/peru.webp";
+
+import routeMapPeru from "../../assets/expedition/dubairoute.png";
+
+
+// Russia Snow Drive - 2027
+
+import heroImageRussia from "../../assets/expedition/russia1.webp";
+
+import routeMapRussia from "../../assets/expedition/dubairoute.png";
+
+import routeMapMobileRussia from "../../assets/expedition/kashmirtok.webp";
+
+import expeditionBgRussia from "../../assets/expedition/SouthKoreabg.webp";
+
+// Kyrgyzstan Snow Drive - 2026
+
+import heroImageKyrgyzstan from "../../assets/expedition/kyrgyzsnow.webp";
+
+import routeMapKyrgyzstan from "../../assets/expedition/kyrgyzsnow.png";
+
+import routeMapMobileKyrgyzstan from "../../assets/expedition/kroute.png";
+
+import expeditionBgKyrgyzstan from "../../assets/expedition/kyrgyzsnow.webp";
+
+const routeMapMobilePeru = routeMapPeru;
+
+const expeditionBgPeru = expeditionBgDubai;
 
 export const expeditions = {
   // NEW Expedition - Kashmir to Kanyakumari - 6
@@ -243,6 +284,495 @@ land, closing the chapter on a journey that will forever remain in our hearts.`,
     },
   },
 
+  offbeatperu: {
+  hero: {
+    title: "Offbeat Peru, on wheels",
+    subtitle: "An adventurous drive through timelessness",
+    badge: "Self Drive",
+    description:
+      "An extraordinary self-drive expedition through Peru, where thrilling roads lead through dramatic mountains, coastal deserts, ancient civilizations and timeless landscapes. From Lima and Paracas to Nazca, Arequipa, Cusco and Machu Picchu, experience winding mountain roads, rustic encounters, rich history, local flavours and unforgettable moments on the road.",
+    bgImage: heroImagePeru,
+    mapImage: routeMapPeru,
+  },
+
+  about: {
+    destination:
+      "Lima → Paracas → Ica → Nazca → Chala → Arequipa → Chivay → Cusco → Sacred Valley → Lima",
+    duration: "13 Days / 12 Nights",
+    cost: "USD 9600 per person",
+    travelDates: "19th April to 1st May, 2027",
+    vehicle: "SUV - Toyota Fortuner or similar",
+    distance: "Approx. 2,072 km*",
+  },
+
+  route: {
+    desktop: routeMapPeru,
+    mobile: routeMapMobilePeru,
+  },
+
+  itinerary: [
+    {
+      day: 1,
+      title: "ARRIVAL IN LIMA",
+      description: `Arrive in Lima and settle into the city. The journey begins in Peru's vibrant capital, where colonial architecture, bustling plazas and dramatic coastal landscapes set the stage for the expedition ahead.
+
+Stay: Aloft Miraflores`,
+    },
+
+    {
+      day: 2,
+      title: "LIMA → PARACAS, 250 KMS",
+      description: `The drive heads south from Lima toward Paracas, following the Pacific coast and transitioning from the capital's urban energy to the stark beauty of Peru's coastal desert. Enjoy a sunset on the beach and take in the dramatic meeting of desert and ocean.
+
+Stay: Hotel Hacienda Paracas`,
+    },
+
+    {
+      day: 3,
+      title: "PARACAS → ICA, 220 KMS",
+      description: `Begin the morning with a visit to the Ballestas Islands, followed by a drive through the desert toward Ica. The route offers a striking contrast of coastal landscapes, arid dunes and the vineyards that make this region famous.
+
+Experience: Ballestas Islands in the morning, followed by a desert drive and a night at the vineyard.
+
+Stay: Viñas Queirolo Hotel`,
+    },
+
+    {
+      day: 4,
+      title: "ICA",
+      description: `Spend the day enjoying the vineyard and its surroundings. The itinerary includes lunch and dune bashing, offering a relaxed yet adventurous break amid the desert landscapes of Ica.
+
+Stay: Viñas Queirolo Hotel`,
+    },
+
+    {
+      day: 5,
+      title: "ICA → NASCA → CHALA, 360 KMS",
+      description: `An early start takes us from Ica toward Nasca. Take the afternoon flight over the mysterious Nazca Lines, one of Peru's most fascinating archaeological wonders. Later, continue the drive to Chala, arriving in the evening after another memorable day on the road.
+
+Experience: Afternoon flight over the Nazca Lines.
+
+Stay: Puerto Inka`,
+    },
+
+    {
+      day: 6,
+      title: "CHALA → AREQUIPA, 300 KMS",
+      description: `The route continues south toward Arequipa, travelling through Peru's dramatic coastal and highland landscapes. As the scenery changes, the White City of Arequipa welcomes us with its beautiful architecture, historic charm and impressive volcanic backdrop.
+
+Stay: Casa Andina Premium`,
+    },
+
+    {
+      day: 7,
+      title: "AREQUIPA → CHIVAY, 167 KMS",
+      description: `Leave Arequipa behind and drive toward Chivay, entering the spectacular Colca region. The journey unfolds through high-altitude landscapes, rugged mountain scenery and traditional Andean settlements, making this a memorable transition into Peru's highlands.
+
+Stay: Belmond Las Casitas del Colca`,
+    },
+
+    {
+      day: 8,
+      title: "CHIVAY → CUSCO, 400 KMS",
+      description: `The drive from Chivay to Cusco takes us deeper into the Andes, across dramatic mountain roads and expansive highland landscapes. Arriving in Cusco, the historic heart of the Inca Empire, marks one of the most anticipated stages of this extraordinary expedition.
+
+Stay: JW Marriott El Convento Cusco`,
+    },
+
+    {
+      day: 9,
+      title: "CUSCO — CITY DAY",
+      description: `Enjoy a relaxed city day in Cusco. Explore the historic streets, discover the city's rich Inca and colonial heritage, and soak in the atmosphere of one of South America's most fascinating destinations.
+
+Stay: JW Marriott El Convento Cusco`,
+    },
+
+    {
+      day: 10,
+      title: "MACHU PICCHU",
+      description: `A day dedicated to Machu Picchu, Peru's iconic ancient citadel set high in the Andes. Explore this extraordinary archaeological wonder and experience the breathtaking landscapes that surround it.
+
+Stay: JW Marriott El Convento Cusco`,
+    },
+
+    {
+      day: 11,
+      title: "SACRED VALLEY, 55 KMS",
+      description: `Explore the Sacred Valley, a region of dramatic mountains, fertile terraces, traditional villages and remarkable Inca heritage. The day offers an opportunity to experience the cultural and natural beauty of the Andes at a relaxed pace.
+
+Stay: JW Marriott El Convento Cusco`,
+    },
+
+    {
+      day: 12,
+      title: "FLIGHT TO LIMA, 320 KMS",
+      description: `After the unforgettable Andean experiences, fly back to Lima. Enjoy some time to relax, reflect on the journey and prepare for the final day of the expedition.
+
+Stay: Aloft Miraflores`,
+    },
+
+    {
+      day: 13,
+      title: "DEPARTURE FROM LIMA",
+      description: `Pack up your memories and souvenirs before heading back home, bringing this extraordinary Peruvian road expedition to a close.`,
+    },
+  ],
+
+  inclusionExclusion: {
+    bgImage: expeditionBgPeru,
+
+    inclusions: [
+      "All stays (on twin sharing)",
+      "All Meals",
+      "SUV - Toyota Fortuner or similar",
+      "Fuel",
+      "Lead and end of trail support vehicle",
+      "Vehicle Insurance",
+      "Airport Transfers",
+      "Flight from Cusco to Lima",
+    ],
+
+    exclusions: [
+      "Flight tickets and visa charges",
+      "Individual insurance & documentation costs such as travel insurance",
+      "International Driving Permit",
+      "All personal expenses not mentioned",
+      "Any cost arising out of unforeseen circumstances",
+      "Refundable security deposit for car rental",
+      "20% VAT",
+    ],
+  },
+},
+
+  dubaiweekenddrive: {
+  hero: {
+    title: "Dubai Weekend Drive",
+    subtitle: "A weekend of discovery and adventure.",
+    badge: "All Women",
+    description:
+      "Get ready to leave the city behind and embark on an unforgettable All-women weekend trip through some of the UAE’s most stunning landscapes. From winding mountain roads and panoramic viewpoints to refreshing sea views and fun-filled moments with an amazing group of women, this journey is all about freedom, friendship, exploration, and enjoying the open road together. Pack your bags, bring your adventurous spirit, and get ready for a weekend to remember!",
+    bgImage: heroImageDubai,
+    mapImage: routeMapDubai,
+  },
+
+  about: {
+    destination: "DUBAI",
+    duration: "2 Days / 1 Night",
+    cost: "AED 2850 per person",
+    travelDates: "31st October to 1st November, 2026",
+    vehicle: "Bring your own vehicle",
+    distance: "500 km*",
+  },
+
+  route: {
+    desktop: routeMapDubai,
+    mobile: routeMapMobileDubai,
+  },
+
+  itinerary: [
+    {
+      day: 1,
+      title: "FLAG-OFF → BURJUMAN, DUBAI",
+      description: `We kick-off the special All Women weekend drive with a scrumptious breakfast followed by an exciting flag-off. So buckle in and get ready to hit the road for a weekend filled with discovery, camaraderie and thrilling experiences.`,
+    },
+
+    {
+      day: 1,
+      title: "BURJUMAN, DUBAI → JEBEL HAFEET, 175 KMS",
+      description: `The weekend opens with Dubai's skyline fading into open desert highway before the road begins its climb into the Hajar Mountains. Jebel Hafeet's 11.7km summit road — regularly ranked among the world's great driving roads — unwinds in sweeping hairpin bends toward the UAE's second-highest peak of 1249 meters (4098 feet) above sea level, with big-sky views opening up at every turn. We break for a quick fuel stop before the ascent.`,
+    },
+
+    {
+      day: 1,
+      title: "JEBEL HAFEET → ORYX HOTEL, 2.8 KMS",
+      description: `Perched 3,000 feet above sea level at the summit, Oryx Grand Hotel is a mountain-top oasis with panoramic views reaching across Al Ain's oases. Enjoy a relaxed lunch at the Le Belvedere that brings together French, Moroccan and Italian flavours in an elegant room with a view — a refined pause after the morning's drive.`,
+    },
+
+    {
+      day: 1,
+      title: "ORYX HOTEL → KHOR FAKKAN, 190 KMS",
+      description: `The route turns east, tracing the Hajar Mountains from desert plains toward the Gulf of Oman coast. Expect dramatic, shifting scenery along the way — rugged mountain passes give way to the first glimpses of the coastline — with a fuel stop built into the drive.
+
+Khor Fakkan Waterfalls — Rising 45 metres above Khor Fakkan's Corniche, this dramatic cliffside waterfall is beautifully lit after dark, making it a striking golden-hour photo stop before ending the drive and checking into a luxury resort by the beach.`,
+    },
+
+    {
+      day: 2,
+      title: "ADDRESS BEACH RESORT (OR SIMILAR) → AL SUHUB REST AREA, 7.6 KMS",
+      description: `After a relaxed breakfast, we will start the day with a short drive to Al Suhub, a cloud-level viewpoint 600 metres above sea level with 360-degree views over Khor Fakkan, the Hajar Mountains and the Gulf of Oman. The suspended Cloud Lounge café makes for a scenic stop and one last round of photos before heading home.`,
+    },
+
+    {
+      day: 2,
+      title: "AL SUHUB → BURJUMAN, DUBAI, 140 KMS",
+      description: `The final leg retraces the route back across the mountains into Dubai, closing out an unforgettable weekend of mountain drives and coastal views over lunch.`,
+    },
+  ],
+
+  inclusionExclusion: {
+    bgImage: expeditionBgDubai,
+
+    inclusions: [
+      "5 Star Stay (on twin sharing)",
+      "Meals (as mentioned in the itinerary)",
+      "Embarq Lead and Support Car",
+      "Curated Experiences & Activities",
+      "Taxes",
+    ],
+
+    exclusions: [
+      "Car & Fuel",
+      "Insurance & Any Documentation Cost",
+      "All Personal & Incidental Expenses (not mentioned in the inclusions)",
+      "Any Cost Arising Out of Unforeseen Circumstances",
+    ],
+  },
+},
+
+russiasnowdrive: {
+  hero: {
+    title: "Chasing the Northern Lights",
+    subtitle: "Self Drive Expedition across the Kola Peninsula",
+    badge: "Self Drive",
+    description:
+      "An extraordinary winter self-drive expedition through Russia, journeying from the historic streets of St. Petersburg across frozen lakes, snow-covered forests and remote Arctic landscapes. Drive through Karelia and the Kola Peninsula, experience husky sledding, snowmobiles, reindeer encounters and Sami culture, and chase the magical Northern Lights across one of the world's most breathtaking winter destinations.",
+    bgImage: heroImageRussia,
+    mapImage: routeMapRussia,
+  },
+
+  about: {
+    destination:
+      "St. Petersburg → Sortavala → Petrozavodsk → Kizhi Island → Medvezhyegorsk → Kalevala → Kirovsk → Sami Village → Aurora Village → Teriberka → Murmansk → Moscow",
+    duration: "12 Days / 11 Nights",
+    cost: "USD 7200 per head (2 people in 1 car)",
+    travelDates: "23rd January to 3rd February, 2027",
+    vehicle: "Self-drive Rental SUV (Tank 500)",
+    distance: "Approx. 2035 km*",
+  },
+
+  route: {
+    desktop: routeMapRussia,
+    mobile: routeMapMobileRussia,
+  },
+
+  itinerary: [
+    {
+      day: 1,
+      title: "ARRIVAL IN ST. PETERSBURG",
+      description: `Arrive in St. Petersburg and settle into the city. Explore the Nevsky Prospekt, one of the city's most famous avenues, and enjoy the atmosphere of Russia's historic cultural capital.
+
+Option to visit the Hermitage Museum.`,
+    },
+
+    {
+      day: 2,
+      title: "ST. PETERSBURG → SORTAVALA, 300 KMS",
+      description: `Drive across Lake Ladoga toward Sortavala, entering the scenic landscapes of Karelia. Explore the region's forests and the Ruskeala Nature Reserve, including the remarkable Ruskeala quarry and Ruskeala Mountain Park.`,
+    },
+
+    {
+      day: 3,
+      title: "SORTAVALA → PETROZAVODSK, 160 KMS",
+      description: `Visit a Siberian Husky farm, where you can interact and enjoy sledding with the huskies. Experience a traditional Northern chum tent with a fireplace lunch and a local band playing ethnic instruments.
+
+Later, stroll along the waterfront promenade on the Onega Lake.`,
+    },
+
+    {
+      day: 4,
+      title: "VISIT TO KIZHI ISLAND",
+      description: `Ride a khivus hovercraft along the smooth ice surface of Lake Onega to Kizhi Island. Explore the remarkable architecture of Kizhi Island and tour the museum grounds.`,
+    },
+
+    {
+      day: 5,
+      title: "PETROZAVODSK → MEDVEZHYEGORSK, 190 KMS",
+      description: `Explore the Kivach Falls located on the Suna River. Discover Girvas, a 3-billion-year-old volcanic crater, before continuing the journey.
+
+Overnight stay at a tourist lodge.`,
+    },
+
+    {
+      day: 6,
+      title: "MEDVEZHYEGORSK → KALEVALA, 479 KMS",
+      description: `Discover the village of Povenets, the starting point of the White Sea–Baltic Canal. Drive across breathtaking scenery, backwaters and remote villages.
+
+Explore the ruins of the Museum of the Rune Singers.`,
+    },
+
+    {
+      day: 7,
+      title: "KALEVALA → KIROVSK, 420 KMS",
+      description: `Enter the Kola Peninsula in the Arctic and explore Apatity city. The journey takes us deeper into the northern wilderness, with the possibility of viewing the Northern Lights at night.`,
+    },
+
+    {
+      day: 8,
+      title: "KIROVSK",
+      description: `Visit the Snow Village and enjoy snowmobile rides through the winter landscape.
+
+Option to participate in snowmobiling, alpine skiing or snowboarding.`,
+    },
+
+    {
+      day: 9,
+      title: "KIROVSK → SAMI VILLAGE → AURORA VILLAGE, 280 KMS",
+      description: `Visit a settlement of the local indigenous Sami people and explore their traditional lifestyle.
+
+Enjoy a reindeer sledding experience and witness the Northern Lights dancing across the sky, with the possibility of viewing them from the bed or deck.`,
+    },
+
+    {
+      day: 10,
+      title: "AURORA VILLAGE → TERIBERKA → MURMANSK, 206 KMS",
+      description: `Explore Teriberka village, located on the shore of the Arctic Ocean, weather permitting.
+
+Visit Dinosaur Eggs Beach and discover the cemetery of abandoned ships, experiencing the stark beauty of Russia's Arctic coastline.`,
+    },
+
+    {
+      day: 11,
+      title: "MURMANSK → MOSCOW",
+      description: `Explore Murmansk, if conditions permit. Visit Lenin, the world's first nuclear-powered icebreaker, if conditions permit.
+
+Later, take a flight to Moscow.`,
+    },
+
+    {
+      day: 12,
+      title: "FLY BACK FROM MOSCOW",
+      description: `Fly back from Moscow, bringing this extraordinary winter expedition through Russia's northern landscapes to a close.`,
+    },
+  ],
+
+  inclusionExclusion: {
+    bgImage: expeditionBgRussia,
+
+    inclusions: [
+      "Self-drive Rental SUV (Tank 500)",
+      "Fuel for the SUV",
+      "Recced Routes",
+      "Lead & Support vehicle with support team & local guide throughout the trip",
+      "Snowmobile ride in Kirovsk",
+      "All stays on twin sharing basis",
+      "All Meals",
+      "Airport transfers and local sightseeing as mentioned in the itinerary",
+      "Flight tickets from Murmansk to Moscow",
+    ],
+
+    exclusions: [
+      "International travel to and from Russia and Visa charges",
+      "Any additional sightseeing or transfers",
+      "Refundable Security Deposit for the rental vehicle",
+      "Individual insurance & documentation costs",
+      "International Driving Permit",
+      "Any personal expenses not mentioned",
+      "Any cost arising out of unforeseen circumstances",
+      "TCS as applicable",
+    ],
+  },
+},
+
+kyrgyzstansnowdrive: {
+  hero: {
+    title: "Kyrgyzstan Snow Drive",
+    subtitle: "An enchanting journey through snow-covered mountains",
+    badge: "Self Drive",
+    description:
+      "An extraordinary winter self-drive expedition through Kyrgyzstan, where snow-covered mountains seem to merge with the clouds. Explore alpine lakes, breathtaking gorges, glacial rivers and expansive grasslands, while driving through the ancient Silk Road routes and experiencing the country's rich culture, local traditions and unforgettable winter landscapes.",
+    bgImage: heroImageKyrgyzstan,
+    mapImage: routeMapKyrgyzstan,
+  },
+
+  about: {
+    destination:
+      "Bishkek, Kemin, Naryn, Son Kul, Kochkor, Karakol, Issyk Kul ",
+    duration: "8 Days / 7 Nights",
+    cost: "USD 2700 per person",
+    travelDates: "19th December to 26th December, 2026",
+    vehicle: "Rugged Toyota 4x4",
+    distance: "Approx. 1066 km*",
+  },
+
+  route: {
+    desktop: routeMapKyrgyzstan,
+    mobile: routeMapMobileKyrgyzstan,
+  },
+
+  itinerary: [
+    {
+      day: 1,
+      title: "ARRIVAL IN BISHKEK",
+      description: `Arrive in Bishkek and explore the capital of Kyrgyzstan. Located at approximately 800 metres (2,600 feet) altitude near the northern range of the Kyrgyz Ala Too range, an extension of the Tian Shan mountains, Bishkek offers the perfect beginning to this extraordinary winter expedition.`,
+    },
+
+    {
+      day: 2,
+      title: "BISHKEK → KEMIN, 145 KMS",
+      description: `Drive towards Kemin and discover the local horse games that form an important part of Kyrgyz culture. Experience traditional activities such as dead goat polo, horseback wrestling and long-distance horse races.`,
+    },
+
+    {
+      day: 3,
+      title: "KEMIN → NARYN, 211 KMS",
+      description: `Embark on a scenic drive across snow-covered off-road landscapes. Naryn is a picturesque city surrounded by majestic mountains, with the Naryn River running through it.`,
+    },
+
+    {
+      day: 4,
+      title: "NARYN → SON KUL → KOCHKOR, 265 KMS",
+      description: `Drive across off-beaten roads and explore Son Kul Lake, an alpine lake also known as "Following Lake". Located at an altitude of 3016 metres in the northern Naryn Region, Son Kul is the largest freshwater lake in Kyrgyzstan and offers spectacular winter scenery.`,
+    },
+
+    {
+      day: 5,
+      title: "KOCHKOR → KARAKOL, 255 KMS",
+      description: `Commence circling Issyk Kul Lake. Issyk Kul is the 10th largest lake in the world by volume, the 7th deepest lake in the world and the 2nd largest saline lake.`,
+    },
+
+    {
+      day: 6,
+      title: "KARAKOL → ISSYK KUL, 190 KMS",
+      description: `Continue circling Issyk Kul Lake while exploring local activities and enjoying music shows. Experience the beauty of the region and its cultural traditions against the backdrop of the snow-covered mountains.`,
+    },
+
+    {
+      day: 7,
+      title: "ISSYK KUL → BISHKEK",
+      description: `Undertake the final drive back to Bishkek, bringing the winter road journey through Kyrgyzstan's mountains, lakes and off-road landscapes towards its conclusion.`,
+    },
+
+    {
+      day: 8,
+      title: "FLY BACK",
+      description: `Depart from Kyrgyzstan, taking back memories of an extraordinary snow-drive expedition through the country's alpine landscapes, cultural experiences and ancient Silk Road routes.`,
+    },
+  ],
+
+  inclusionExclusion: {
+    bgImage: expeditionBgKyrgyzstan,
+
+    inclusions: [
+      "Rugged Toyota 4x4",
+      "Fuel for the 4x4",
+      "Recced Routes",
+      "Special experiences",
+      "Fully equipped support car and support team",
+      "All stays on twin sharing basis",
+      "All Meals",
+    ],
+
+    exclusions: [
+      "International travel to and from Kyrgyzstan and Visa charges",
+      "Alcoholic beverages",
+      "Individual insurance & documentation costs",
+      "Refundable Security Deposit for the rental car",
+      "Any personal expenses not mentioned",
+      "Any cost arising out of unforeseen circumstances",
+      "TCS Applicable",
+    ],
+  },
+},
   //Romania -1
 
   romania: {
@@ -643,10 +1173,10 @@ land, closing the chapter on a journey that will forever remain in our hearts.`,
       destination:
         "Auckland, Rotorua, Lake Taupō, Wellington, Kaikōura, Franz Josef, Queenstown & Milford Sound.",
       duration: "12 Days / 11 Nights",
-      cost: "USD 7,500 — 2 people in 1 car , USD 6,500 — 4 people in 1 car",
-      travelDates: "27th September – 8th October 2026",
+      cost: "USD 7500 Per Head",
+      travelDates: "20th December 2026 to 1st January 2027",
       vehicle: "Mitsubishi Outlander or Similar",
-      // distance: "",
+      distance: "2000 kms",
     },
 
     route: {

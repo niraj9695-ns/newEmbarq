@@ -22,7 +22,8 @@ import {
 import k2kk from "../../assets/expedition/kashmirtok.webp";
 import romania from "../../assets/images/romania.webp";
 import punjabandhimachal from "../../assets/expedition/Punjab.webp";
-import kyrgyzstan from "../../assets/expedition/kyrgyzsthan.webp";
+import kyrgyzstan from "../../assets/expedition/kyrgyzsnow.webp";
+import dubai from "../../assets/expedition/dubai.webp";
 import mizoram from "../../assets/expedition/mizoram.webp";
 import newzealand from "../../assets/expedition/newzealand.webp";
 import korea from "../../assets/images/skorea.webp";
@@ -34,30 +35,34 @@ const data = [
   // { title: "K2K Expedition", image: k2k, slug: "k2k2026" },
   // { title: "Scotland", image: scotland, slug: "scotland" },
   // { title: "Georgia", image: Georgia, slug: "georgia" },
-  { title: "K2Kk", image: k2kk, slug: "kashmirtokanyakumari" },
-  { title: "Romania", image: romania, slug: "romania" },
-  {
-    title: "Punjab & Himachal",
-    image: punjabandhimachal,
-    slug: "punjabandhimachal",
-  },
-  {
-    title: "Kyrgyzstan",
-    image: kyrgyzstan,
-    slug: "kyrgyzstan",
-  },
-  {
-    title: "Mizoram",
+    {
+    title: "Mizoram 2026",
     image: mizoram,
     slug: "mizoram",
   },
-  {
-    title: "New Zealand",
+  { title: "Dubai 2026", image: dubai, slug: "dubaiweekenddrive" },
+    { title: "South Korea 2026", image: korea, slug: "southkorea" },
+      {
+    title: "New Zealand 2026",
     image: newzealand,
     slug: "newzealand",
   },
-  { title: "South Korea", image: korea, slug: "southkorea" },
-  { title: "Finland", image: finland, slug: "finland" },
+  { title: "K2K 2027", image: k2kk, slug: "kashmirtokanyakumari" },
+  // { title: "Romania", image: romania, slug: "romania" },
+  // {
+  //   title: "Punjab & Himachal",
+  //   image: punjabandhimachal,
+  //   slug: "punjabandhimachal",
+  // },
+  {
+    title: "Kyrgyzstan Snow Drive 2026",
+    image: kyrgyzstan,
+    slug: "kyrgyzstansnowdrive",
+  },
+
+
+
+  // { title: "Finland", image: finland, slug: "finland" },
 ];
 function TriangleLeft(props) {
   return (

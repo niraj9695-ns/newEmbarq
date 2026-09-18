@@ -13,9 +13,11 @@ import slide6 from "../../assets/images/skorea.webp";
 import slide7 from "../../assets/images/finland.webp";
 import kashmir from "../../assets/expedition/kashmirtok.webp";
 import punjab from "../../assets/expedition/punjabhimachal.webp";
-import Kyrgyz from "../../assets/expedition/Kyrgyz.webp";
+import Kyrgyz from "../../assets/expedition/kyrgyzsnow.webp";
 import mizoram from "../../assets/expedition/mizoram.webp";
 import nz from "../../assets/expedition/newzealand.webp";
+import russia from "../../assets/expedition/russia1.webp";
+import dubai from "../../assets/expedition/dubai.webp";
 // pdf
 // import k2kPdf from "../../assets/pdf/k2k.pdf";
 // import scotlandPdf from "../../assets/pdf/scotland.pdf";
@@ -23,12 +25,14 @@ import romaniaPdf from "../../assets/pdf/romania.pdf";
 // import georgiaPdf from "../../assets/pdf/georgia.pdf";
 import koreaPdf from "../../assets/pdf/skorea.pdf";
 import finlandPdf from "../../assets/pdf/finland.pdf";
-
+import dubaiPdf from "../../assets/pdf/Embarq - All Women - Dubai Weekend Drive Oct 2026 (1).pdf";
 import punjabPDF from "../../assets/pdf/Punjab.pdf";
-import kyrgyzstanPDF from "../../assets/pdf/Kyrgyzstan.pdf";
+// import kyrgyzstanPDF from "../../assets/pdf/Kyrgyzstan.pdf";
+import kyrgyzstanPDF from "../../assets/pdf/Embarq - Kyrgyzstan Snow-Drive Brochure 2026 (1).pdf";
 import mizoramPDF from "../../assets/pdf/Mizoram.pdf";
-import newzealandPDF from "../../assets/pdf/NewZealand.pdf";
+import newzealandPDF from "../../assets/pdf/Embarq - New Zealand Brochure 2026.pdf";
 import kashmirPDF from "../../assets/pdf/k2k2027.pdf";
+import russiaPDF from "../../assets/pdf/Embarq - Russia Snow-Drive Brochure 2027 (1).pdf";
 
 
 import gsap from "gsap";
@@ -55,35 +59,27 @@ const expeditions = [
   //   status: "Upcoming",
   //   slug: "scotland", // ✅
   // },
-  {
-    title: "Romania",
-    subtitle: "Carpathian passes. Quiet European charm.",
-    date: "20th to 28th June, 2026",
-    image: slide3,
-    brochure: romaniaPdf,
-    status: "Upcoming",
-    slug: "romania",
-  },
+  // {
+  //   title: "Romania",
+  //   subtitle: "Carpathian passes. Quiet European charm.",
+  //   date: "20th to 28th June, 2026",
+  //   image: slide3,
+  //   brochure: romaniaPdf,
+  //   status: "Upcoming",
+  //   slug: "romania",
+  // },
 
-      {
-    title: "Punjab & Himachal",
-    subtitle: "Himalayan roads. Soulful escapes.",
-    date: "4th to 9th September 2026",
-    image: punjab,
-    brochure: punjabPDF,
-    status: "Upcoming",
-    slug: "punjabandhimachal",
-  },
+  //     {
+  //   title: "Punjab & Himachal",
+  //   subtitle: "Himalayan roads. Soulful escapes.",
+  //   date: "4th to 9th September 2026",
+  //   image: punjab,
+  //   brochure: punjabPDF,
+  //   status: "Upcoming",
+  //   slug: "punjabandhimachal",
+  // },
 
-      {
-    title: "Kyrgyzstan",
-    subtitle: "Mountain landscapes, alpine lakes.",
-    date: "12th to 19th September, 2026",
-    image: Kyrgyz,
-    brochure: kyrgyzstanPDF,
-    status: "Upcoming",
-    slug: "kyrgyzstan",
-  },
+
 
       {
     title: "Mizoram",
@@ -95,14 +91,54 @@ const expeditions = [
     slug: "mizoram",
   },
 
+  {
+    title: "Dubai Weekend Drive",
+    subtitle: "A weekend of discovery, camaraderie, and adventure.",
+    date: "31st October to 1st November, 2026",
+    image: dubai,
+    brochure: dubaiPdf,
+    status: "Upcoming",
+    slug: "dubaiweekenddrive",
+  },
+
+    {
+    title: "South Korea",
+    subtitle: "Perfect roads. Mountain curves. Coastal light.",
+    date: "21st to 29th November, 2026",
+    image: slide6,
+    brochure: koreaPdf,
+    status: "Upcoming",
+    slug: "southkorea",
+  },
+
+        {
+    title: "Kyrgyzstan Snow Drive",
+    subtitle: "An enchanting journey through snow-covered mountains.",
+    date: "19th December to 26th December, 2026",
+    image: Kyrgyz,
+    brochure: kyrgyzstanPDF,
+    status: "Upcoming",
+    slug: "kyrgyzstansnowdrive",
+  },
+
       {
     title: "New Zealand",
     subtitle: "Glacial roads. Untamed beauty.",
-    date: "27th September to 8th October 2026",
+    date: "20th December 2026 to 1st January 2027",
     image: nz,
     brochure: newzealandPDF,
     status: "Upcoming",
     slug: "newzealand",
+  },
+
+        {
+    title: "Russia Snow Drive",
+    subtitle: "Self Drive Expedition across the Kola Peninsula",
+    date: "23rd January to 3rd February, 2027",
+    image: russia,
+    brochure: russiaPDF,
+    status: "Upcoming",
+    slug: "russiasnowdrive",
   },
   // {
   //   title: "Georgia",
@@ -113,24 +149,16 @@ const expeditions = [
   //   status: "Upcoming",
   //   slug: "georgia",
   // },
-  {
-    title: "South Korea",
-    subtitle: "Perfect roads. Mountain curves. Coastal light.",
-    date: "21st to 29th November, 2026",
-    image: slide6,
-    brochure: koreaPdf,
-    status: "Upcoming",
-    slug: "southkorea",
-  },
-  {
-    title: "Finland",
-    subtitle: "Winter wonderland. Dark skies. Northern lights.",
-    date: "5th to 13th December, 2026",
-    image: slide7,
-    brochure: finlandPdf,
-    status: "Upcoming",
-    slug: "finland",
-  },
+
+  // {
+  //   title: "Finland",
+  //   subtitle: "Winter wonderland. Dark skies. Northern lights.",
+  //   date: "5th to 13th December, 2026",
+  //   image: slide7,
+  //   brochure: finlandPdf,
+  //   status: "Upcoming",
+  //   slug: "finland",
+  // },
 
     {
     title: "Kashmir to Kanyakumari 2027",

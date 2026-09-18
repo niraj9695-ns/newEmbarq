@@ -10,11 +10,12 @@ import DownloadIcon from "@mui/icons-material/Download";
 import k2kkpdf from "../../assets/pdf/k2k2027.pdf";
 import romaniaPDF from "../../assets/pdf/romania.pdf";
 import punjabPDF from "../../assets/pdf/Punjab.pdf";
-import kyrgyzstanPDF from "../../assets/pdf/Kyrgyzstan.pdf";
+import kyrgyzstanPDF from "../../assets/pdf/Embarq - Kyrgyzstan Snow-Drive Brochure 2026 (1).pdf";
 import mizoramPDF from "../../assets/pdf/Mizoram.pdf";
-import newzealandPDF from "../../assets/pdf/NewZealand.pdf";
+import newzealandPDF from "../../assets/pdf/Embarq - New Zealand Brochure 2026.pdf";
 import skoreaPDF from "../../assets/pdf/skorea.pdf";
 import finlandPDF from "../../assets/pdf/finland.pdf";
+import dubaiPDF from "../../assets/pdf/Embarq - All Women - Dubai Weekend Drive Oct 2026 (1).pdf";
 
 const pdfMap = {
   // georgia: georgiaPDF,
@@ -23,11 +24,12 @@ const pdfMap = {
   kashmirtokanyakumari: k2kkpdf,
   romania: romaniaPDF,
   punjabandhimachal: punjabPDF,
-  kyrgyzstan: kyrgyzstanPDF,
+  kyrgyzstansnowdrive: kyrgyzstanPDF,
   mizoram: mizoramPDF,
   newzealand: newzealandPDF,
   southkorea: skoreaPDF,
   finland: finlandPDF,
+  dubaiweekenddrive: dubaiPDF,
 };
 
 export default function DownloadPDFButton({ slug }) {

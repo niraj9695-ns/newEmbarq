@@ -18,12 +18,13 @@ import BgImage from "../../assets/images/expeditionsHero.webp";
 import k2kk from "../../assets/expedition/kashmirtok.webp";
 import Romania from "../../assets/images/romania.webp";
 import punjabandhimachal from "../../assets/expedition/Punjab.webp";
-import kyrgyzstan from "../../assets/expedition/kyrgyzsthan.webp";
+import kyrgyzstan from "../../assets/expedition/kyrgyzsnow.webp";
 import mizoram from "../../assets/expedition/mizoram.webp";
 import newzealand from "../../assets/expedition/newzealand.webp";
 import Skorea from "../../assets/images/skorea.webp";
 import Finland from "../../assets/images/finland.webp";
 
+import dubai from "../../assets/expedition/dubai.webp";
 const expeditions = [
   // {
   //   title: "KUTCH TO KIBITHOO",
@@ -49,6 +50,14 @@ const expeditions = [
   //   slug: "georgia",
   //   status: "upcoming",
   // },
+    {
+    title: "Dubai Weekend Drive",
+    subtitle: "A weekend of discovery and adventure.",
+    date: "31st October to 1st November, 2026",
+    image: dubai,
+    slug: "dubaiweekenddrive",
+    status: "upcoming",
+  },
   {
     title: "Kashmir to Kanyakumari",
     subtitle: "One nation. Endless landscapes.",
@@ -57,28 +66,28 @@ const expeditions = [
     slug: "kashmirtokanyakumari",
     status: "upcoming",
   },
-  {
-    title: "Romania",
-    subtitle: "Carpathian passes. Quiet European charm.",
-    date: "20th to 28th June, 2026",
-    image: Romania,
-    slug: "romania",
-    status: "upcoming",
-  },
-  {
-    title: "Punjab & Himachal",
-    subtitle: "Himalayan roads. Soulful escapes.",
-    date: "4th September – 9th September 2026",
-    image: punjabandhimachal,
-    slug: "punjabandhimachal",
-    status: "upcoming",
-  },
+  // {
+  //   title: "Romania",
+  //   subtitle: "Carpathian passes. Quiet European charm.",
+  //   date: "20th to 28th June, 2026",
+  //   image: Romania,
+  //   slug: "romania",
+  //   status: "upcoming",
+  // },
+  // {
+  //   title: "Punjab & Himachal",
+  //   subtitle: "Himalayan roads. Soulful escapes.",
+  //   date: "4th September – 9th September 2026",
+  //   image: punjabandhimachal,
+  //   slug: "punjabandhimachal",
+  //   status: "upcoming",
+  // },
   {
     title: "Kyrgyzstan ",
     subtitle: "Mountain landscapes, alpine lakes.",
-    date: "12th September to 19th September, 2026",
+    date: "19th December to 26th December, 2026",
     image: kyrgyzstan,
-    slug: "kyrgyzstan",
+    slug: "kyrgyzstansnowdrive",
     status: "upcoming",
   },
   {
@@ -92,7 +101,7 @@ const expeditions = [
   {
     title: "New Zealand",
     subtitle: "Glacial roads. Untamed beauty.",
-    date: "27th September – 8th October 2026",
+    date: "20th December 2026 to 1st January 2027",
     image: newzealand,
     slug: "newzealand",
     status: "upcoming",
@@ -105,14 +114,14 @@ const expeditions = [
     slug: "southkorea",
     status: "upcoming",
   },
-  {
-    title: "Finland",
-    subtitle: "Winter wonderland. Dark skies. Northern lights.",
-    date: "5th to 13th December, 2026",
-    image: Finland,
-    slug: "finland",
-    status: "upcoming",
-  },
+  // {
+  //   title: "Finland",
+  //   subtitle: "Winter wonderland. Dark skies. Northern lights.",
+  //   date: "5th to 13th December, 2026",
+  //   image: Finland,
+  //   slug: "finland",
+  //   status: "upcoming",
+  // },
 ];
 
 export default function ExpeditionsPage() {
