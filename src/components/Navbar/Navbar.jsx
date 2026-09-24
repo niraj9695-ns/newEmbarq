@@ -89,8 +89,9 @@ function Navbar() {
     { name: "New Zealand 2026", slug: "newzealand" },
     { name: "Russia Snow Drive 2027", slug: "russiasnowdrive" },
     { name: "Kashmir to Kanyakumari 2027", slug: "kashmirtokanyakumari" },
-    // { name: "Peru 2027", slug: "offbeatperu" },
-    // {name : "Scotland 2027", slug: "scotland2027"},
+    
+    { name: "Peru 2027", slug: "offbeatperu" },
+    {name : "Scotland 2027", slug: "scotlandnorthcoast500"}, 
 
     // { name: "Finland 2026", slug: "finland" },
    

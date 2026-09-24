@@ -97,11 +97,11 @@ import expeditionBgKyrgyzstan from "../../assets/expedition/kyrgyzsnow.webp";
 
 // Scotland - North Coast 500 - 2027
 
-import heroImageScotland from "../../assets/expedition/scotland.webp";
+import heroImageScotland from "../../assets/expedition/Scotland.webp";
 
-import routeMapScotland from "../../assets/expedition/scotlandmap.png";
+import routeMapScotland from "../../assets/expedition/ScotlandMap.png";
 
-import routeMapMobileScotland from "../../assets/expedition/scotlandmobile.webp";
+import routeMapMobileScotland from "../../assets/expedition/Scotland.webp";
 
 import expeditionBgScotland from "../../assets/expedition/scotlandbg.webp";
 
