@@ -79,7 +79,7 @@ import routeMapPeru from "../../assets/expedition/dubairoute.png";
 
 import heroImageRussia from "../../assets/expedition/russia1.webp";
 
-import routeMapRussia from "../../assets/expedition/dubairoute.png";
+import routeMapRussia from "../../assets/expedition/russiaroute.png";
 
 import routeMapMobileRussia from "../../assets/expedition/kashmirtok.webp";
 
@@ -94,6 +94,16 @@ import routeMapKyrgyzstan from "../../assets/expedition/kyrgyzsnow.png";
 import routeMapMobileKyrgyzstan from "../../assets/expedition/kroute.png";
 
 import expeditionBgKyrgyzstan from "../../assets/expedition/kyrgyzsnow.webp";
+
+// Scotland - North Coast 500 - 2027
+
+import heroImageScotland from "../../assets/expedition/scotland.webp";
+
+import routeMapScotland from "../../assets/expedition/scotlandmap.png";
+
+import routeMapMobileScotland from "../../assets/expedition/scotlandmobile.webp";
+
+import expeditionBgScotland from "../../assets/expedition/scotlandbg.webp";
 
 const routeMapMobilePeru = routeMapPeru;
 
@@ -673,6 +683,118 @@ Later, take a flight to Moscow.`,
   },
 },
 
+
+scotlandnorthcoast500: {
+  hero: {
+    title: "Scotland North Coast 500",
+    subtitle: "A Luxurious Self Drive Road Trip",
+    badge: "Self Drive",
+    description:
+      "A luxurious self-drive road trip through Scotland's most magical mountain passes, rugged coastlines and stunning islands. Drive the iconic North Coast 500, experience the breathtaking Isle of Skye, explore dramatic landscapes and scenic routes, spend time with locals, visit world-famous single malt distilleries and stay in luxurious Scottish castles while experiencing the culture, history and legends of Scotland.",
+    bgImage: heroImageScotland,
+    mapImage: routeMapScotland,
+  },
+
+  about: {
+    destination:
+      "Edinburgh → Inverness → John O'Groats → Lochinver → Gairloch → Flodigarry → Isle of Skye → Edinburgh",
+    duration: "9 Days / 8 Nights",
+    cost: "GBP 5000 per head",
+    travelDates: "1st May to 9th May, 2027",
+    vehicle: "Range Rover or similar",
+    distance: "Approx. 897 miles*",
+  },
+
+  route: {
+    desktop: routeMapScotland,
+    mobile: routeMapMobileScotland,
+  },
+
+  itinerary: [
+    {
+      day: 0,
+      title: "ARRIVE IN EDINBURGH",
+      description: `Arrive in Edinburgh and dive into its rich tapestry of history and culture. From the imposing Edinburgh Castle to the quaint streets of the Old Town, there's something to enchant every traveler. Relax, explore, and soak in the magic of this captivating city.`,
+    },
+
+    {
+      day: 1,
+      title: "EDINBURGH TO INVERNESS, 157 MILES",
+      description: `157 Mile day via Aberfeldy - Gentle start using the motorway until we exit at Aberfeldy, famous for its Grouse Distillery. Overnight stop at Inverness.`,
+    },
+
+    {
+      day: 2,
+      title: "INVERNESS TO JOHN O'GROAT, 120 MILES",
+      description: `Leisurely start, drive through the Cairngorms down General Wade's road to Fort Augustus, Castle Urquhart and Loch Ness. We drive through the stunning NC500 and reach John O'Groats.`,
+    },
+
+    {
+      day: 3,
+      title: "A DAY BREAK AT JOHN O'GROATS",
+      description: `Take a day to rest and unwind in the serene beauty of John O'Groats, recharging for the adventures ahead.`,
+    },
+
+    {
+      day: 4,
+      title: "JOHN O' GROATS TO LOCHINVER, 145 MILES",
+      description: `We continue driving on the NC500 - lots of stops and going off the routes - visiting Dunnet Head, the most northerly point.`,
+    },
+
+    {
+      day: 5,
+      title: "LOCHINVER TO GAIRLOCH, 91 MILES",
+      description: `This is the NC500 at its best. Stunning views, beautiful beaches, the best hot chocolate in Scotland at Cocoa Café and numerous photo stops.`,
+    },
+
+    {
+      day: 6,
+      title: "GAIRLOCH TO FLODIGARRY, 122 MILES",
+      description: `The final part of the NC500 down the west coast including the famous Bealach na Ba and Torridon and then round Loch Carron and over the bridge to Skye.`,
+    },
+
+    {
+      day: 7,
+      title: "ISLE OF SKYE",
+      description: `A day to enjoy the Magical Portree and Isle of Skye.`,
+    },
+
+    {
+      day: 8,
+      title: "ISLE OF SKYE TO EDINBURGH, 262 MILES",
+      description: `Enjoy a splendid drive from Isle of Skye to Edinburgh via Inveraray. Unwind in a handpicked, beautiful hotel in Edinburgh.`,
+    },
+
+    {
+      day: 9,
+      title: "DEPARTURE FROM EDINBURGH",
+      description: `Travel back home with memories for a lifetime.`,
+    },
+  ],
+
+  inclusionExclusion: {
+    bgImage: expeditionBgScotland,
+
+    inclusions: [
+      "Recced handpicked routes",
+      "Car rentals - Range Rover or similar",
+      "Fuel for the car",
+      "All exclusive stays on twin sharing basis",
+      "All meals",
+      "All internal sightseeing and special experiences",
+      "Embarq support team",
+    ],
+
+    exclusions: [
+      "International air tickets and Visa",
+      "Individual insurance & documentation costs",
+      "Refundable security deposit for car rental (2000 GBP)",
+      "All personal expenses not mentioned",
+      "Any cost arising out of unforeseen circumstances",
+      "TCS as applicable",
+    ],
+  },
+},
 kyrgyzstansnowdrive: {
   hero: {
     title: "Kyrgyzstan Snow Drive",
