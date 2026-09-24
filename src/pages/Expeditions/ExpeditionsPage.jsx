@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 // Images
 import BgImage from "../../assets/images/expeditionsHero.webp";
 // import k2k from "../../assets/images/k2k.webp";
-// import Scotland from "../../assets/images/scotland.webp";
+import Scotland from "../../assets/expedition/Scotland.webp";
 // import Georgia from "../../assets/images/georgia.webp";
 import k2kk from "../../assets/expedition/kashmirtok.webp";
 import Romania from "../../assets/images/romania.webp";
@@ -25,6 +25,7 @@ import Skorea from "../../assets/images/skorea.webp";
 import Finland from "../../assets/images/finland.webp";
 
 import dubai from "../../assets/expedition/dubai.webp";
+
 const expeditions = [
   // {
   //   title: "KUTCH TO KIBITHOO",
@@ -122,6 +123,15 @@ const expeditions = [
   //   slug: "finland",
   //   status: "upcoming",
   // },
+
+  {
+    title: "Scotland",
+    subtitle: "NC500. Coastlines. Castle country",
+    date: "1st to  9th May, 2027",
+    image: Scotland,
+    slug: "scotlandnorthcoast500",
+    status: "upcoming",
+  },
 ];
 
 export default function ExpeditionsPage() {

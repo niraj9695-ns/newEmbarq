@@ -28,6 +28,7 @@ import mizoram from "../../assets/expedition/mizoram.webp";
 import newzealand from "../../assets/expedition/newzealand.webp";
 import korea from "../../assets/images/skorea.webp";
 import finland from "../../assets/images/finland.webp";
+import scotland from "../../assets/expedition/Scotland.webp";
 
 /* DATA */
 
@@ -59,6 +60,7 @@ const data = [
     image: kyrgyzstan,
     slug: "kyrgyzstansnowdrive",
   },
+  { title: "Scotland", image: scotland, slug: "scotlandnorthcoast500" },
 
 
 

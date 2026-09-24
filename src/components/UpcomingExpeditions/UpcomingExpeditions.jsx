@@ -6,7 +6,7 @@ import nextArrowImg from "../../assets/expedition/arrow-circle-right.png";
 import prevArrowImg from "../../assets/expedition/arrow-circle-left.png";
 
 import k2k from "../../assets/images/k2k.webp";
-import slide2 from "../../assets/images/scotland.webp";
+import slide2 from "../../assets/expedition/Scotland.webp";
 import slide3 from "../../assets/images/romania.webp";
 import slide4 from "../../assets/images/georgia.webp";
 import slide6 from "../../assets/images/skorea.webp";
@@ -20,7 +20,7 @@ import russia from "../../assets/expedition/russia1.webp";
 import dubai from "../../assets/expedition/dubai.webp";
 // pdf
 // import k2kPdf from "../../assets/pdf/k2k.pdf";
-// import scotlandPdf from "../../assets/pdf/scotland.pdf";
+import scotlandPdf from "../../assets/pdf/Embarq - Scotland Brochure 2027.pdf";
 import romaniaPdf from "../../assets/pdf/romania.pdf";
 // import georgiaPdf from "../../assets/pdf/georgia.pdf";
 import koreaPdf from "../../assets/pdf/skorea.pdf";
@@ -169,8 +169,15 @@ const expeditions = [
     status: "Upcoming",
     slug: "kashmirtokanyakumari",
   },
-
-
+{
+  title: "Scotland",
+    subtitle: "NC500. Coastlines. Castle country",
+   date: "1st to  9th May, 2027",
+    image: slide2,
+    brochure: scotlandPdf,
+    status: "Upcoming",
+    slug: "scotland", // ✅
+  },
 
 ];
 

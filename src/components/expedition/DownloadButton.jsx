@@ -6,7 +6,7 @@ import DownloadIcon from "@mui/icons-material/Download";
 // Import PDFs
 // import georgiaPDF from "../../assets/pdf/georgia.pdf";
 // import k2PDF from "../../assets/pdf/k2k.pdf";
-// import scotlandPDF from "../../assets/pdf/scotland.pdf";
+import scotlandPDF from "../../assets/pdf/Embarq - Scotland Brochure 2027.pdf";
 import k2kkpdf from "../../assets/pdf/k2k2027.pdf";
 import romaniaPDF from "../../assets/pdf/romania.pdf";
 import punjabPDF from "../../assets/pdf/Punjab.pdf";
@@ -20,7 +20,7 @@ import dubaiPDF from "../../assets/pdf/Embarq - All Women - Dubai Weekend Drive 
 const pdfMap = {
   // georgia: georgiaPDF,
   // k2k2026: k2PDF,
-  // scotland: scotlandPDF,
+  
   kashmirtokanyakumari: k2kkpdf,
   romania: romaniaPDF,
   punjabandhimachal: punjabPDF,
@@ -30,6 +30,7 @@ const pdfMap = {
   southkorea: skoreaPDF,
   finland: finlandPDF,
   dubaiweekenddrive: dubaiPDF,
+  scotlandnorthcoast500: scotlandPDF,
 };
 
 export default function DownloadPDFButton({ slug }) {
